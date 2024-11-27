@@ -1,0 +1,83 @@
+.card-player {
+    background-color: var(--azul-claro);
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 8px;
+    padding: 8px 0px 8px 8px;
+}
+    
+.card-player p {
+    margin: 4px;
+}
+
+.card-player h1 {
+    color:#fff;
+    font-weight: bold;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-style: italic;
+}
+
+.card-player-info {
+    display: grid;
+    gap: 6px;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas com tamanhos iguais */
+    padding: 10px;
+}
+
+/* ícones e descrição das labels do card do player */
+.card-player-info p {
+    justify-self: end;
+    align-self: center;
+    color: var(--bege);
+}
+
+.card-player-info label {
+    font-weight: bold;
+    display: grid;
+    gap: 6px;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas com tamanhos iguais */
+    padding: 10px;
+}
+
+.card-player-info input {
+    width: max-content;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.card-player button {
+    background-color: var(--azul-escuro);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin: 8px;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Edição do card retraído */
+.card-player-info-retraido {
+    width: 100%;
+    display: flex;
+    gap: 0px;
+    align-items: center;
+}
+
+.card-player-info-retraido input {
+    margin-left: 6px;
+    padding-left: 8px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    max-inline-size: 40%;
+}
+
+.card-player-info-retraido label {
+    padding-left: 6px;
+    width: 35%;
+}

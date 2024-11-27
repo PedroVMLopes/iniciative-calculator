@@ -51,6 +51,7 @@
     border: none;
     padding: 5px;
     margin: 5px;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .menu-add-player-corpo form button {
