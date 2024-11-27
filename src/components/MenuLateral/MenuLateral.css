@@ -1,0 +1,13 @@
+.menu-lateral {
+    background-color: #403D39;
+    width: 600px;
+    height: 100vh;
+}
+
+.menu-lateral h1 {
+    color: #CCC5B9;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 20px;
+}
