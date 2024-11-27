@@ -27,3 +27,17 @@ body {
   --bege: #fdf0d5;
   --laranja: #EB5E28;
 }
+
+/* ìcone de fechar */
+.botao-fechar {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  size: 30px;
+  color: var(--cinza-escuro);
+}
+
+.botao-fechar:hover {
+  color: var(--vermelho-claro);
+}

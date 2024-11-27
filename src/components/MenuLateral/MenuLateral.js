@@ -1,4 +1,4 @@
-import BotoesAdicionar from './BotoesAdicionar/BotoesAdicionar';
+import BotoesAdicionar from '../Main/BotoesAdicionar/BotoesAdicionar';
 import styles from './MenuLateral.css';
 
 export default function MenuLateral() {

@@ -1,0 +1,42 @@
+.botoes-adicionar {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.botoes-adicionar button {
+    margin: 8px;
+    padding: 16px;
+    width: max-content;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.botao-adicionar-player {
+    background: linear-gradient(to right, #1e6091, var(--azul-escuro)); /* Gradiente inicial */
+    transition: background-position 0.5s ease; /* Transição suave para o movimento do gradiente */
+    background-size: 200%; /* Define o tamanho do gradiente para permitir o movimento */
+    background-position: right; /* Começa no lado direito */
+}
+
+.botao-adicionar-player:hover {
+    background-position: left; /* Move o gradiente para o lado esquerdo ao passar o mouse */
+}
+
+.botao-adicionar-inimigo {
+    background: linear-gradient(to right, #ef233c, var(--vermelho-escuro));
+    transition: background-position 0.5s ease;
+    background-size: 200%;
+    background-position: right;
+}
+
+.botao-adicionar-inimigo:hover {
+    background-position: left;
+}
