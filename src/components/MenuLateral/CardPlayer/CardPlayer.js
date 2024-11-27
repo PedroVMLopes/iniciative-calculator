@@ -6,8 +6,6 @@ import './CardPlayer.css';
 
 const CardPlayer = () => {
 
-    const { players, updatePlayer } = useContext(PlayersContext);
-
     const { playerData, setPlayerData } = useContext(PlayerDataContext);
 
     const [isExpanded, setIsExpanded] = useState(true);
