@@ -4,10 +4,8 @@ import { GiCheckedShield } from "react-icons/gi";
 import { PlayerDataContext } from "../../Data/PlayerData";
 import './CardPlayer.css';
 
-const CardPlayer = () => {
-
+const CardPlayer = ({player}) => {
     const { playerData, setPlayerData } = useContext(PlayerDataContext);
-
     const [isExpanded, setIsExpanded] = useState(true);
 
     const toggleExpand = () => {
@@ -29,7 +27,7 @@ const CardPlayer = () => {
 
     return (
         <div className="card-player">
-            <h1>{playerData.fieldNome}</h1>
+            <h1>{player.nome}</h1>
             <form onSubmit={handleSubmit} className="card-player-info">
                 {/* Campos do card - expandido */}
                 {isExpanded && (
@@ -41,7 +39,7 @@ const CardPlayer = () => {
                             <input
                                 type="text"
                                 name="fieldCa"
-                                value={playerData.fieldCa}
+                                value={player.ca}
                                 onChange={handleChange}
                             />
                         </label>
@@ -52,7 +50,7 @@ const CardPlayer = () => {
                             <input
                                 type="text"
                                 name="fieldPv"
-                                value={playerData.fieldPv}
+                                value={player.pv}
                                 onChange={handleChange}
                             />
                         </label>
@@ -61,7 +59,7 @@ const CardPlayer = () => {
                             <input
                                 type="text"
                                 name="fieldMod"
-                                value={playerData.fieldMod}
+                                value={player.mod}
                                 onChange={handleChange}
                             />
                         </label>
@@ -70,7 +68,7 @@ const CardPlayer = () => {
                             <input
                                 type="text"
                                 name="fieldRolagem"
-                                value={playerData.fieldRolagem}
+                                value={player.rolagem}
                                 onChange={handleChange}
                             />
                         </label>
@@ -79,7 +77,7 @@ const CardPlayer = () => {
                             <input
                                 type="text"
                                 name="fieldCondicao"
-                                value={playerData.fieldCondicao}
+                                value={player.condicao}
                                 onChange={handleChange}
                             />
                         </label>

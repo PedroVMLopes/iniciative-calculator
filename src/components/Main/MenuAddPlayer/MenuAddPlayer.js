@@ -2,6 +2,7 @@ import './MenuAddPlayer.css';
 import React, { useState, useEffect } from 'react';
 import { IoIosCloseCircle } from 'react-icons/io';
 
+
 // Função para obter os dados armazenados no localStorage
 const getPlayers = () => {
     const playersSalvos = localStorage.getItem('players');
@@ -30,7 +31,6 @@ export default function MenuAddPlayer() {
         localStorage.clear(); // Limpa todos os dados do localStorage
         setPlayers([]); // Atualiza o estado local para refletir a limpeza
         console.clear();
-        console.log("Dados limpos");
     };
 
 
@@ -54,6 +54,7 @@ export default function MenuAddPlayer() {
             mod: fieldMod,
             rolagem: fieldRolagem,
         };
+        console.log("Novo Player:",novoPlayer);
 
         const updatedPlayers = [...players, novoPlayer];
         setPlayers(updatedPlayers);
