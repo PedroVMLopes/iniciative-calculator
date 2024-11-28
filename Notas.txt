@@ -7,4 +7,6 @@ console.log(localStorage.getItem('players'));
 
 
 ---------------------------------------------------------------
-O menu lateral só atualiza quando a página é recarregada
+-> O menu lateral só atualiza quando a página é recarregada
+
+-> Rever o código refatorado do último chat do chatGPT pra melhorar o CardPlayer

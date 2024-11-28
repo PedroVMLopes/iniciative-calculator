@@ -69,8 +69,8 @@ export default function MenuAddPlayer() {
     return (
         <div className="menu-add-player">
             <div className="menu-add-player menu-add-player-header">
-                <h1>Adicionar Player</h1>
-                <IoIosCloseCircle className="botao-fechar" size={28} />
+                <h1>Adicione os dados do jogador</h1>
+                
             </div>
             <div className="menu-add-player menu-add-player-corpo">
                 <form>
