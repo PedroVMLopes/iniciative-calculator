@@ -1,0 +1,4 @@
+localStorage
+Aba aplication do inspecionar elementos
+localStorage.clear();
+localStorage.removeItem('players');
