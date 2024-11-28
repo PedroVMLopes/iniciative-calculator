@@ -22,7 +22,6 @@ const CardPlayer = ({player}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Form data submitted:", playerData);
     };
 
     return (
