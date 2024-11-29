@@ -10,3 +10,10 @@ console.log(localStorage.getItem('players'));
 -> O menu lateral só atualiza quando a página é recarregada
 
 -> Rever o código refatorado do último chat do chatGPT pra melhorar o CardPlayer
+
+---------------------------------------------------------------
+Comando para procurar um id na localStorage
+localStorage.getItem("playerData-  ID  ");
+
+Comando para procurar os dados dos players
+console.log(localStorage.getItem('players'));

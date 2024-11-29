@@ -27,7 +27,6 @@ export default function MenuAddPlayer() {
 
 
     const clearPlayers = (event) => {
-        event.preventDefault();
         localStorage.clear(); // Limpa todos os dados do localStorage
         setPlayers([]); // Atualiza o estado local para refletir a limpeza
         console.clear();
@@ -44,7 +43,6 @@ export default function MenuAddPlayer() {
     }, [players]);
 
     const handleSubmit = (event) => {
-        event.preventDefault();
 
         if (!fieldNome || !fieldCa || !fieldPv || !fieldMod) {
             alert('Preencha todos os campos');
@@ -59,6 +57,7 @@ export default function MenuAddPlayer() {
             mod: fieldMod,
             rolagem: fieldRolagem,
         };
+
         console.log("Novo Player:",novoPlayer);
 
         const updatedPlayers = [...players, novoPlayer];

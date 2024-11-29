@@ -7,24 +7,41 @@ import './CardPlayer.css';
 const CardPlayer = ({player}) => {
     const [isExpanded, setIsExpanded] = useState(true);
 
-    // Estado inicial com os dados do jogador
-    const [playerData, setPlayerData] = useState(() => {
-        // Carrega os dados do localStorage (ou usa valores padrão)
-        const storedData = localStorage.getItem("playerData");
-        return storedData ? JSON.parse(storedData) : {
-            fieldCa: "",
-            fieldPv: "",
-            fieldMod: "",
-            fieldRolagem: "",
-            fieldCondicao: ""
-        };
+    // Chave única para o localStorage
+    const storageKey = `playerData-${player.id}`;
+
+     // Estado para armazenar os dados do jogador
+     const [playerData, setPlayerData] = useState({
+        fieldCa: "",
+        fieldPv: "",
+        fieldMod: "",
+        fieldRolagem: "",
+        fieldCondicao: ""
     });
 
-    // Atualiza localStorage sempre que o estado playerData muda
-    useEffect(() => {
-        localStorage.setItem("playerData", JSON.stringify(playerData));
-    }, [playerData]);
 
+    useEffect(() => {
+        // Primeiro, carrega os dados gerais do jogador da chave 'players' (caso necessário)
+        const players = JSON.parse(localStorage.getItem('players')) || [];
+        const playerDetails = players.find(p => p.id === player.id);
+
+        // Em seguida, carrega os dados específicos do jogador da chave playerData-<id>
+        const storedData = localStorage.getItem(storageKey);
+        const playerSpecificData = storedData ? JSON.parse(storedData) : {};
+
+        // Combine os dados gerais com os específicos
+        setPlayerData(prevData => ({
+            ...playerSpecificData, // dados específicos do jogador
+            nome: playerDetails?.nome || "", // dados gerais
+            ca: playerDetails?.ca || "",
+            pv: playerDetails?.pv || "",
+            mod: playerDetails?.mod || "",
+            rolagem: playerDetails?.rolagem || ""
+        }));
+    }, [player.id, storageKey]);
+
+
+    // Altera se o card está expandido ou retraído
     const toggleExpand = () => {
         setIsExpanded((prevState) => !prevState);
     };
@@ -38,13 +55,28 @@ const CardPlayer = ({player}) => {
         }));
     };
 
+    // Atualiza localStorage sempre que o estado playerData muda
+    useEffect(() => {
+        if (playerData) {
+            localStorage.setItem(storageKey, JSON.stringify({
+                fieldCa: playerData.fieldCa,
+                fieldPv: playerData.fieldPv,
+                fieldMod: playerData.fieldMod,
+                fieldRolagem: playerData.fieldRolagem,
+                fieldCondicao: playerData.fieldCondicao
+            }));
+        }
+    }, [playerData, storageKey]);
+    
+
     const handleSubmit = (e) => {
         e.preventDefault();
     };
 
     return (
+        console.log(playerData),
         <div className="card-player">
-            <h1>{player.nome}</h1>
+            <h1>{playerData.nome}</h1>
             <form onSubmit={handleSubmit} className="card-player-info">
                 {/* Campos do card - expandido */}
                 {isExpanded && (
