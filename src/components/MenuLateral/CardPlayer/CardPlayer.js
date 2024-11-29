@@ -1,45 +1,53 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { FaPencilRuler, FaHeart } from "react-icons/fa";
 import { GiCheckedShield } from "react-icons/gi";
-import { PlayerDataContext } from "../../Data/PlayerData";
 import './CardPlayer.css';
 
-const CardPlayer = ({player}) => {
+const CardPlayer = ({ player }) => {
     const [isExpanded, setIsExpanded] = useState(true);
 
     // Chave única para o localStorage
     const storageKey = `playerData-${player.id}`;
 
-     // Estado para armazenar os dados do jogador
-     const [playerData, setPlayerData] = useState({
-        fieldCa: "",
-        fieldPv: "",
-        fieldMod: "",
-        fieldRolagem: "",
-        fieldCondicao: ""
+    // Estado para armazenar os dados do jogador
+    const [playerData, setPlayerData] = useState({
+        ca: "",
+        pv: "",
+        mod: "",
+        rolagem: "",
+        condicao: ""
     });
 
-
+    // Verifica se 'players' já foi salvo no localStorage
     useEffect(() => {
-        // Primeiro, carrega os dados gerais do jogador da chave 'players' (caso necessário)
         const players = JSON.parse(localStorage.getItem('players')) || [];
+
+        if (players.length === 0) {
+            console.log("Sem dados no localStorage para 'players'.");
+            return; // Caso não tenha dados de players, não tenta carregar o resto
+        }
+
         const playerDetails = players.find(p => p.id === player.id);
+        console.log("Dados do player encontrado:", playerDetails);  // Depuração
+        
+        if (playerDetails) {
+            const storedData = localStorage.getItem(storageKey);
+            console.log("Dados armazenados do player:", storedData);  // Depuração
 
-        // Em seguida, carrega os dados específicos do jogador da chave playerData-<id>
-        const storedData = localStorage.getItem(storageKey);
-        const playerSpecificData = storedData ? JSON.parse(storedData) : {};
-
-        // Combine os dados gerais com os específicos
-        setPlayerData(prevData => ({
-            ...playerSpecificData, // dados específicos do jogador
-            nome: playerDetails?.nome || "", // dados gerais
-            ca: playerDetails?.ca || "",
-            pv: playerDetails?.pv || "",
-            mod: playerDetails?.mod || "",
-            rolagem: playerDetails?.rolagem || ""
-        }));
-    }, [player.id, storageKey]);
-
+            if (storedData) {
+                const parsedData = JSON.parse(storedData);
+                setPlayerData(prevData => ({
+                    ...prevData,
+                    ...parsedData,
+                    nome: playerDetails.nome || "",
+                    ca: playerDetails.ca || "",
+                    pv: playerDetails.pv || "",
+                    mod: playerDetails.mod || "",
+                    rolagem: playerDetails.rolagem || ""
+                }));
+            }
+        }
+    }, [storageKey, player.id]);
 
     // Altera se o card está expandido ou retraído
     const toggleExpand = () => {
@@ -48,33 +56,25 @@ const CardPlayer = ({player}) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        // Atualiza o estado local e o localStorage
         setPlayerData((prevData) => ({
             ...prevData,
             [name]: value,
         }));
     };
 
-    // Atualiza localStorage sempre que o estado playerData muda
+    // Atualiza localStorage sempre que o estado playerData mudar
     useEffect(() => {
-        if (playerData) {
-            localStorage.setItem(storageKey, JSON.stringify({
-                fieldCa: playerData.fieldCa,
-                fieldPv: playerData.fieldPv,
-                fieldMod: playerData.fieldMod,
-                fieldRolagem: playerData.fieldRolagem,
-                fieldCondicao: playerData.fieldCondicao
-            }));
+        if (playerData && Object.keys(playerData).length > 0) {
+            console.log("Salvando dados no localStorage:", playerData);  // Depuração
+            localStorage.setItem(storageKey, JSON.stringify(playerData));
         }
     }, [playerData, storageKey]);
-    
 
     const handleSubmit = (e) => {
         e.preventDefault();
     };
 
     return (
-        console.log(playerData),
         <div className="card-player">
             <h1>{playerData.nome}</h1>
             <form onSubmit={handleSubmit} className="card-player-info">
@@ -87,8 +87,8 @@ const CardPlayer = ({player}) => {
                             </p>
                             <input
                                 type="text"
-                                name="fieldCa"
-                                value={playerData.fieldCa}
+                                name="ca"
+                                value={playerData.ca}
                                 onChange={handleChange}
                             />
                         </label>
@@ -98,8 +98,8 @@ const CardPlayer = ({player}) => {
                             </p>
                             <input
                                 type="text"
-                                name="fieldPv"
-                                value={playerData.fieldPv}
+                                name="pv"
+                                value={playerData.pv}
                                 onChange={handleChange}
                             />
                         </label>
@@ -107,8 +107,8 @@ const CardPlayer = ({player}) => {
                             <p>MOD: </p>
                             <input
                                 type="text"
-                                name="fieldMod"
-                                value={playerData.fieldMod}
+                                name="mod"
+                                value={playerData.mod}
                                 onChange={handleChange}
                             />
                         </label>
@@ -116,8 +116,8 @@ const CardPlayer = ({player}) => {
                             <p>ROLAGEM: </p>
                             <input
                                 type="text"
-                                name="fieldRolagem"
-                                value={playerData.fieldRolagem}
+                                name="rolagem"
+                                value={playerData.rolagem}
                                 onChange={handleChange}
                             />
                         </label>
@@ -125,8 +125,8 @@ const CardPlayer = ({player}) => {
                             <p>CONDICAO: </p>
                             <input
                                 type="text"
-                                name="fieldCondicao"
-                                value={playerData.fieldCondicao}
+                                name="condicao"
+                                value={playerData.condicao}
                                 onChange={handleChange}
                             />
                         </label>
@@ -144,8 +144,8 @@ const CardPlayer = ({player}) => {
                         <GiCheckedShield />
                         <input
                             type="text"
-                            name="fieldCa"
-                            value={playerData.fieldCa}
+                            name="ca"
+                            value={playerData.ca}
                             onChange={handleChange}
                         />
                     </label>
@@ -153,8 +153,8 @@ const CardPlayer = ({player}) => {
                         <FaHeart />
                         <input
                             type="text"
-                            name="fieldPv"
-                            value={playerData.fieldPv}
+                            name="pv"
+                            value={playerData.pv}
                             onChange={handleChange}
                         />
                     </label>

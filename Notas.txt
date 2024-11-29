@@ -17,3 +17,6 @@ localStorage.getItem("playerData-  ID  ");
 
 Comando para procurar os dados dos players
 console.log(localStorage.getItem('players'));
+
+console.log(localStorage.getItem('players'));
+VM6805:1 [{"id":1732921187446,"nome":"a","ca":"1","pv":"1","mod":"1","rolagem":"1"}]
