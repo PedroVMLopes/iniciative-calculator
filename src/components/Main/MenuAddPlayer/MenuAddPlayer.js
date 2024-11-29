@@ -33,6 +33,11 @@ export default function MenuAddPlayer() {
         console.clear();
     };
 
+    const clearConsole = (event) => {
+        event.preventDefault();
+        console.clear();
+    };
+
 
     useEffect(() => {
         savePlayer(players); // Sincroniza o estado com o localStorage sempre que players mudar
@@ -115,6 +120,10 @@ export default function MenuAddPlayer() {
                     
                     <button onClick={clearPlayers} className="botao-limpar">
                         Limpar localStorage
+                    </button>
+
+                    <button onClick={clearConsole} className="botao-limpar">
+                        Limpar console
                     </button>
 
                 </form>

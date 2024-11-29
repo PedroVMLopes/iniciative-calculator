@@ -7,14 +7,14 @@ export const PlayerDataContext = createContext();
 export const PlayerDataProvider = ({ children }) => {
 
     const [playerData, setPlayerData] = useState({
-        id: 1,
-        iniciativa: 0,
-        fieldNome: "Nome do Player",
-        fieldCa: "10",
-        fieldPv: "100",
-        fieldMod: "2",
-        fieldRolagem: "12",
-        fieldCondicao: "Normal",
+        id: "",
+        iniciativa: "",
+        fieldNome: "",
+        fieldCa: "",
+        fieldPv: "",
+        fieldMod: "",
+        fieldRolagem: "",
+        fieldCondicao: "",
     });
 
     return (

@@ -1,22 +1,40 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { FaPencilRuler, FaHeart } from "react-icons/fa";
 import { GiCheckedShield } from "react-icons/gi";
 import { PlayerDataContext } from "../../Data/PlayerData";
 import './CardPlayer.css';
 
 const CardPlayer = ({player}) => {
-    const { playerData, setPlayerData } = useContext(PlayerDataContext);
     const [isExpanded, setIsExpanded] = useState(true);
+
+    // Estado inicial com os dados do jogador
+    const [playerData, setPlayerData] = useState(() => {
+        // Carrega os dados do localStorage (ou usa valores padrão)
+        const storedData = localStorage.getItem("playerData");
+        return storedData ? JSON.parse(storedData) : {
+            fieldCa: "",
+            fieldPv: "",
+            fieldMod: "",
+            fieldRolagem: "",
+            fieldCondicao: ""
+        };
+    });
+
+    // Atualiza localStorage sempre que o estado playerData muda
+    useEffect(() => {
+        localStorage.setItem("playerData", JSON.stringify(playerData));
+    }, [playerData]);
 
     const toggleExpand = () => {
         setIsExpanded((prevState) => !prevState);
     };
 
     const handleChange = (e) => {
-        const { name, value } = e.target; // Obtém o nome e valor do input
+        const { name, value } = e.target;
+        // Atualiza o estado local e o localStorage
         setPlayerData((prevData) => ({
             ...prevData,
-            [name]: value, // Atualiza o campo correspondente
+            [name]: value,
         }));
     };
 
@@ -38,7 +56,7 @@ const CardPlayer = ({player}) => {
                             <input
                                 type="text"
                                 name="fieldCa"
-                                value={player.ca}
+                                value={playerData.fieldCa}
                                 onChange={handleChange}
                             />
                         </label>
@@ -49,7 +67,7 @@ const CardPlayer = ({player}) => {
                             <input
                                 type="text"
                                 name="fieldPv"
-                                value={player.pv}
+                                value={playerData.fieldPv}
                                 onChange={handleChange}
                             />
                         </label>
@@ -58,7 +76,7 @@ const CardPlayer = ({player}) => {
                             <input
                                 type="text"
                                 name="fieldMod"
-                                value={player.mod}
+                                value={playerData.fieldMod}
                                 onChange={handleChange}
                             />
                         </label>
@@ -67,7 +85,7 @@ const CardPlayer = ({player}) => {
                             <input
                                 type="text"
                                 name="fieldRolagem"
-                                value={player.rolagem}
+                                value={playerData.fieldRolagem}
                                 onChange={handleChange}
                             />
                         </label>
@@ -76,11 +94,11 @@ const CardPlayer = ({player}) => {
                             <input
                                 type="text"
                                 name="fieldCondicao"
-                                value={player.condicao}
+                                value={playerData.fieldCondicao}
                                 onChange={handleChange}
                             />
                         </label>
-                        <button type="submit" onClick={toggleExpand}>
+                        <button type="button" onClick={toggleExpand}>
                             <FaPencilRuler /> Concluir
                         </button>
                     </div>
