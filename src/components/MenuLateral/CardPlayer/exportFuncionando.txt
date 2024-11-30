@@ -4,61 +4,40 @@ import { GiCheckedShield } from "react-icons/gi";
 import './CardPlayer.css';
 
 const CardPlayer = ({ player }) => {
-    const [isExpanded, setIsExpanded] = useState(true);
+    const storageKey = `playerData-${player.id}`; // Chave única para o player no localStorage
 
-    // Chave única para o localStorage
-    const storageKey = `playerData-${player.id}`;
-
-    // Estado para armazenar os dados do jogador
-    const [playerData, setPlayerData] = useState({
-        ca: "",
-        pv: "",
-        mod: "",
-        rolagem: "",
-        condicao: ""
+    // Estado para armazenar os dados do jogador (inicializando com dados de localStorage, se existirem)
+    const [playerData, setPlayerData] = useState(() => {
+        const storedData = localStorage.getItem(storageKey);
+        return storedData ? JSON.parse(storedData) : {
+            ca: "",
+            pv: "",
+            mod: "",
+            rolagem: "",
+            condicao: ""
+        };
     });
 
-    // Verifica se 'players' já foi salvo no localStorage
+    const [isExpanded, setIsExpanded] = useState(true);
+
+    // Verifica se 'players' já foi salvo no localStorage e carrega os dados do jogador
     useEffect(() => {
         const players = JSON.parse(localStorage.getItem('players')) || [];
 
-        if (players.length === 0) {
-            console.log("Sem dados no localStorage para 'players'.");
-            return; // Caso não tenha dados de players, não tenta carregar o resto
-        }
-
+        // Verifica se o player já existe na lista de players
         const playerDetails = players.find(p => p.id === player.id);
-        console.log("Dados do player encontrado:", playerDetails);  // Depuração
-        
         if (playerDetails) {
-            const storedData = localStorage.getItem(storageKey);
-            console.log("Dados armazenados do player:", storedData);  // Depuração
-
-            if (storedData) {
-                const parsedData = JSON.parse(storedData);
-                setPlayerData(prevData => ({
-                    ...prevData,
-                    ...parsedData,
-                    nome: playerDetails.nome || "",
-                    ca: playerDetails.ca || "",
-                    pv: playerDetails.pv || "",
-                    mod: playerDetails.mod || "",
-                    rolagem: playerDetails.rolagem || ""
-                }));
-            }
+            // Atualiza playerData apenas se necessário
+            setPlayerData(prevData => ({
+                ...prevData,
+                nome: playerDetails.nome || "",
+                ca: playerDetails.ca || "",
+                pv: playerDetails.pv || "",
+                mod: playerDetails.mod || "",
+                rolagem: playerDetails.rolagem || ""
+            }));
         }
-    }, [storageKey, player.id]);
-
-    // Função para sincronizar dados com a lista geral no localStorage
-    const updatePlayersList = (updatedPlayer) => {
-        const players = JSON.parse(localStorage.getItem('players')) || [];
-        const updatedPlayers = players.map(p => 
-            p.id === updatedPlayer.id ? { ...p, ...updatedPlayer } : p
-        );
-
-        localStorage.setItem('players', JSON.stringify(updatedPlayers));
-        console.log("Salvando lista atualizada de players:", updatedPlayers);  // Depuração
-    };
+    }, [player.id]);
 
     // Altera se o card está expandido ou retraído
     const toggleExpand = () => {
@@ -67,20 +46,28 @@ const CardPlayer = ({ player }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setPlayerData((prevData) => {
-            const newData = { ...prevData, [name]: value };
-            updatePlayersList({ id: player.id, ...newData }); // Atualiza lista geral
-            return newData;
-        });
+        setPlayerData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
     };
 
-    // Atualiza localStorage sempre que o estado playerData mudar
+    // Atualiza tanto o playerData específico quanto a lista de players no localStorage
     useEffect(() => {
         if (playerData && Object.keys(playerData).length > 0) {
-            console.log("Salvando dados no localStorage:", playerData);  // Depuração
+            // Atualiza os dados do jogador específico
             localStorage.setItem(storageKey, JSON.stringify(playerData));
+
+            // Atualiza a lista de players no localStorage
+            const players = JSON.parse(localStorage.getItem('players')) || [];
+            const updatedPlayers = players.map(p => 
+                p.id === player.id ? { ...p, ...playerData } : p
+            );
+
+            // Salvando lista atualizada de players
+            localStorage.setItem('players', JSON.stringify(updatedPlayers));
         }
-    }, [playerData, storageKey]);
+    }, [playerData, storageKey, player.id]);
 
     const handleSubmit = (e) => {
         e.preventDefault();

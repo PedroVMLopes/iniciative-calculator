@@ -1,4 +1,10 @@
 ---------------------------------------------------------------
+  Tasks 
+
+-> O menu lateral só atualiza quando a página é recarregada
+
+
+---------------------------------------------------------------
 localStorage
 Aba aplication do inspecionar elementos
 localStorage.clear();
@@ -7,9 +13,7 @@ console.log(localStorage.getItem('players'));
 
 
 ---------------------------------------------------------------
--> O menu lateral só atualiza quando a página é recarregada
 
--> Rever o código refatorado do último chat do chatGPT pra melhorar o CardPlayer
 
 ---------------------------------------------------------------
 Comando para procurar um id na localStorage
@@ -18,5 +22,3 @@ localStorage.getItem("playerData-  ID  ");
 Comando para procurar os dados dos players
 console.log(localStorage.getItem('players'));
 
-console.log(localStorage.getItem('players'));
-VM6805:1 [{"id":1732921187446,"nome":"a","ca":"1","pv":"1","mod":"1","rolagem":"1"}]

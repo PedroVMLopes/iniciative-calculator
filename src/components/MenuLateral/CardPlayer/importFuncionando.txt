@@ -49,17 +49,6 @@ const CardPlayer = ({ player }) => {
         }
     }, [storageKey, player.id]);
 
-    // Função para sincronizar dados com a lista geral no localStorage
-    const updatePlayersList = (updatedPlayer) => {
-        const players = JSON.parse(localStorage.getItem('players')) || [];
-        const updatedPlayers = players.map(p => 
-            p.id === updatedPlayer.id ? { ...p, ...updatedPlayer } : p
-        );
-
-        localStorage.setItem('players', JSON.stringify(updatedPlayers));
-        console.log("Salvando lista atualizada de players:", updatedPlayers);  // Depuração
-    };
-
     // Altera se o card está expandido ou retraído
     const toggleExpand = () => {
         setIsExpanded((prevState) => !prevState);
@@ -67,11 +56,10 @@ const CardPlayer = ({ player }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setPlayerData((prevData) => {
-            const newData = { ...prevData, [name]: value };
-            updatePlayersList({ id: player.id, ...newData }); // Atualiza lista geral
-            return newData;
-        });
+        setPlayerData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
     };
 
     // Atualiza localStorage sempre que o estado playerData mudar
