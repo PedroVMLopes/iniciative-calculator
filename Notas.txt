@@ -1,7 +1,13 @@
 ---------------------------------------------------------------
   Tasks 
 
--> O menu lateral só atualiza quando a página é recarregada
+-> Ler a documentação do useEffect pq era isso q tava causando problema no CardPlayer
+
+-> Adicionar no objeto player uma constante de valor total da iniciativa
+
+-> Organizar os cards no menu lateral pela ordem de iniciativa
+
+-> Adicionar os botões de avançar e voltar turnos
 
 
 ---------------------------------------------------------------
