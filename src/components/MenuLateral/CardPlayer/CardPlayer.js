@@ -4,7 +4,7 @@ import { GiCheckedShield } from "react-icons/gi";
 import './CardPlayer.css';
 
 const CardPlayer = ({ player }) => {
-    const [isExpanded, setIsExpanded] = useState(true);
+    const [isExpanded, setIsExpanded] = useState(false);
 
     // Chave única para o localStorage
     const storageKey = `playerData-${player.id}`;

@@ -14,9 +14,6 @@ const savePlayer = (players) => {
     localStorage.setItem('players', JSON.stringify(players));
 };
 
-
-
-
 export default function MenuAddPlayer() {
     const [fieldNome, setFieldNome] = useState('');
     const [fieldCa, setFieldCa] = useState('');
