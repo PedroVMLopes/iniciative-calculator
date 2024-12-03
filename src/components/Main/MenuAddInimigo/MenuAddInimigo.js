@@ -1,6 +1,6 @@
 import './MenuAddInimigo.css';
 import FormAddInimigo from './FormAddInimigo';
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, createContext } from 'react';
 
 export const FormAddInimigoContext = createContext();
 

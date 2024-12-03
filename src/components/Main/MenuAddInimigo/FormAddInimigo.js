@@ -1,12 +1,14 @@
 import './MenuAddInimigo.css';
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useContext } from 'react';
 import { FormAddInimigoContext } from './MenuAddInimigo';
 
 function FormAddInimigo() {
 
     const { isExpanded, setIsExpanded } = React.useContext(FormAddInimigoContext);
 
+    const [formInimigos] = useState([]);
     return (
+
         
             <div className="menu-add-inimigo menu-add-inimigo-corpo">
 
