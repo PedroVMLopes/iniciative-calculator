@@ -19,7 +19,7 @@ function MenuAddInimigo() {
   const [fieldRolagem, setFieldRolagem] = useState("");
   const [fieldCondicao, setFieldCondicao] = useState("");
   const [inimigosDoGrupo, setInimigosDoGrupo] = useState([]);
-  const [cardsInimigos, setCardsInimigos] = useState([]);
+  const [cardsInimigos, setCardsInimigos] = useState(getCardsInimigos);
 
   // Carregar cards de inimigos armazenados no localStorage ao inicializar
   useEffect(() => {
@@ -56,7 +56,6 @@ function MenuAddInimigo() {
   /* Limpar as consts de criação do inimigo no botão de enviar  */
   const adicionarInimigo = (event) => {
     event.preventDefault();
-
     const novoInimigo = {
       id: Date.now(),
       nome: fieldNome,
@@ -68,8 +67,13 @@ function MenuAddInimigo() {
     };
     console.log("Novo Inimigo:", novoInimigo);
 
+    // Atualiza o estado e o localStorage diretamente
     const cardsInimigosAtualizados = [...cardsInimigos, novoInimigo];
     setCardsInimigos(cardsInimigosAtualizados);
+    localStorage.setItem(
+      "cardsInimigos",
+      JSON.stringify(cardsInimigosAtualizados)
+    );
 
     limparCampos();
   };
@@ -131,14 +135,14 @@ function MenuAddInimigo() {
           <br />
           <button
             className="botao-add-inimigo"
-            type="submit"
+            type="button"
             onClick={adicionarInimigo}
           >
             Enviar Inimigo Único
           </button>
           <button
             className="botao-add-inimigo"
-            type="submit"
+            type="button"
             onClick={adicionarAoGrupo}
           >
             Adicionar outro ao grupo

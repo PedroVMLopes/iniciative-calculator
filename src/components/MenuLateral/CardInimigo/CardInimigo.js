@@ -45,9 +45,9 @@ const CardInimigo = ({ inimigo }) => {
 
   // Atualiza os dados do inimigo no localStorage
   const updateInimigoList = (updatedInimigo) => {
-    const inimigos = JSON.parse(localStorage.getItem("inimigos")) || [];
+    const inimigos = JSON.parse(localStorage.getItem("cardsInimigos")) || [];
     const updatedInimigos = inimigos.map((p) =>
-      p.id === inimigo.id ? updatedInimigo : p
+      p.id === updatedInimigo.id ? { ...p, ...updatedInimigo } : p
     );
 
     localStorage.setItem("inimigos", JSON.stringify(updatedInimigos));
