@@ -48,6 +48,7 @@ export default function MenuAddPlayer() {
       pv: fieldPv,
       mod: fieldMod,
       rolagem: fieldRolagem,
+      iniciativa: 0,
     };
 
     console.log("Novo Player:", novoPlayer);

@@ -18,31 +18,13 @@ function MenuAddInimigo() {
   const [fieldMod, setFieldMod] = useState("");
   const [fieldRolagem, setFieldRolagem] = useState("");
   const [fieldCondicao, setFieldCondicao] = useState("");
-  const [inimigosDoGrupo, setInimigosDoGrupo] = useState([]);
   const [cardsInimigos, setCardsInimigos] = useState(getCardsInimigos);
+  const [grupoDeInimigos, setGrupoDeInimigos] = useState([]);
 
   // Carregar cards de inimigos armazenados no localStorage ao inicializar
   useEffect(() => {
     saveInimigos(cardsInimigos);
   }, [cardsInimigos]);
-
-  const adicionarAoGrupo = (event) => {
-    event.preventDefault();
-
-    const novoInimigoDoGrupo = {
-      id: Date.now(),
-      nome: fieldNome,
-      ca: fieldCa,
-      pv: fieldPv,
-      mod: fieldMod,
-      rolagem: fieldRolagem,
-      condicao: fieldCondicao,
-    };
-    console.log("Novo Inimigo:", novoInimigoDoGrupo);
-
-    const cardGrupoDeInimigos = [...inimigosDoGrupo, novoInimigoDoGrupo];
-    setInimigosDoGrupo(cardGrupoDeInimigos);
-  };
 
   const limparCampos = () => {
     setFieldNome("");
@@ -64,6 +46,7 @@ function MenuAddInimigo() {
       mod: fieldMod,
       rolagem: fieldRolagem,
       condicao: fieldCondicao,
+      iniciativa: 0,
     };
     console.log("Novo Inimigo:", novoInimigo);
 
@@ -74,6 +57,42 @@ function MenuAddInimigo() {
       "cardsInimigos",
       JSON.stringify(cardsInimigosAtualizados)
     );
+
+    limparCampos();
+  };
+
+  // Adiciona o inimigo a um grupo de inimigos
+  const adicionarAoGrupo = (event) => {
+    event.preventDefault();
+
+    const novoInimigoDoGrupo = {
+      id: Date.now(),
+      nome: fieldNome,
+      ca: fieldCa,
+      pv: fieldPv,
+      mod: fieldMod,
+      rolagem: fieldRolagem,
+      condicao: fieldCondicao,
+    };
+    console.log("Novo Inimigo:", novoInimigoDoGrupo);
+
+    const cardGrupoDeInimigos = [...grupoDeInimigos, novoInimigoDoGrupo];
+    setGrupoDeInimigos(cardGrupoDeInimigos);
+
+    limparCampos();
+  };
+
+  // Envia o grupo de inimigos com a iniciativa calculada
+  const enviarGrupo = (event) => {
+    event.preventDefault();
+
+    const iniciativa = Math.floor(Math.random() * 20) + 1;
+    const grupoComIniciativa = {
+      inimigos: grupoDeInimigos,
+      iniciativa: iniciativa,
+    };
+
+    setGrupoDeInimigos(grupoComIniciativa);
 
     limparCampos();
   };
@@ -147,7 +166,11 @@ function MenuAddInimigo() {
           >
             Adicionar outro ao grupo
           </button>
-          <button className="botao-add-inimigo" type="submit">
+          <button
+            className="botao-add-inimigo"
+            type="button"
+            onClick={enviarGrupo}
+          >
             Enviar Grupo
           </button>
         </form>

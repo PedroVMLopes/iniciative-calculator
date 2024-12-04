@@ -4,12 +4,8 @@ import { GiCheckedShield } from "react-icons/gi";
 import "./CardInimigo.css";
 
 const CardInimigo = ({ inimigo }) => {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  // Chave única para o localStorage
-  const storageKey = `inimigoData-${inimigo.id}`;
-
-  // Estado para armazenar os dados do inimigo
   const [inimigoData, setInimigoData] = useState({
     ca: "",
     pv: "",
@@ -19,31 +15,21 @@ const CardInimigo = ({ inimigo }) => {
     nome: "",
   });
 
-  // Verifica se 'inimigos' já foi salvo no localStorage
+  // Carrega os dados iniciais do localStorage
   useEffect(() => {
-    const inimigos = JSON.parse(localStorage.getItem("cardsInimigos")) || [];
+    const inimigos = JSON.parse(localStorage.getItem("cardsInimigos")) || []; // Recupera a lista de inimigos
+    const inimigoDetails = inimigos.find((p) => p.id === inimigo.id); // Procura o inimigo na lista
 
-    const inimigoDetails = inimigos.find((p) => p.id === inimigo.id);
-
+    // Atualiza os dados do inimigo com os resultados da busca
     if (inimigoDetails) {
-      const storedData = localStorage.getItem(storageKey);
-
-      if (storedData) {
-        const parsedData = JSON.parse(storedData);
-        setInimigoData((prevData) => ({
-          ...prevData,
-          ...parsedData,
-          nome: inimigoDetails.nome || "",
-          ca: inimigoDetails.ca || "",
-          pv: inimigoDetails.pv || "",
-          mod: inimigoDetails.mod || "",
-          rolagem: inimigoDetails.rolagem || "",
-        }));
-      }
+      setInimigoData((prevData) => ({
+        ...prevData,
+        ...inimigoDetails,
+      }));
     }
   }, [inimigo.id]);
 
-  // Atualiza os dados do inimigo no localStorage
+  // Atualiza a lista de inimigos no localStorage
   const updateInimigoList = (updatedInimigo) => {
     const inimigos = JSON.parse(localStorage.getItem("cardsInimigos")) || [];
     const updatedInimigos = inimigos.map((p) =>
@@ -57,20 +43,9 @@ const CardInimigo = ({ inimigo }) => {
     const { name, value } = e.target;
     setInimigoData((prevData) => {
       const newData = { ...prevData, [name]: value };
-      updateInimigoList({ id: inimigo.id, ...newData }); // Atualiza lista geral
+      updateInimigoList({ id: inimigo.id, ...newData }); // Atualiza a lista geral
       return newData;
     });
-  };
-
-  useEffect(() => {
-    if (inimigoData && Object.keys(inimigoData).length > 0) {
-      console.log("Salvando dados no localStorage:", inimigoData); // Depuração
-      localStorage.setItem(storageKey, JSON.stringify(inimigoData));
-    }
-  }, [inimigoData, storageKey]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
   };
 
   const toggleExpand = () => {
@@ -80,8 +55,7 @@ const CardInimigo = ({ inimigo }) => {
   return (
     <div className="card-inimigo">
       <h1>{inimigoData.nome}</h1>
-      <form onSubmit={handleSubmit} className="card-inimigo-info">
-        {/* Campos do card - expandido */}
+      <form className="card-inimigo-info">
         {isExpanded && (
           <div>
             <label>
@@ -140,7 +114,6 @@ const CardInimigo = ({ inimigo }) => {
         )}
       </form>
 
-      {/* Campos do card - retraído */}
       {!isExpanded && (
         <div className="card-inimigo-info-retraido">
           <label>
