@@ -21,7 +21,7 @@ const CardInimigo = ({ inimigo }) => {
 
   // Verifica se 'inimigos' já foi salvo no localStorage
   useEffect(() => {
-    const inimigos = JSON.parse(localStorage.getItem("inimigos")) || [];
+    const inimigos = JSON.parse(localStorage.getItem("cardsInimigos")) || [];
 
     const inimigoDetails = inimigos.find((p) => p.id === inimigo.id);
 
@@ -50,7 +50,7 @@ const CardInimigo = ({ inimigo }) => {
       p.id === updatedInimigo.id ? { ...p, ...updatedInimigo } : p
     );
 
-    localStorage.setItem("inimigos", JSON.stringify(updatedInimigos));
+    localStorage.setItem("cardsInimigos", JSON.stringify(updatedInimigos));
   };
 
   const handleChange = (e) => {
