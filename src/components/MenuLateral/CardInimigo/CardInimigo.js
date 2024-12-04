@@ -135,7 +135,7 @@ const CardInimigo = ({ inimigo }) => {
             />
           </label>
           <button type="button" onClick={toggleExpand}>
-            <FaPencilRuler /> Editar
+            <FaPencilRuler />
           </button>
         </div>
       )}

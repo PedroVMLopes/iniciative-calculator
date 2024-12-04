@@ -1,5 +1,5 @@
 import "./MenuAddInimigo.css";
-import React, { useState, createContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 // Função que obtém os cards de inimigos armazenados no localStorage
 const getCardsInimigos = () => {
@@ -37,7 +37,10 @@ function MenuAddInimigo() {
 
   /* Limpar as consts de criação do inimigo no botão de enviar  */
   const adicionarInimigo = (event) => {
-    event.preventDefault();
+    if (!fieldNome || !fieldCa || !fieldPv) {
+      alert("Preencha todos os campos");
+      return;
+    }
     const novoInimigo = {
       id: Date.now(),
       nome: fieldNome,
@@ -94,7 +97,15 @@ function MenuAddInimigo() {
 
     setGrupoDeInimigos(grupoComIniciativa);
 
+    const cardsInimigosAtualizados = [...cardsInimigos, grupoComIniciativa];
+    setCardsInimigos(cardsInimigosAtualizados);
+    localStorage.setItem(
+      "cardsInimigos",
+      JSON.stringify(cardsInimigosAtualizados)
+    );
+
     limparCampos();
+    setGrupoDeInimigos([]);
   };
 
   return (

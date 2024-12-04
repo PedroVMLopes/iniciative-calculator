@@ -9,7 +9,7 @@ export default function BotoesAdicionar() {
     setIsPlayerExpanded((prevState) => !prevState);
   };
 
-  const [isInimigoExpanded, setIsInimigoExpanded] = useState(true);
+  const [isInimigoExpanded, setIsInimigoExpanded] = useState(false);
   const toggleExpandInimigo = () => {
     setIsInimigoExpanded((prevState) => !prevState);
   };

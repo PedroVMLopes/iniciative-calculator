@@ -3,6 +3,7 @@ import BotoesAdicionar from "../Main/BotoesAdicionar/BotoesAdicionar";
 import CardPlayer from "./CardPlayer/CardPlayer";
 import CardInimigo from "./CardInimigo/CardInimigo";
 import styles from "./MenuLateral.css";
+import NumeroIniciativa from "./NumeroIniciativa";
 
 // Função para obter os dados dos jogadores armazenados no localStorage
 const getPlayers = () => {
@@ -21,6 +22,7 @@ const MenuLateral = () => {
   const [cardsInimigos, setCardsInimigos] = useState([]);
 
   const listaIniciativa = [...players, ...cardsInimigos];
+  console.log(listaIniciativa);
 
   // Carrega os jogadores ao montar o componente
   useEffect(() => {
@@ -46,11 +48,21 @@ const MenuLateral = () => {
     <div className="menu-lateral">
       <h1>CONTAGEM DE INICIATIVA</h1>
       <div className="CardsLinhaDeIniciativa">
-        {players.map((player) => (
-          <CardPlayer key={player.id} player={player} />
+        {listaIniciativa.map((item, index) => (
+          <div className="CardComIniciativa" key={index}></div>
         ))}
-
-        {listaIniciativa.map((inimigo) => (
+        <div className="CardComIniciativa">
+          {players.map((player) => (
+            <CardPlayer key={player.id} player={player} />
+          ))}
+          {players.map((player) => (
+            <NumeroIniciativa
+              key={player.id + 1}
+              iniciativa={player.iniciativa}
+            />
+          ))}
+        </div>
+        {cardsInimigos.map((inimigo) => (
           <CardInimigo key={inimigo.id} inimigo={inimigo} />
         ))}
       </div>

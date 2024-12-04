@@ -18,6 +18,7 @@ export default function MenuAddPlayer() {
   const [fieldPv, setFieldPv] = useState("");
   const [fieldMod, setFieldMod] = useState("");
   const [fieldRolagem, setFieldRolagem] = useState("");
+  const [fieldCondicao, setFieldCondicao] = useState("");
   const [players, setPlayers] = useState(getPlayers()); // Carregar dados do localStorage ao inicializar
 
   const clearPlayers = (event) => {

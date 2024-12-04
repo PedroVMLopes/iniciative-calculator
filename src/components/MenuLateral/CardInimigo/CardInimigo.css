@@ -1,5 +1,5 @@
 .card-inimigo {
-    background-color: var(--azul-claro);
+    background: linear-gradient(to bottom, var(--vermelho-escuro), var(--vermelho-claro));
     border-radius: 8px;
     width: 400px;
     margin-top: 8px;
@@ -48,7 +48,7 @@
 }
 
 .card-inimigo button {
-    background-color: var(--azul-escuro);
+    background-color: var(--vermelho-escuro);
     color: #fff;
     font-weight: bold;
     border: none;
