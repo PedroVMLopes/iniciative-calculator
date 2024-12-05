@@ -27,7 +27,8 @@ const CardPlayer = ({ player }) => {
       return; // Caso não tenha dados de players, não tenta carregar o resto
     }
 
-    const playerDetails = players.find((p) => p.id === player.id);
+    const playerDetails = players.find((p) => p.dados.id === player.dados.id);
+    console.log("Dados do player encontrado:", playerDetails); // Depuração
 
     if (playerDetails) {
       const storedData = localStorage.getItem(storageKey);

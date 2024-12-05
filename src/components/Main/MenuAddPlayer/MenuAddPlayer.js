@@ -52,9 +52,10 @@ export default function MenuAddPlayer() {
       iniciativa: 0,
     };
 
-    console.log("Novo Player:", novoPlayer);
+    const iniciativa = Math.floor(Math.random() * 20) + 1;
+    const playerComIniciativa = { dados: novoPlayer, iniciativa: iniciativa };
+    const updatedPlayers = [...players, playerComIniciativa];
 
-    const updatedPlayers = [...players, novoPlayer];
     setPlayers(updatedPlayers);
 
     setFieldNome("");

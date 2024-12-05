@@ -3,7 +3,7 @@ import BotoesAdicionar from "../Main/BotoesAdicionar/BotoesAdicionar";
 import CardPlayer from "./CardPlayer/CardPlayer";
 import CardInimigo from "./CardInimigo/CardInimigo";
 import styles from "./MenuLateral.css";
-import NumeroIniciativa from "./NumeroIniciativa";
+import NumeroIniciativa from "./NumeroIniciativa/NumeroIniciativa";
 
 // Função para obter os dados dos jogadores armazenados no localStorage
 const getPlayers = () => {
@@ -22,7 +22,6 @@ const MenuLateral = () => {
   const [cardsInimigos, setCardsInimigos] = useState([]);
 
   const listaIniciativa = [...players, ...cardsInimigos];
-  console.log(listaIniciativa);
 
   // Carrega os jogadores ao montar o componente
   useEffect(() => {
@@ -62,9 +61,19 @@ const MenuLateral = () => {
             />
           ))}
         </div>
-        {cardsInimigos.map((inimigo) => (
-          <CardInimigo key={inimigo.id} inimigo={inimigo} />
-        ))}
+
+        <div className="CardComIniciativa">
+          {cardsInimigos.map((inimigo) => (
+            <CardInimigo key={inimigo.id} inimigo={inimigo} />
+          ))}
+        </div>
+
+        {listaIniciativa.map(
+          (item, index) => (
+            console.log(item),
+            (<div className="CardComIniciativa" key={index}></div>)
+          )
+        )}
       </div>
     </div>
   );
