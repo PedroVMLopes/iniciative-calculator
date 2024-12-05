@@ -17,26 +17,29 @@ const getCardsInimigos = () => {
   return savedCards ? JSON.parse(savedCards) : [];
 };
 
+// Função para obter os dados armazenados no localStorage
+const getLocalStorageData = (key) => {
+  const savedData = localStorage.getItem(key);
+  return savedData ? JSON.parse(savedData) : [];
+};
+
 const MenuLateral = () => {
   const [players, setPlayers] = useState([]);
   const [cardsInimigos, setCardsInimigos] = useState([]);
 
-  const listaIniciativa = [...players, ...cardsInimigos];
-
-  // Carrega os jogadores ao montar o componente
+  // Carrega os dados ao montar o componente
   useEffect(() => {
-    setPlayers(getPlayers());
-    setCardsInimigos(getCardsInimigos());
+    setPlayers(getLocalStorageData("players"));
+    setCardsInimigos(getLocalStorageData("cardsInimigos"));
   }, []);
 
-  // Monitorar atualizações no localStorage
+  // Escuta mudanças no localStorage
   useEffect(() => {
     const handleStorageChange = () => {
-      setPlayers(getPlayers());
-      setCardsInimigos(getCardsInimigos());
+      setPlayers(getLocalStorageData("players"));
+      setCardsInimigos(getLocalStorageData("cardsInimigos"));
     };
 
-    // Escuta para mudanças no localStorage
     window.addEventListener("storage", handleStorageChange);
     return () => {
       window.removeEventListener("storage", handleStorageChange);
@@ -47,33 +50,21 @@ const MenuLateral = () => {
     <div className="menu-lateral">
       <h1>CONTAGEM DE INICIATIVA</h1>
       <div className="CardsLinhaDeIniciativa">
-        {listaIniciativa.map((item, index) => (
-          <div className="CardComIniciativa" key={index}></div>
+        {/* Renderizar jogadores */}
+        {players.map((player) => (
+          <div className="CardComIniciativa" key={`player-${player.id}`}>
+            <CardPlayer player={player} />
+            <NumeroIniciativa iniciativa={player.iniciativa} />
+          </div>
         ))}
-        <div className="CardComIniciativa">
-          {players.map((player) => (
-            <CardPlayer key={player.id} player={player} />
-          ))}
-          {players.map((player) => (
-            <NumeroIniciativa
-              key={player.id + 1}
-              iniciativa={player.iniciativa}
-            />
-          ))}
-        </div>
 
-        <div className="CardComIniciativa">
-          {cardsInimigos.map((inimigo) => (
-            <CardInimigo key={inimigo.id} inimigo={inimigo} />
-          ))}
-        </div>
-
-        {listaIniciativa.map(
-          (item, index) => (
-            console.log(item),
-            (<div className="CardComIniciativa" key={index}></div>)
-          )
-        )}
+        {/* Renderizar inimigos */}
+        {cardsInimigos.map((inimigo) => (
+          <div className="CardComIniciativa" key={`inimigo-${inimigo.id}`}>
+            <CardInimigo inimigo={inimigo} />
+            <NumeroIniciativa iniciativa={inimigo.iniciativa} />
+          </div>
+        ))}
       </div>
     </div>
   );

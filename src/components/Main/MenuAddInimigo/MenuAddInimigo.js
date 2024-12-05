@@ -19,6 +19,7 @@ function MenuAddInimigo() {
   const [fieldRolagem, setFieldRolagem] = useState("");
   const [fieldCondicao, setFieldCondicao] = useState("");
   const [cardsInimigos, setCardsInimigos] = useState(getCardsInimigos);
+
   const [grupoDeInimigos, setGrupoDeInimigos] = useState([]);
 
   // Carregar cards de inimigos armazenados no localStorage ao inicializar
@@ -53,7 +54,11 @@ function MenuAddInimigo() {
     };
 
     const iniciativa = Math.floor(Math.random() * 20) + 1;
-    const imimigoComIniciativa = { dados: novoInimigo, iniciativa: iniciativa };
+    const imimigoComIniciativa = {
+      dados: novoInimigo,
+      iniciativa: iniciativa,
+      numDeInimigos: 1,
+    };
 
     // Atualiza o estado e o localStorage diretamente
     const cardsInimigosAtualizados = [...cardsInimigos, imimigoComIniciativa];
