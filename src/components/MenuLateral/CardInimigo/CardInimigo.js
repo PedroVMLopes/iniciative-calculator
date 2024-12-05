@@ -18,7 +18,8 @@ const CardInimigo = ({ inimigo }) => {
   // Carrega os dados iniciais do localStorage
   useEffect(() => {
     const inimigos = JSON.parse(localStorage.getItem("cardsInimigos")) || []; // Recupera a lista de inimigos
-    const inimigoDetails = inimigos.find((p) => p.id === inimigo.id); // Procura o inimigo na lista
+    const inimigoObject = inimigos.find((p) => p.id === inimigo.id); // Procura o inimigo na lista
+    const inimigoDetails = inimigoObject.dados;
 
     // Atualiza os dados do inimigo com os resultados da busca
     if (inimigoDetails) {

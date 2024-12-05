@@ -53,7 +53,7 @@ function MenuAddInimigo() {
     };
 
     const iniciativa = Math.floor(Math.random() * 20) + 1;
-    const imimigoComIniciativa = { ...novoInimigo, iniciativa: iniciativa };
+    const imimigoComIniciativa = { dados: novoInimigo, iniciativa: iniciativa };
 
     // Atualiza o estado e o localStorage diretamente
     const cardsInimigosAtualizados = [...cardsInimigos, imimigoComIniciativa];
