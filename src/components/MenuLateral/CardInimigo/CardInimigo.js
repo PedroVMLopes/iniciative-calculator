@@ -142,6 +142,8 @@ const CardInimigo = ({ inimigo }) => {
 
   const toggleExpand = () => setIsExpanded((prevState) => !prevState);
 
+  if (!inimigoData) return <p>Carregando dados do inimigo...</p>;
+
   return (
     <div>
       {Array.from({ length: inimigoData.numDeInimigos }).map((_, index) => (
