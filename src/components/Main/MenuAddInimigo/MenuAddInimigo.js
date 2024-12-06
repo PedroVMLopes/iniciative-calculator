@@ -36,7 +36,7 @@ function MenuAddInimigo() {
     setFieldCondicao("");
   };
 
-  /* Limpar as consts de criação do inimigo no botão de enviar  */
+  /* Função para adicionar um inimigo único ao grupo  */
   const adicionarInimigo = (event) => {
     if (!fieldNome || !fieldCa || !fieldPv) {
       alert("Preencha todos os campos");

@@ -101,43 +101,31 @@ const FormCardInimigo = ({
 };
 
 const CardInimigo = ({ inimigo }) => {
-  // Retorna a estrutura do card de inimigo
-
   const [isExpanded, setIsExpanded] = useState(false);
+  const [inimigoData, setInimigoData] = useState(null);
 
-  const [inimigoData, setInimigoData] = useState({
-    ca: "",
-    pv: "",
-    mod: "",
-    rolagem: "",
-    condicao: "",
-    nome: "",
-  });
-
-  // Carrega os dados iniciais do localStorage
+  // Carrega os dados do inimigo específico ao montar o componente ou quando o ID muda
   useEffect(() => {
-    const inimigos = JSON.parse(localStorage.getItem("cardsInimigos")) || []; // Recupera a lista de inimigos
-    const inimigoObject = inimigos.find((p) => p.id === inimigo.id); // Procura o inimigo na lista
-    const inimigoDetails = inimigoObject.dados;
+    const inimigos = JSON.parse(localStorage.getItem("cardsInimigos")) || [];
+    const inimigoObject = inimigos.find((p) => p.id === inimigo.id);
 
-    // Verifica o número de inimigos no grupo
-    const numInimigos = inimigoObject.numDeInimigos;
-    console.log("Número de inimigos no grupo:", numInimigos);
-
-    // Atualiza os dados do inimigo com os resultados da busca
-    if (inimigoDetails) {
-      setInimigoData((prevData) => ({
-        ...prevData,
-        ...inimigoDetails,
-      }));
+    if (inimigoObject?.dados) {
+      setInimigoData({
+        ...inimigoObject.dados,
+        numDeInimigos: inimigoObject.numDeInimigos || 1,
+      });
+    } else {
+      console.warn(
+        `Inimigo com ID ${inimigo.id} não encontrado no localStorage.`
+      );
     }
   }, [inimigo.id]);
 
-  // Atualiza a lista de inimigos no localStorage
-  const updateInimigoList = (updatedInimigo) => {
+  // Atualiza o inimigo no localStorage
+  const updateInimigoList = (updatedData) => {
     const inimigos = JSON.parse(localStorage.getItem("cardsInimigos")) || [];
     const updatedInimigos = inimigos.map((p) =>
-      p.id === updatedInimigo.id ? { ...p, ...updatedInimigo } : p
+      p.id === inimigo.id ? { ...p, dados: updatedData } : p
     );
 
     localStorage.setItem("cardsInimigos", JSON.stringify(updatedInimigos));
@@ -146,35 +134,25 @@ const CardInimigo = ({ inimigo }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setInimigoData((prevData) => {
-      const newData = { ...prevData, [name]: value };
-      updateInimigoList({ id: inimigo.id, ...newData }); // Atualiza a lista geral
-      return newData;
+      const updatedData = { ...prevData, [name]: value };
+      updateInimigoList(updatedData);
+      return updatedData;
     });
   };
 
-  const toggleExpand = () => {
-    setIsExpanded((prevState) => !prevState);
-  };
-
-  const inimigos = JSON.parse(localStorage.getItem("cardsInimigos")) || []; // Recupera a lista de inimigos
-  const inimigoObject = inimigos.find((p) => p.id === inimigo.id); // Procura o inimigo na lista
-  console.log("inimigoObject:", inimigoObject);
+  const toggleExpand = () => setIsExpanded((prevState) => !prevState);
 
   return (
     <div>
-      {inimigoObject ? (
-        Array.from({ length: inimigoObject.numDeInimigos }).map((_, index) => (
-          <FormCardInimigo
-            key={index}
-            inimigoData={inimigoData}
-            handleChange={handleChange}
-            toggleExpand={toggleExpand}
-            isExpanded={isExpanded}
-          />
-        ))
-      ) : (
-        <p>Dados do inimigo não encontrados.</p>
-      )}
+      {Array.from({ length: inimigoData.numDeInimigos }).map((_, index) => (
+        <FormCardInimigo
+          key={index}
+          inimigoData={inimigoData}
+          handleChange={handleChange}
+          toggleExpand={toggleExpand}
+          isExpanded={isExpanded}
+        />
+      ))}
     </div>
   );
 };
