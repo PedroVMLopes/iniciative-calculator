@@ -22,7 +22,6 @@ const CardPlayer = ({ player }) => {
   useEffect(() => {
     const players = JSON.parse(localStorage.getItem("players")) || [];
     const playerObject = players.find((p) => p.dados.id === player.dados.id);
-    console.log("playerObject.dados:", playerObject.dados);
     const playerDetails = playerObject.dados;
 
     if (playerDetails) {

@@ -119,7 +119,6 @@ const CardInimigo = ({ inimigo }) => {
     const inimigoObject = inimigos.find((p) => p.dados.id === inimigo.dados.id);
 
     if (inimigoObject?.dados) {
-      console.log("inimigoObject.dados", inimigoObject.dados);
       setInimigoData({
         ...inimigoObject.dados,
         numDeInimigos: inimigoObject.numDeInimigos || 1,

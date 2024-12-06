@@ -21,6 +21,7 @@ function MenuAddInimigo() {
   const [cardsInimigos, setCardsInimigos] = useState(getCardsInimigos);
 
   const [grupoDeInimigos, setGrupoDeInimigos] = useState([]);
+  const [numDeInimigos, setNumDeInimigos] = useState(1);
 
   // Carregar cards de inimigos armazenados no localStorage ao inicializar
   useEffect(() => {
@@ -89,6 +90,8 @@ function MenuAddInimigo() {
     const cardGrupoDeInimigos = [...grupoDeInimigos, novoInimigoDoGrupo];
     setGrupoDeInimigos(cardGrupoDeInimigos);
 
+    setNumDeInimigos(numDeInimigos + 1);
+
     limparCampos();
   };
 
@@ -100,6 +103,7 @@ function MenuAddInimigo() {
     const grupoComIniciativa = {
       dados: grupoDeInimigos,
       iniciativa: iniciativa,
+      numDeInimigos: grupoDeInimigos.length,
     };
 
     setGrupoDeInimigos(grupoComIniciativa);
