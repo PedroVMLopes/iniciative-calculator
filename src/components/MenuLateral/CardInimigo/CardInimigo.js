@@ -132,27 +132,35 @@ const CardInimigo = ({ inimigo }) => {
     }
   }, [inimigo.id]);
 
+  // Recebe as informações alteradas e envia para a função de atualização
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setInimigoData((prevData) => {
+      const newData = { ...prevData, [name]: value };
+
+      // Atualiza apenas os dados relevantes no localStorage
+      updateInimigoList({ id: inimigo.dados.id, dados: newData });
+
+      return newData;
+    });
+  };
+
   // Atualiza o inimigo no localStorage
   const updateInimigoList = (updatedData) => {
     const inimigos = JSON.parse(localStorage.getItem("cardsInimigos")) || [];
-    console.log("inimigos: ", inimigos);
 
-    const updatedInimigos = inimigos.map((p) =>
-      p.dados.id === updatedData.id ? { ...p, ...updatedData } : p
-    );
-    console.log("updatedInimigos: ", updatedInimigos);
+    const updatedInimigos = inimigos.map((p) => {
+      if (p.dados.id === updatedData.id) {
+        return {
+          ...p,
+          dados: { ...p.dados, ...updatedData.dados }, // Atualiza somente os dados
+        };
+      }
+      return p; // Retorna o inimigo original caso o ID não corresponda
+    });
 
     localStorage.setItem("cardsInimigos", JSON.stringify(updatedInimigos));
-    console.log("Salvando lista atualizada de inimigos:", updatedInimigos);
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setInimigoData((prevData) => {
-      const newData = { ...prevData, [name]: value };
-      updateInimigoList({ id: inimigo.dados.id, dados: newData });
-      return newData;
-    });
   };
 
   useEffect(() => {

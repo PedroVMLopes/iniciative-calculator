@@ -3,8 +3,7 @@
 
 -> Ler a documentação do useEffect pq era isso q tava causando problema no CardPlayer
 
--> Passar uma variável no MenuAddInimigo que indica o número de inimigos no grupo, que incrementa com cada adição
--> Importar essa variável no CardInimigo, e aumentar o número de inputs de acordo com ela
+-> Os cards de inimigos agrupados continuam sem dados no MenuLateral
 
 -> Organizar os cards no menu lateral pela ordem de iniciativa
 
