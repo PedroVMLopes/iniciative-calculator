@@ -39,36 +39,23 @@ const MenuLateral = () => {
       <h1>CONTAGEM DE INICIATIVA</h1>
       <div className="CardsLinhaDeIniciativa">
         {/* Renderizar jogadores */}
-        {players.map(
-          (player) => (
-            console.log("playerID:", player.dados.id),
-            (
-              <div
-                className="CardComIniciativa"
-                key={`player-${player.dados.id}`}
-              >
-                <CardPlayer player={player} />
-                <NumeroIniciativa iniciativa={player.iniciativa} />
-              </div>
-            )
-          )
-        )}
+        {players.map((player) => (
+          <div className="CardComIniciativa" key={`player-${player.dados.id}`}>
+            <CardPlayer player={player} />
+            <NumeroIniciativa iniciativa={player.iniciativa} />
+          </div>
+        ))}
 
         {/* Renderizar inimigos */}
-        {cardsInimigos.map(
-          (inimigo) => (
-            console.log("inimigoID:", inimigo.dados.id),
-            (
-              <div
-                className="CardComIniciativa"
-                key={`inimigo-${inimigo.dados.id}`}
-              >
-                <CardInimigo inimigo={inimigo} />
-                <NumeroIniciativa iniciativa={inimigo.iniciativa} />
-              </div>
-            )
-          )
-        )}
+        {cardsInimigos.map((inimigo) => (
+          <div
+            className="CardComIniciativa"
+            key={`inimigo-${inimigo.dados.id}`}
+          >
+            <CardInimigo inimigo={inimigo} />
+            <NumeroIniciativa iniciativa={inimigo.iniciativa} />
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -21,13 +21,8 @@ const CardPlayer = ({ player }) => {
   // Verifica se 'players' já foi salvo no localStorage
   useEffect(() => {
     const players = JSON.parse(localStorage.getItem("players")) || [];
-
-    if (players.length === 0) {
-      console.log("Sem dados no localStorage para 'players'.");
-      return; // Caso não tenha dados de players, não tenta carregar o resto
-    }
-
     const playerObject = players.find((p) => p.dados.id === player.dados.id);
+    console.log("playerObject.dados:", playerObject.dados);
     const playerDetails = playerObject.dados;
 
     if (playerDetails) {

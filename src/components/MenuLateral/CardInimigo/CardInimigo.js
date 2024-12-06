@@ -102,14 +102,24 @@ const FormCardInimigo = ({
 
 const CardInimigo = ({ inimigo }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [inimigoData, setInimigoData] = useState(null);
+  const storageKey = `inimigoData-${inimigo.id}`;
+  const [inimigoData, setInimigoData] = useState(
+    inimigo.dados || {
+      ca: "",
+      pv: "",
+      mod: "",
+      rolagem: "",
+      condicao: "",
+    }
+  );
 
   // Carrega os dados do inimigo específico ao montar o componente ou quando o ID muda
   useEffect(() => {
     const inimigos = JSON.parse(localStorage.getItem("cardsInimigos")) || [];
-    const inimigoObject = inimigos.find((p) => p.id === inimigo.id);
+    const inimigoObject = inimigos.find((p) => p.dados.id === inimigo.dados.id);
 
     if (inimigoObject?.dados) {
+      console.log("inimigoObject.dados", inimigoObject.dados);
       setInimigoData({
         ...inimigoObject.dados,
         numDeInimigos: inimigoObject.numDeInimigos || 1,
@@ -127,22 +137,28 @@ const CardInimigo = ({ inimigo }) => {
     const updatedInimigos = inimigos.map((p) =>
       p.id === inimigo.id ? { ...p, dados: updatedData } : p
     );
+    console.log("Salvando lista atualizada de inimigos:", updatedInimigos);
 
     localStorage.setItem("cardsInimigos", JSON.stringify(updatedInimigos));
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log("Name:", name, "Value:", value);
     setInimigoData((prevData) => {
-      const updatedData = { ...prevData, [name]: value };
-      updateInimigoList(updatedData);
-      return updatedData;
+      const newData = { ...prevData, [name]: value };
+      updateInimigoList({ id: inimigo.id, dados: newData });
+      return newData;
     });
   };
 
-  const toggleExpand = () => setIsExpanded((prevState) => !prevState);
+  useEffect(() => {
+    if (inimigoData && Object.keys(inimigoData).length > 0) {
+      localStorage.setItem(storageKey, JSON.stringify(inimigoData));
+    }
+  }, [inimigoData, storageKey]);
 
-  if (!inimigoData) return <p>Carregando dados do inimigo...</p>;
+  const toggleExpand = () => setIsExpanded((prevState) => !prevState);
 
   return (
     <div>
