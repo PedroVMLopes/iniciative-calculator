@@ -135,6 +135,8 @@ const CardInimigo = ({ inimigo }) => {
   // Recebe as informações alteradas e envia para a função de atualização
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log("valor", value);
+    console.log("e.target", e.target);
 
     setInimigoData((prevData) => {
       const newData = { ...prevData, [name]: value };
@@ -151,11 +153,15 @@ const CardInimigo = ({ inimigo }) => {
     const inimigos = JSON.parse(localStorage.getItem("cardsInimigos")) || [];
 
     const updatedInimigos = inimigos.map((p) => {
-      if (p.dados.id === updatedData.id) {
-        return {
-          ...p,
-          dados: { ...p.dados, ...updatedData.dados }, // Atualiza somente os dados
-        };
+      if (Array.isArray(p.dados)) {
+        // Caso p.dados seja um array
+        const updatedDadosArray = p.dados.map((item) =>
+          item.id === updatedData.id ? { ...item, ...updatedData.dados } : item
+        );
+        return { ...p, dados: updatedDadosArray };
+      } else if (p.dados.id === updatedData.id) {
+        // Caso p.dados seja um objeto único
+        return { ...p, dados: { ...p.dados, ...updatedData.dados } };
       }
       return p; // Retorna o inimigo original caso o ID não corresponda
     });
@@ -173,17 +179,15 @@ const CardInimigo = ({ inimigo }) => {
 
   return (
     <div>
-      {Array.from({ length: inimigoData.numDeInimigos || 1 }).map(
-        (_, index) => (
-          <FormCardInimigo
-            key={index}
-            inimigoData={inimigoData[index] || inimigoData}
-            handleChange={handleChange}
-            toggleExpand={toggleExpand}
-            isExpanded={isExpanded}
-          />
-        )
-      )}
+      {Array.from({ length: inimigoData.numDeInimigos }).map((_, index) => (
+        <FormCardInimigo
+          key={index}
+          inimigoData={inimigoData[index] || inimigoData}
+          handleChange={handleChange}
+          toggleExpand={toggleExpand}
+          isExpanded={isExpanded}
+        />
+      ))}
     </div>
   );
 };
