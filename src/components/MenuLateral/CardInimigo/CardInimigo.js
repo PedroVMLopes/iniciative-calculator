@@ -109,22 +109,19 @@ const CardInimigo = ({ inimigo }) => {
   const storageKey = `inimigoData-${inimigoObject.dados.id}`;
 
   const [inimigoData, setInimigoData] = useState(
-    inimigo.dados || {
-      ca: "",
-      pv: "",
-      mod: "",
-      rolagem: "",
-      condicao: "",
-    }
+    Array.isArray(inimigoObject.dados)
+      ? inimigoObject.dados
+      : [inimigoObject.dados] || []
   );
 
   // Carrega os dados do inimigo específico ao montar o componente ou quando o ID muda
   useEffect(() => {
     if (inimigoObject?.dados) {
-      setInimigoData({
-        ...inimigoObject.dados,
-        numDeInimigos: inimigoObject.numDeInimigos || 1,
-      });
+      setInimigoData(
+        Array.isArray(inimigoObject.dados)
+          ? inimigoObject.dados
+          : [inimigoObject.dados]
+      );
     } else {
       console.warn(
         `Inimigo com ID ${inimigo.id} não encontrado no localStorage.`
@@ -133,13 +130,12 @@ const CardInimigo = ({ inimigo }) => {
   }, [inimigo.id]);
 
   // Recebe as informações alteradas e envia para a função de atualização
-  const handleChange = (e) => {
+  const handleChange = (e, index) => {
     const { name, value } = e.target;
-    console.log("valor", value);
-    console.log("e.target", e.target);
 
     setInimigoData((prevData) => {
-      const newData = { ...prevData, [name]: value };
+      const newData = [...prevData];
+      newData[index] = { ...newData[index], [name]: value };
 
       // Atualiza apenas os dados relevantes no localStorage
       updateInimigoList({ id: inimigo.dados.id, dados: newData });
@@ -154,24 +150,24 @@ const CardInimigo = ({ inimigo }) => {
 
     const updatedInimigos = inimigos.map((p) => {
       if (Array.isArray(p.dados)) {
-        // Caso p.dados seja um array
         const updatedDadosArray = p.dados.map((item) =>
           item.id === updatedData.id ? { ...item, ...updatedData.dados } : item
         );
         return { ...p, dados: updatedDadosArray };
       } else if (p.dados.id === updatedData.id) {
-        // Caso p.dados seja um objeto único
         return { ...p, dados: { ...p.dados, ...updatedData.dados } };
       }
-      return p; // Retorna o inimigo original caso o ID não corresponda
+      return p;
     });
 
     localStorage.setItem("cardsInimigos", JSON.stringify(updatedInimigos));
   };
 
   useEffect(() => {
-    if (inimigoData && Object.keys(inimigoData).length > 0) {
-      localStorage.setItem(storageKey, JSON.stringify(inimigoData));
+    if (inimigoData && Array.isArray(inimigoData)) {
+      inimigoData.forEach((data, index) => {
+        localStorage.setItem(`${storageKey}-${index}`, JSON.stringify(data));
+      });
     }
   }, [inimigoData, storageKey]);
 
@@ -179,11 +175,11 @@ const CardInimigo = ({ inimigo }) => {
 
   return (
     <div>
-      {Array.from({ length: inimigoData.numDeInimigos }).map((_, index) => (
+      {inimigoData.map((data, index) => (
         <FormCardInimigo
           key={index}
-          inimigoData={inimigoData[index] || inimigoData}
-          handleChange={handleChange}
+          inimigoData={data}
+          handleChange={(e) => handleChange(e, index)}
           toggleExpand={toggleExpand}
           isExpanded={isExpanded}
         />
