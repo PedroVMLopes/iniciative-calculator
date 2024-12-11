@@ -177,7 +177,7 @@ const CardInimigo = ({ inimigo }) => {
         (_, index) => (
           <FormCardInimigo
             key={index}
-            inimigoData={inimigoData}
+            inimigoData={inimigoData[index] || inimigoData}
             handleChange={handleChange}
             toggleExpand={toggleExpand}
             isExpanded={isExpanded}
