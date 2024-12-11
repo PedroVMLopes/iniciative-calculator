@@ -137,8 +137,8 @@ const CardInimigo = ({ inimigo }) => {
       const newData = [...prevData];
       newData[index] = { ...newData[index], [name]: value };
 
-      // Atualiza apenas os dados relevantes no localStorage
-      updateInimigoList({ id: inimigo.dados.id, dados: newData });
+      // Atualiza os dados corretamente no localStorage
+      updateInimigoList(newData);
 
       return newData;
     });
@@ -148,18 +148,16 @@ const CardInimigo = ({ inimigo }) => {
   const updateInimigoList = (updatedData) => {
     const inimigos = JSON.parse(localStorage.getItem("cardsInimigos")) || [];
 
-    const updatedInimigos = inimigos.map((p) => {
-      if (Array.isArray(p.dados)) {
-        const updatedDadosArray = p.dados.map((item) =>
-          item.id === updatedData.id ? { ...item, ...updatedData.dados } : item
-        );
-        return { ...p, dados: updatedDadosArray };
-      } else if (p.dados.id === updatedData.id) {
-        return { ...p, dados: { ...p.dados, ...updatedData.dados } };
+    // Atualiza o inimigo correto dentro do array no localStorage
+    const updatedInimigos = inimigos.map((item) => {
+      if (item.dados.id === updatedData[0].id) {
+        // Substitui os dados antigos pelos novos sem duplicar
+        return { ...item, dados: updatedData };
       }
-      return p;
+      return item;
     });
 
+    // Salva novamente no localStorage
     localStorage.setItem("cardsInimigos", JSON.stringify(updatedInimigos));
   };
 
