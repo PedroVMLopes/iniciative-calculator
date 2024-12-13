@@ -118,6 +118,7 @@ const CardInimigo = ({ inimigo }) => {
       ? inimigoObject.dados
       : [inimigoObject.dados] || []
   );
+  console.log("inimigoData:", inimigoData);
 
   // Carrega os dados do inimigo específico ao montar o componente ou quando o ID muda
   useEffect(() => {
@@ -139,8 +140,10 @@ const CardInimigo = ({ inimigo }) => {
     const { name, value } = e.target;
 
     setInimigoData((prevData) => {
+      console.log("PrevData INIMIGO:", prevData);
       const newData = [...prevData];
       newData[index] = { ...newData[index], [name]: value };
+      console.log("NewData INIMIGO:", newData);
 
       // Atualiza os dados corretamente no localStorage
       updateInimigoList(newData);

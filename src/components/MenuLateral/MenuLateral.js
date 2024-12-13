@@ -34,12 +34,8 @@ const MenuLateral = () => {
     };
   }, []);
 
-  console.log("inimigos: ", cardsInimigos);
-  console.log("Players: ", players);
-
   const listaTotal = [...players, ...cardsInimigos];
   listaTotal.sort((a, b) => b.iniciativa - a.iniciativa);
-  console.log("Lista total: ", listaTotal);
 
   return (
     <div className="menu-lateral">
@@ -47,7 +43,10 @@ const MenuLateral = () => {
       <div className="CardsLinhaDeIniciativa">
         {/* Renderizar jogadores */}
         {players.map((player) => (
-          <div className="CardComIniciativa" key={`player-${player.dados.id}`}>
+          <div
+            className="CardComIniciativa"
+            key={`player-${player.dados.map((d) => d.id)}`}
+          >
             <CardPlayer player={player} />
             <NumeroIniciativa iniciativa={player.iniciativa} />
           </div>
@@ -64,17 +63,12 @@ const MenuLateral = () => {
           </div>
         ))}
 
-        {listaTotal.map(
-          (card) => (
-            console.log("card: ", card),
-            (
-              <div
-                className="CardComIniciativa"
-                key={`card-${card.dados.map((d) => d.id)}`}
-              ></div>
-            )
-          )
-        )}
+        {listaTotal.map((card) => (
+          <div
+            className="CardComIniciativa"
+            key={`card-${card.dados.map((d) => d.id)}`}
+          ></div>
+        ))}
       </div>
     </div>
   );

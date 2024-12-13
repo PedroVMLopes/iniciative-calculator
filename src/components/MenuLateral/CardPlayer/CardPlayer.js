@@ -15,64 +15,59 @@ const CardPlayer = ({ player }) => {
   const storageKey = `playerData-${playerId}`;
 
   // Estado para armazenar os dados do jogador
-  const [playerData, setPlayerData] = useState({
-    ca: "",
-    pv: "",
-    mod: "",
-    rolagem: "",
-    condicao: "",
-  });
+  const [playerData, setPlayerData] = useState(playerObject.dados);
 
   // Verifica se 'players' já foi salvo no localStorage
   useEffect(() => {
-    const players = JSON.parse(localStorage.getItem("players")) || [];
-    const playerObject = players.find((p) =>
-      p.dados.some((dado) => player.dados.some((pd) => pd.id === dado.id))
-    );
-
-    if (playerObject) {
-      const storedData = localStorage.getItem(storageKey);
-
-      if (storedData) {
-        const parsedData = JSON.parse(storedData);
-        setPlayerData((prevData) => ({
-          ...prevData,
-          ...parsedData,
-          nome: playerObject.dados[0]?.nome || "", // Exemplo para o primeiro item
-          ca: playerObject.dados[0]?.ca || "",
-          pv: playerObject.dados[0]?.pv || "",
-          mod: playerObject.dados[0]?.mod || "",
-          rolagem: playerObject.dados[0]?.rolagem || "",
-        }));
-      }
+    if (playerObject?.dados) {
+      setPlayerData(playerObject.dados);
     }
-  }, [storageKey, player.dados]);
+  }, [player.dados[0].id]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setPlayerData((prevData) => {
+      console.log("PrevData PLAYER:", prevData);
+
+      // Atualiza apenas o dado do jogador no array de dados (não cria um array de novo).
+      const updatedPlayerData = prevData.map((player) => {
+        if (player.id === prevData[0].id) {
+          return { ...player, [name]: value }; // Atualiza o valor específico do campo
+        }
+        return player; // Retorna o restante dos jogadores sem alteração
+      });
+
+      console.log("Updated Player Data:", updatedPlayerData);
+
+      // Atualiza a lista geral de jogadores
+      updatePlayersList(updatedPlayerData);
+
+      return updatedPlayerData;
+    });
+  };
 
   // Função para sincronizar dados com a lista geral no localStorage
   const updatePlayersList = (updatedPlayer) => {
     const players = JSON.parse(localStorage.getItem("players")) || [];
-    const updatedPlayers = players.map((p) =>
-      p.dados.some((dado) => player.dados.some((pd) => pd.id === dado.id))
-        ? { ...p, ...updatedPlayer }
-        : p
-    );
 
+    // Atualiza a lista de jogadores apenas no objeto correto
+    const updatedPlayers = players.map((p) => {
+      // Verifica se o jogador da lista é o mesmo jogador a ser atualizado
+      if (p.dados.some((dado) => dado.id === updatedPlayer[0].id)) {
+        return { ...p, dados: updatedPlayer }; // Atualiza o array 'dados' do jogador correto
+      }
+      return p; // Retorna o restante dos jogadores sem alteração
+    });
+
+    // Salva a lista de jogadores atualizada no localStorage
     localStorage.setItem("players", JSON.stringify(updatedPlayers));
-    console.log("Salvando lista atualizada de players:", updatedPlayers); // Depuração
+
+    console.log("Salvando lista atualizada de players:", updatedPlayers);
   };
 
   // Altera se o card está expandido ou retraído
   const toggleExpand = () => {
     setIsExpanded((prevState) => !prevState);
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setPlayerData((prevData) => {
-      const newData = { ...prevData, [name]: value };
-      updatePlayersList({ id: player.id, ...newData }); // Atualiza lista geral
-      return newData;
-    });
   };
 
   // Atualiza localStorage sempre que o estado playerData mudar
@@ -88,7 +83,7 @@ const CardPlayer = ({ player }) => {
 
   return (
     <div className="card-player">
-      <h1>{playerData.nome}</h1>
+      <h1>{playerData[0].nome}</h1>
       <form onSubmit={handleSubmit} className="card-player-info">
         {/* Campos do card - expandido */}
         {isExpanded && (
@@ -100,7 +95,7 @@ const CardPlayer = ({ player }) => {
               <input
                 type="text"
                 name="ca"
-                value={playerData.ca}
+                value={playerData[0].ca}
                 onChange={handleChange}
               />
             </label>
@@ -111,7 +106,7 @@ const CardPlayer = ({ player }) => {
               <input
                 type="text"
                 name="pv"
-                value={playerData.pv}
+                value={playerData[0].pv}
                 onChange={handleChange}
               />
             </label>
@@ -120,7 +115,7 @@ const CardPlayer = ({ player }) => {
               <input
                 type="text"
                 name="mod"
-                value={playerData.mod}
+                value={playerData[0].mod}
                 onChange={handleChange}
               />
             </label>
@@ -129,7 +124,7 @@ const CardPlayer = ({ player }) => {
               <input
                 type="text"
                 name="rolagem"
-                value={playerData.rolagem}
+                value={playerData[0].rolagem}
                 onChange={handleChange}
               />
             </label>
@@ -138,7 +133,7 @@ const CardPlayer = ({ player }) => {
               <input
                 type="text"
                 name="condicao"
-                value={playerData.condicao}
+                value={playerData[0].condicao}
                 onChange={handleChange}
               />
             </label>
@@ -157,7 +152,7 @@ const CardPlayer = ({ player }) => {
             <input
               type="text"
               name="ca"
-              value={playerData.ca}
+              value={playerData[0].ca}
               onChange={handleChange}
             />
           </label>
@@ -166,7 +161,7 @@ const CardPlayer = ({ player }) => {
             <input
               type="text"
               name="pv"
-              value={playerData.pv}
+              value={playerData[0].pv}
               onChange={handleChange}
             />
           </label>
