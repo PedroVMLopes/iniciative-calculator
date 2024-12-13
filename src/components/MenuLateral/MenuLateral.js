@@ -34,40 +34,28 @@ const MenuLateral = () => {
     };
   }, []);
 
-  const listaTotal = [...players, ...cardsInimigos];
-  listaTotal.sort((a, b) => b.iniciativa - a.iniciativa);
+  /* Junta os jogadores e inimigos e marca os dois adequadamente */
+  const listaTotal = [
+    ...players.map((player) => ({ ...player, tipo: "player" })),
+    ...cardsInimigos.map((inimigo) => ({ ...inimigo, tipo: "inimigo" })),
+  ];
+
+  /* Organiza a lista na ordem correta de iniciativa */
+  const sortedList = [...listaTotal].sort(
+    (a, b) => b.iniciativa - a.iniciativa
+  );
 
   return (
     <div className="menu-lateral">
       <h1>CONTAGEM DE INICIATIVA</h1>
       <div className="CardsLinhaDeIniciativa">
         {/* Renderizar jogadores */}
-        {players.map((player) => (
-          <div
-            className="CardComIniciativa"
-            key={`player-${player.dados.map((d) => d.id)}`}
-          >
-            <CardPlayer player={player} />
-            <NumeroIniciativa iniciativa={player.iniciativa} />
+        {sortedList.map((card, index) => (
+          <div key={index} className="CardComIniciativa">
+            {card.tipo === "player" && <CardPlayer player={card} />}
+            {card.tipo === "inimigo" && <CardInimigo inimigo={card} />}
+            <NumeroIniciativa iniciativa={card.iniciativa} />
           </div>
-        ))}
-
-        {/* Renderizar inimigos */}
-        {cardsInimigos.map((inimigo) => (
-          <div
-            className="CardComIniciativa"
-            key={`inimigo-${inimigo.dados.map((d) => d.id)}`}
-          >
-            <CardInimigo inimigo={inimigo} />
-            <NumeroIniciativa iniciativa={inimigo.iniciativa} />
-          </div>
-        ))}
-
-        {listaTotal.map((card) => (
-          <div
-            className="CardComIniciativa"
-            key={`card-${card.dados.map((d) => d.id)}`}
-          ></div>
         ))}
       </div>
     </div>

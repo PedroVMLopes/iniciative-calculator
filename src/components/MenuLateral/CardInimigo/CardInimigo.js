@@ -118,7 +118,6 @@ const CardInimigo = ({ inimigo }) => {
       ? inimigoObject.dados
       : [inimigoObject.dados] || []
   );
-  console.log("inimigoData:", inimigoData);
 
   // Carrega os dados do inimigo específico ao montar o componente ou quando o ID muda
   useEffect(() => {
