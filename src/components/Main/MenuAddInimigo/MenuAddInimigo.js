@@ -44,15 +44,17 @@ function MenuAddInimigo() {
       return;
     }
 
-    const novoInimigo = {
-      id: Date.now(),
-      nome: fieldNome,
-      ca: fieldCa,
-      pv: fieldPv,
-      mod: fieldMod,
-      rolagem: fieldRolagem,
-      condicao: fieldCondicao,
-    };
+    const novoInimigo = [
+      {
+        id: Date.now(),
+        nome: fieldNome,
+        ca: fieldCa,
+        pv: fieldPv,
+        mod: fieldMod,
+        rolagem: fieldRolagem,
+        condicao: fieldCondicao,
+      },
+    ];
 
     const iniciativa = Math.floor(Math.random() * 20) + 1;
     const imimigoComIniciativa = {
@@ -63,7 +65,7 @@ function MenuAddInimigo() {
 
     // Atualiza o estado e o localStorage diretamente
     const cardsInimigosAtualizados = [...cardsInimigos, imimigoComIniciativa];
-    setCardsInimigos(cardsInimigosAtualizados);
+    console.log("cardsInimigosAtualizados", cardsInimigosAtualizados);
     localStorage.setItem(
       "cardsInimigos",
       JSON.stringify(cardsInimigosAtualizados)

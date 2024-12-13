@@ -50,7 +50,7 @@ const MenuLateral = () => {
         {cardsInimigos.map((inimigo) => (
           <div
             className="CardComIniciativa"
-            key={`inimigo-${inimigo.dados.id}`}
+            key={`inimigo-${inimigo.dados.map((d) => d.id)}`}
           >
             <CardInimigo inimigo={inimigo} />
             <NumeroIniciativa iniciativa={inimigo.iniciativa} />

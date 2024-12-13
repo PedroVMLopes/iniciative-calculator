@@ -104,9 +104,14 @@ const CardInimigo = ({ inimigo }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const inimigos = JSON.parse(localStorage.getItem("cardsInimigos")) || [];
 
-  const inimigoObject = inimigos.find((p) => p.dados.id === inimigo.dados.id);
+  const inimigoObject = inimigos.find((p) =>
+    p.dados.some((d) =>
+      inimigo.dados.some((inimigoDado) => d.id === inimigoDado.id)
+    )
+  );
 
-  const storageKey = `inimigoData-${inimigoObject.dados.id}`;
+  const inimigoId = inimigoObject.dados.map((d) => d.id);
+  const storageKey = `inimigoData-${inimigoId}`;
 
   const [inimigoData, setInimigoData] = useState(
     Array.isArray(inimigoObject.dados)
@@ -150,10 +155,16 @@ const CardInimigo = ({ inimigo }) => {
 
     // Atualiza o inimigo correto dentro do array no localStorage
     const updatedInimigos = inimigos.map((item) => {
-      if (item.dados.id === updatedData[0].id) {
-        // Substitui os dados antigos pelos novos sem duplicar
+      // Verifica se algum dos IDs em `dados` de `item` corresponde ao ID do primeiro elemento de `updatedData`
+      const isMatchingInimigo = item.dados.some(
+        (d) => d.id === updatedData[0].id
+      );
+
+      if (isMatchingInimigo) {
+        // Atualiza o inimigo encontrado, substituindo os dados antigos pelos novos
         return { ...item, dados: updatedData };
       }
+
       return item;
     });
 
