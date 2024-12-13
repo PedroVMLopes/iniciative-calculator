@@ -3,11 +3,17 @@
 
 -> Ler a documentação do useEffect pq era isso q tava causando problema no CardPlayer
 
--> Transformar o card de inimigo criado em um array de objeto
-
 -> Organizar os cards no menu lateral pela ordem de iniciativa
 
+-> Adicionar um botão para remover itens da lista de iniciativa
+
 -> Adicionar os botões de avançar e voltar turnos
+
+-> Adicionar a funcionalidade de utilizar a rolagem do jogador
+
+-> Adicionar a funcionalidade de marcar cards que possuem alguma condição
+
+
 
 
 ---------------------------------------------------------------

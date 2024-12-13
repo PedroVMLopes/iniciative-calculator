@@ -42,15 +42,17 @@ export default function MenuAddPlayer() {
       return;
     }
 
-    const novoPlayer = {
-      id: Date.now(), // ID único baseado no timestamp
-      nome: fieldNome,
-      ca: fieldCa,
-      pv: fieldPv,
-      mod: fieldMod,
-      rolagem: fieldRolagem,
-      iniciativa: 0,
-    };
+    const novoPlayer = [
+      {
+        id: Date.now(), // ID único baseado no timestamp
+        nome: fieldNome,
+        ca: fieldCa,
+        pv: fieldPv,
+        mod: fieldMod,
+        rolagem: fieldRolagem,
+        iniciativa: 0,
+      },
+    ];
 
     const iniciativa = Math.floor(Math.random() * 20) + 1;
     const playerComIniciativa = { dados: novoPlayer, iniciativa: iniciativa };

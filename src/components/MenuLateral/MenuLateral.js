@@ -34,6 +34,13 @@ const MenuLateral = () => {
     };
   }, []);
 
+  console.log("inimigos: ", cardsInimigos);
+  console.log("Players: ", players);
+
+  const listaTotal = [...players, ...cardsInimigos];
+  listaTotal.sort((a, b) => b.iniciativa - a.iniciativa);
+  console.log("Lista total: ", listaTotal);
+
   return (
     <div className="menu-lateral">
       <h1>CONTAGEM DE INICIATIVA</h1>
@@ -56,6 +63,18 @@ const MenuLateral = () => {
             <NumeroIniciativa iniciativa={inimigo.iniciativa} />
           </div>
         ))}
+
+        {listaTotal.map(
+          (card) => (
+            console.log("card: ", card),
+            (
+              <div
+                className="CardComIniciativa"
+                key={`card-${card.dados.map((d) => d.id)}`}
+              ></div>
+            )
+          )
+        )}
       </div>
     </div>
   );

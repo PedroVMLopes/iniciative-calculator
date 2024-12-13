@@ -5,9 +5,14 @@ import "./CardPlayer.css";
 
 const CardPlayer = ({ player }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const players = JSON.parse(localStorage.getItem("players")) || [];
+  const playerObject = players.find((p) =>
+    p.dados.some((dado) => player.dados.some((pd) => pd.id === dado.id))
+  );
+  const playerId = playerObject.dados.map((d) => d.id);
 
   // Chave única para o localStorage
-  const storageKey = `playerData-${player.id}`;
+  const storageKey = `playerData-${playerId}`;
 
   // Estado para armazenar os dados do jogador
   const [playerData, setPlayerData] = useState({
@@ -21,10 +26,11 @@ const CardPlayer = ({ player }) => {
   // Verifica se 'players' já foi salvo no localStorage
   useEffect(() => {
     const players = JSON.parse(localStorage.getItem("players")) || [];
-    const playerObject = players.find((p) => p.dados.id === player.dados.id);
-    const playerDetails = playerObject.dados;
+    const playerObject = players.find((p) =>
+      p.dados.some((dado) => player.dados.some((pd) => pd.id === dado.id))
+    );
 
-    if (playerDetails) {
+    if (playerObject) {
       const storedData = localStorage.getItem(storageKey);
 
       if (storedData) {
@@ -32,21 +38,23 @@ const CardPlayer = ({ player }) => {
         setPlayerData((prevData) => ({
           ...prevData,
           ...parsedData,
-          nome: playerDetails.nome || "",
-          ca: playerDetails.ca || "",
-          pv: playerDetails.pv || "",
-          mod: playerDetails.mod || "",
-          rolagem: playerDetails.rolagem || "",
+          nome: playerObject.dados[0]?.nome || "", // Exemplo para o primeiro item
+          ca: playerObject.dados[0]?.ca || "",
+          pv: playerObject.dados[0]?.pv || "",
+          mod: playerObject.dados[0]?.mod || "",
+          rolagem: playerObject.dados[0]?.rolagem || "",
         }));
       }
     }
-  }, [storageKey, player.id]);
+  }, [storageKey, player.dados]);
 
   // Função para sincronizar dados com a lista geral no localStorage
   const updatePlayersList = (updatedPlayer) => {
     const players = JSON.parse(localStorage.getItem("players")) || [];
     const updatedPlayers = players.map((p) =>
-      p.id === updatedPlayer.id ? { ...p, ...updatedPlayer } : p
+      p.dados.some((dado) => player.dados.some((pd) => pd.id === dado.id))
+        ? { ...p, ...updatedPlayer }
+        : p
     );
 
     localStorage.setItem("players", JSON.stringify(updatedPlayers));
