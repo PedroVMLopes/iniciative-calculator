@@ -3,18 +3,19 @@
 
 -> Ler a documentação do useEffect pq era isso q tava causando problema no CardPlayer
 
--> Organizar os cards no menu lateral pela ordem de iniciativa
+-> Fazer os modificadores somarem no total da iniciativa
 
 -> Adicionar um botão para remover itens da lista de iniciativa
 
--> Adicionar os botões de avançar e voltar turnos
-
 -> Adicionar a funcionalidade de utilizar a rolagem do jogador
+
+-> Adicionar os botões de avançar e voltar turnos
 
 -> Adicionar a funcionalidade de marcar cards que possuem alguma condição
 
 
 
+-> Quando o PV for 0 alterar o card para estado de morto
 
 ---------------------------------------------------------------
 localStorage
