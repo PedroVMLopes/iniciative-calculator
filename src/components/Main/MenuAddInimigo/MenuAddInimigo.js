@@ -99,8 +99,6 @@ function MenuAddInimigo() {
 
   // Envia o grupo de inimigos com a iniciativa calculada
   const enviarGrupo = (event) => {
-    event.preventDefault();
-
     const iniciativa = Math.floor(Math.random() * 20) + 1;
     const grupoComIniciativa = {
       dados: grupoDeInimigos,
@@ -178,7 +176,7 @@ function MenuAddInimigo() {
           <br />
           <button
             className="botao-add-inimigo"
-            type="button"
+            type="submit"
             onClick={adicionarInimigo}
           >
             Enviar Inimigo Único
@@ -192,7 +190,7 @@ function MenuAddInimigo() {
           </button>
           <button
             className="botao-add-inimigo"
-            type="button"
+            type="submit"
             onClick={enviarGrupo}
           >
             Enviar Grupo
