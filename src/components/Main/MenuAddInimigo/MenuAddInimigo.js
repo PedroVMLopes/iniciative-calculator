@@ -55,7 +55,8 @@ function MenuAddInimigo() {
       },
     ];
 
-    const iniciativa = Math.floor(Math.random() * 20) + 1;
+    const modificador = Number(fieldMod);
+    const iniciativa = Math.floor(Math.random() * 20) + 1 + modificador;
     const imimigoComIniciativa = {
       dados: novoInimigo,
       iniciativa: iniciativa,
@@ -75,8 +76,6 @@ function MenuAddInimigo() {
 
   // Adiciona o inimigo a um grupo de inimigos
   const adicionarAoGrupo = (event) => {
-    event.preventDefault();
-
     const novoInimigoDoGrupo = {
       id: Date.now(),
       nome: fieldNome,
@@ -98,7 +97,8 @@ function MenuAddInimigo() {
 
   // Envia o grupo de inimigos com a iniciativa calculada
   const enviarGrupo = (event) => {
-    const iniciativa = Math.floor(Math.random() * 20) + 1;
+    const modificador = Number(fieldMod);
+    const iniciativa = Math.floor(Math.random() * 20) + 1 + modificador;
     const grupoComIniciativa = {
       dados: grupoDeInimigos,
       iniciativa: iniciativa,
