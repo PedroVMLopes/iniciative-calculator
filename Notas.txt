@@ -3,7 +3,7 @@
 
 -> Ler a documentação do useEffect pq era isso q tava causando problema no CardPlayer
 
--> Adicionar um botão para remover itens da lista de iniciativa
+-> Há um erro quando um card de inimigo é excluído, mesmo que sua função esteja funcionando corretamente
 
 -> Adicionar os botões de avançar e voltar turnos
 

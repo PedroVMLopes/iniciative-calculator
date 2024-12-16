@@ -152,6 +152,7 @@ const CardInimigo = ({ inimigo }) => {
   const updateInimigoList = (updatedData) => {
     const inimigos = JSON.parse(localStorage.getItem("cardsInimigos")) || [];
 
+    // Atualiza os inimigos no localStorage
     const updatedInimigos = inimigos.map((item) => {
       const isMatchingInimigo = item.dados.some((d) =>
         updatedData.some((newData) => newData.id === d.id)
@@ -189,8 +190,9 @@ const CardInimigo = ({ inimigo }) => {
       const deletedId = prevData[index]?.id; // Armazena o ID do item a ser excluído
       const updatedData = prevData.filter((_, i) => i !== index); // Filtra o item a ser removido
 
+      // Verifica se o grupo está vazio após a exclusão
       if (updatedData.length === 0) {
-        // Se não houver mais inimigos no grupo, remove do localStorage
+        // Se não houver mais inimigos no grupo, removemos o grupo do localStorage
         const inimigos =
           JSON.parse(localStorage.getItem("cardsInimigos")) || [];
         const updatedInimigos = inimigos.filter(
@@ -199,7 +201,7 @@ const CardInimigo = ({ inimigo }) => {
 
         localStorage.setItem("cardsInimigos", JSON.stringify(updatedInimigos));
       } else {
-        // Atualiza o grupo com os dados restantes
+        // Caso contrário, atualizamos o grupo com os dados restantes
         updateInimigoList(updatedData);
       }
 
