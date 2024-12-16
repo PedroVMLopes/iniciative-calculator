@@ -120,15 +120,6 @@ const CardPlayer = ({ player }) => {
               />
             </label>
             <label>
-              <p>ROLAGEM: </p>
-              <input
-                type="text"
-                name="rolagem"
-                value={playerData[0].rolagem}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
               <p>CONDICAO: </p>
               <input
                 type="text"

@@ -47,15 +47,6 @@ const FormCardInimigo = ({
               />
             </label>
             <label>
-              <p>ROLAGEM: </p>
-              <input
-                type="text"
-                name="rolagem"
-                value={inimigoData.rolagem}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
               <p>CONDICAO: </p>
               <input
                 type="text"

@@ -51,7 +51,6 @@ function MenuAddInimigo() {
         ca: fieldCa,
         pv: fieldPv,
         mod: fieldMod,
-        rolagem: fieldRolagem,
         condicao: fieldCondicao,
       },
     ];
@@ -156,14 +155,6 @@ function MenuAddInimigo() {
             value={fieldMod}
             name="mod"
             onChange={(event) => setFieldMod(event.target.value)}
-          />
-          <br />
-          <label htmlFor="rolagem">Rolagem:</label>
-          <input
-            type="text"
-            value={fieldRolagem}
-            name="rolagem"
-            onChange={(event) => setFieldRolagem(event.target.value)}
           />
           <br />
           <label htmlFor="condicao">Condição:</label>
