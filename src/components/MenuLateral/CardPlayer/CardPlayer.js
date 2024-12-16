@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaPencilRuler, FaHeart } from "react-icons/fa";
 import { GiCheckedShield } from "react-icons/gi";
+import { RiDeleteBin7Fill } from "react-icons/ri";
 import "./CardPlayer.css";
 
 const CardPlayer = ({ player }) => {
@@ -77,14 +78,18 @@ const CardPlayer = ({ player }) => {
     }
   }, [playerData, storageKey]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleDelete = (e) => {
+    const players = JSON.parse(localStorage.getItem("players")) || [];
+    const updatedPlayers = players.filter(
+      (p) => p.dados[0].id !== Number(playerId)
+    );
+    localStorage.setItem("players", JSON.stringify(updatedPlayers));
   };
 
   return (
     <div className="card-player">
       <h1>{playerData[0].nome}</h1>
-      <form onSubmit={handleSubmit} className="card-player-info">
+      <form className="card-player-info">
         {/* Campos do card - expandido */}
         {isExpanded && (
           <div>
@@ -130,6 +135,9 @@ const CardPlayer = ({ player }) => {
             </label>
             <button type="button" onClick={toggleExpand}>
               <FaPencilRuler /> Concluir
+            </button>
+            <button type="submit" onClick={handleDelete}>
+              <RiDeleteBin7Fill /> Remover
             </button>
           </div>
         )}

@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { FaPencilRuler, FaHeart } from "react-icons/fa";
 import { GiCheckedShield } from "react-icons/gi";
+import { RiDeleteBin7Fill } from "react-icons/ri";
 import "./CardInimigo.css";
 
 const FormCardInimigo = ({
   inimigoData,
   handleChange,
   toggleExpand,
+  handleDelete,
   isExpanded,
+  index,
 }) => {
   return (
     <div className="card-inimigo">
@@ -57,6 +60,9 @@ const FormCardInimigo = ({
             </label>
             <button type="button" onClick={toggleExpand}>
               <FaPencilRuler /> Concluir
+            </button>
+            <button type="button" onClick={(e) => handleDelete(e, index)}>
+              <RiDeleteBin7Fill /> Remover
             </button>
           </div>
         )}
@@ -146,23 +152,24 @@ const CardInimigo = ({ inimigo }) => {
   const updateInimigoList = (updatedData) => {
     const inimigos = JSON.parse(localStorage.getItem("cardsInimigos")) || [];
 
-    // Atualiza o inimigo correto dentro do array no localStorage
     const updatedInimigos = inimigos.map((item) => {
-      // Verifica se algum dos IDs em `dados` de `item` corresponde ao ID do primeiro elemento de `updatedData`
-      const isMatchingInimigo = item.dados.some(
-        (d) => d.id === updatedData[0].id
+      const isMatchingInimigo = item.dados.some((d) =>
+        updatedData.some((newData) => newData.id === d.id)
       );
 
       if (isMatchingInimigo) {
-        // Atualiza o inimigo encontrado, substituindo os dados antigos pelos novos
         return { ...item, dados: updatedData };
       }
 
       return item;
     });
 
-    // Salva novamente no localStorage
-    localStorage.setItem("cardsInimigos", JSON.stringify(updatedInimigos));
+    // Filtra grupos vazios e atualiza o localStorage
+    const filteredInimigos = updatedInimigos.filter(
+      (item) => item.dados && item.dados.length > 0
+    );
+
+    localStorage.setItem("cardsInimigos", JSON.stringify(filteredInimigos));
   };
 
   useEffect(() => {
@@ -175,13 +182,40 @@ const CardInimigo = ({ inimigo }) => {
 
   const toggleExpand = () => setIsExpanded((prevState) => !prevState);
 
+  const handleDelete = (e, index) => {
+    e.preventDefault(); // Previne o comportamento padrão do botão
+
+    setInimigoData((prevData) => {
+      const deletedId = prevData[index]?.id; // Armazena o ID do item a ser excluído
+      const updatedData = prevData.filter((_, i) => i !== index); // Filtra o item a ser removido
+
+      if (updatedData.length === 0) {
+        // Se não houver mais inimigos no grupo, remove do localStorage
+        const inimigos =
+          JSON.parse(localStorage.getItem("cardsInimigos")) || [];
+        const updatedInimigos = inimigos.filter(
+          (item) => !item.dados.some((d) => d.id === deletedId)
+        );
+
+        localStorage.setItem("cardsInimigos", JSON.stringify(updatedInimigos));
+      } else {
+        // Atualiza o grupo com os dados restantes
+        updateInimigoList(updatedData);
+      }
+
+      return updatedData;
+    });
+  };
+
   return (
     <div>
       {inimigoData.map((data, index) => (
         <FormCardInimigo
-          key={index}
+          key={data.id}
+          index={index}
           inimigoData={data}
           handleChange={(e) => handleChange(e, index)}
+          handleDelete={(e) => handleDelete(e, index)}
           toggleExpand={toggleExpand}
           isExpanded={isExpanded}
         />

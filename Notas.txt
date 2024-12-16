@@ -3,15 +3,13 @@
 
 -> Ler a documentação do useEffect pq era isso q tava causando problema no CardPlayer
 
--> Fazer os modificadores somarem no total da iniciativa
-
 -> Adicionar um botão para remover itens da lista de iniciativa
-
--> Adicionar a funcionalidade de utilizar a rolagem do jogador
 
 -> Adicionar os botões de avançar e voltar turnos
 
 -> Adicionar a funcionalidade de marcar cards que possuem alguma condição
+
+-> Caso haja alguma condição adicionar um marcador que conta a duração de turnos para que ela acabe
 
 
 
