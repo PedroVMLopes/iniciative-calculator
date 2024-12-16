@@ -54,7 +54,16 @@ export default function MenuAddPlayer() {
       },
     ];
 
-    const iniciativa = Math.floor(Math.random() * 20) + 1;
+    let iniciativa = 0;
+    /* Permite que o jogador realize a rolagem */
+    if (fieldRolagem) {
+      let modificador = fieldMod;
+      iniciativa = Number(fieldRolagem) + Number(modificador);
+    } else {
+      let modificador = Number(fieldMod);
+      iniciativa = Math.floor(Math.random() * 20) + 1 + modificador;
+    }
+
     const playerComIniciativa = { dados: novoPlayer, iniciativa: iniciativa };
     const updatedPlayers = [...players, playerComIniciativa];
 
