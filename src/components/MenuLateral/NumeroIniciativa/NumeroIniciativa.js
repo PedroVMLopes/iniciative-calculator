@@ -1,3 +1,5 @@
+import "./NumeroIniciativa.css";
+
 export default function NumeroIniciativa(prop) {
   return (
     <div className="numero-iniciativa">

@@ -28,8 +28,6 @@ const CardPlayer = ({ player }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setPlayerData((prevData) => {
-      console.log("PrevData PLAYER:", prevData);
-
       // Atualiza apenas o dado do jogador no array de dados (não cria um array de novo).
       const updatedPlayerData = prevData.map((player) => {
         if (player.id === prevData[0].id) {
@@ -37,8 +35,6 @@ const CardPlayer = ({ player }) => {
         }
         return player; // Retorna o restante dos jogadores sem alteração
       });
-
-      console.log("Updated Player Data:", updatedPlayerData);
 
       // Atualiza a lista geral de jogadores
       updatePlayersList(updatedPlayerData);
@@ -62,8 +58,6 @@ const CardPlayer = ({ player }) => {
 
     // Salva a lista de jogadores atualizada no localStorage
     localStorage.setItem("players", JSON.stringify(updatedPlayers));
-
-    console.log("Salvando lista atualizada de players:", updatedPlayers);
   };
 
   // Altera se o card está expandido ou retraído

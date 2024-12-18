@@ -54,7 +54,10 @@ const MenuLateral = () => {
           <div key={index} className="CardComIniciativa">
             {card.tipo === "player" && <CardPlayer player={card} />}
             {card.tipo === "inimigo" && <CardInimigo inimigo={card} />}
-            <NumeroIniciativa iniciativa={card.iniciativa} />
+            <NumeroIniciativa
+              iniciativa={card.iniciativa}
+              className="numero-iniciativa"
+            />
           </div>
         ))}
       </div>
