@@ -62,7 +62,7 @@ const FormCardInimigo = ({
                 onChange={handleChange}
               />
             </label>
-            <button type="button" onClick={(e) => handleDelete(e, index)}>
+            <button type="submit" onClick={(e) => handleDelete(e, index)}>
               <RiDeleteBin7Fill />
             </button>
             <button type="button" onClick={toggleExpand}>
@@ -179,6 +179,7 @@ const CardInimigo = ({ inimigo }) => {
     localStorage.setItem("cardsInimigos", JSON.stringify(filteredInimigos));
   };
 
+  /* Salva os dados na localStorage quando o inimigoData mudar */
   useEffect(() => {
     if (inimigoData && Array.isArray(inimigoData)) {
       inimigoData.forEach((data, index) => {
@@ -196,7 +197,7 @@ const CardInimigo = ({ inimigo }) => {
 
       // Verifica se o grupo está vazio após a exclusão
       if (updatedData.length === 0) {
-        // Se não houver mais inimigos no grupo, removemos o grupo do localStorage
+        // Se não houver mais inimigos no grupo, remove o grupo do localStorage
         const inimigos =
           JSON.parse(localStorage.getItem("cardsInimigos")) || [];
         const updatedInimigos = inimigos.filter(
@@ -205,16 +206,16 @@ const CardInimigo = ({ inimigo }) => {
 
         localStorage.setItem("cardsInimigos", JSON.stringify(updatedInimigos));
       } else {
-        // Caso contrário, atualizamos o grupo com os dados restantes
+        // Caso contrário, atualiza o grupo com os dados restantes
         updateInimigoList(updatedData);
       }
-
+      window.location.reload();
       return updatedData;
     });
   };
 
   return (
-    <div>
+    <div key={storageKey}>
       {inimigoData.map((data, index) => (
         <FormCardInimigo
           key={data.id}

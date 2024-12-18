@@ -83,6 +83,7 @@ const CardPlayer = ({ player }) => {
   /* card-player cardComIniciativa */
   return (
     <div
+      key={storageKey}
       className={`card-player ${
         playerData[0].condicao ? "cardComCondicao" : ""
       }`}
