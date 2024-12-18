@@ -8,11 +8,8 @@
 -> Adicionar os botões de avançar e voltar turnos
 
 
--> Adicionar a funcionalidade de marcar cards que possuem alguma condição
+-> Adicionar a funcionalidade de condição nos inimigos
 
--> Caso o input de condição não esteja vazio ele aparece com o card fechado
-
--> Caso haja alguma condição adicionar um marcador que conta a duração de turnos para que ela acabe
 
 
 
