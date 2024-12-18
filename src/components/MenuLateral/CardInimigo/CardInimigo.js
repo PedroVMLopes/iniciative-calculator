@@ -209,7 +209,7 @@ const CardInimigo = ({ inimigo }) => {
         // Caso contrário, atualiza o grupo com os dados restantes
         updateInimigoList(updatedData);
       }
-      window.location.reload();
+      window.location.reload(); // Não é ideal recarregar a página, mas por enquanto funciona
       return updatedData;
     });
   };

@@ -6,6 +6,7 @@ import "./CardPlayer.css";
 
 const CardPlayer = ({ player }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [getDuracaoDaCondicao, setSetDuracaoDaCondicao] = useState("");
   const players = JSON.parse(localStorage.getItem("players")) || [];
   const playerObject = players.find((p) =>
     p.dados.some((dado) => player.dados.some((pd) => pd.id === dado.id))
@@ -80,6 +81,13 @@ const CardPlayer = ({ player }) => {
     localStorage.setItem("players", JSON.stringify(updatedPlayers));
   };
 
+  /* Deleta a duração da condição caso a condição seja removida */
+  useEffect(() => {
+    if (!playerData[0].condicao) {
+      setSetDuracaoDaCondicao("");
+    }
+  }, [playerData[0].condicao]);
+
   /* card-player cardComIniciativa */
   return (
     <div
@@ -116,7 +124,7 @@ const CardPlayer = ({ player }) => {
               />
             </label>
             <label>
-              <p>MOD: </p>
+              <p>Modificadores: </p>
               <input
                 type="text"
                 name="mod"
@@ -125,7 +133,7 @@ const CardPlayer = ({ player }) => {
               />
             </label>
             <label>
-              <p>CONDICAO: </p>
+              <p>Condição: </p>
               <input
                 type="text"
                 name="condicao"
@@ -133,6 +141,17 @@ const CardPlayer = ({ player }) => {
                 onChange={handleChange}
               />
             </label>
+            {playerData[0].condicao && (
+              <label>
+                <p>Duração: </p>
+                <input
+                  type="text"
+                  name="duracao"
+                  value={getDuracaoDaCondicao}
+                  onChange={(e) => setSetDuracaoDaCondicao(e.target.value)}
+                />
+              </label>
+            )}
             <button type="submit" onClick={handleDelete}>
               <RiDeleteBin7Fill />
             </button>
@@ -146,27 +165,56 @@ const CardPlayer = ({ player }) => {
       {/* Campos do card - retraído */}
       {!isExpanded && (
         <div className="card-player-info-retraido">
-          <label>
-            <GiCheckedShield />
-            <input
-              type="text"
-              name="ca"
-              value={playerData[0].ca}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            <FaHeart />
-            <input
-              type="text"
-              name="pv"
-              value={playerData[0].pv}
-              onChange={handleChange}
-            />
-          </label>
-          <button type="button" onClick={toggleExpand}>
-            <FaPencilRuler />
-          </button>
+          <div className="card-player-info-retraido-top">
+            <label>
+              <GiCheckedShield />
+              <input
+                type="text"
+                name="ca"
+                value={playerData[0].ca}
+                onChange={handleChange}
+              />
+            </label>
+            <label>
+              <FaHeart />
+              <input
+                type="text"
+                name="pv"
+                value={playerData[0].pv}
+                onChange={handleChange}
+              />
+            </label>
+            <button type="button" onClick={toggleExpand}>
+              <FaPencilRuler />
+            </button>
+          </div>
+          {/* Campos do card retraído com condicao */}
+          {playerData[0].condicao && (
+            <div className="card-player-info-retraido-bottom">
+              <div className="info">
+                <h2>Condição: </h2>
+                <label>
+                  <input
+                    type="text"
+                    name="condicao"
+                    value={playerData[0].condicao}
+                    onChange={handleChange}
+                  />
+                </label>
+              </div>
+              <div className="info">
+                <h2>Duração: </h2>
+                <label>
+                  <input
+                    type="text"
+                    name="duracao"
+                    value={getDuracaoDaCondicao}
+                    onChange={(e) => setSetDuracaoDaCondicao(e.target.value)}
+                  />
+                </label>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>
