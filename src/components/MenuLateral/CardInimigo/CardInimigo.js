@@ -13,7 +13,11 @@ const FormCardInimigo = ({
   index,
 }) => {
   return (
-    <div className="card-inimigo">
+    <div
+      className={`card-inimigo ${
+        inimigoData.condicao ? "cardComCondicao" : ""
+      }`}
+    >
       <h1>{inimigoData.nome}</h1>
       <form className="card-inimigo-info">
         {isExpanded && (
@@ -58,11 +62,11 @@ const FormCardInimigo = ({
                 onChange={handleChange}
               />
             </label>
+            <button type="button" onClick={(e) => handleDelete(e, index)}>
+              <RiDeleteBin7Fill />
+            </button>
             <button type="button" onClick={toggleExpand}>
               <FaPencilRuler /> Concluir
-            </button>
-            <button type="button" onClick={(e) => handleDelete(e, index)}>
-              <RiDeleteBin7Fill /> Remover
             </button>
           </div>
         )}
