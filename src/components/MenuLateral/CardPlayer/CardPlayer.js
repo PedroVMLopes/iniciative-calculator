@@ -80,8 +80,13 @@ const CardPlayer = ({ player }) => {
     localStorage.setItem("players", JSON.stringify(updatedPlayers));
   };
 
+  /* card-player cardComIniciativa */
   return (
-    <div className="card-player">
+    <div
+      className={`card-player ${
+        playerData[0].condicao ? "cardComCondicao" : ""
+      }`}
+    >
       <h1>{playerData[0].nome}</h1>
       <form className="card-player-info">
         {/* Campos do card - expandido */}
@@ -127,11 +132,11 @@ const CardPlayer = ({ player }) => {
                 onChange={handleChange}
               />
             </label>
+            <button type="submit" onClick={handleDelete}>
+              <RiDeleteBin7Fill />
+            </button>
             <button type="button" onClick={toggleExpand}>
               <FaPencilRuler /> Concluir
-            </button>
-            <button type="submit" onClick={handleDelete}>
-              <RiDeleteBin7Fill /> Remover
             </button>
           </div>
         )}
