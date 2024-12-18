@@ -3,7 +3,7 @@
 
 -> Ler a documentação do useEffect pq era isso q tava causando problema no CardPlayer
 
--> Há um erro quando um card de inimigo é excluído, mesmo que sua função esteja funcionando corretamente
+-> Adicionar um botão no card de adicionar inimigos que remove todos os inimigos
 
 -> Adicionar os botões de avançar e voltar turnos
 

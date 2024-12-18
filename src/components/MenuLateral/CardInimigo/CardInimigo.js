@@ -107,13 +107,15 @@ const CardInimigo = ({ inimigo }) => {
     )
   );
 
-  const inimigoId = inimigoObject.dados.map((d) => d.id);
+  const inimigoId = inimigoObject ? inimigoObject.dados.map((d) => d.id) : [];
   const storageKey = `inimigoData-${inimigoId}`;
 
   const [inimigoData, setInimigoData] = useState(
-    Array.isArray(inimigoObject.dados)
-      ? inimigoObject.dados
-      : [inimigoObject.dados] || []
+    inimigoObject
+      ? Array.isArray(inimigoObject.dados)
+        ? inimigoObject.dados
+        : [inimigoObject.dados]
+      : []
   );
 
   // Carrega os dados do inimigo específico ao montar o componente ou quando o ID muda
@@ -184,8 +186,6 @@ const CardInimigo = ({ inimigo }) => {
   const toggleExpand = () => setIsExpanded((prevState) => !prevState);
 
   const handleDelete = (e, index) => {
-    e.preventDefault(); // Previne o comportamento padrão do botão
-
     setInimigoData((prevData) => {
       const deletedId = prevData[index]?.id; // Armazena o ID do item a ser excluído
       const updatedData = prevData.filter((_, i) => i !== index); // Filtra o item a ser removido
