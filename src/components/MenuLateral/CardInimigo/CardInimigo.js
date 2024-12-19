@@ -276,6 +276,8 @@ const CardInimigo = ({ inimigo }) => {
           handleDelete={(e) => handleDelete(e, index)}
           toggleExpand={toggleExpand}
           isExpanded={isExpanded}
+          getDuracaoDaCondicao={getDuracaoDaCondicao}
+          setSetDuracaoDaCondicao={setSetDuracaoDaCondicao}
         />
       ))}
     </div>
