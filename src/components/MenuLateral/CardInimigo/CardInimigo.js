@@ -16,9 +16,9 @@ const FormCardInimigo = ({
 }) => {
   return (
     <div
-      className={`card-inimigo ${
-        inimigoData.condicao ? "cardComCondicao" : ""
-      }`}
+      className={`card-inimigo ${inimigoData.condicao ? "cardComCondicao" : ""}
+      ${inimigoData.pv === "0" ? "morto" : ""}
+      `}
     >
       {/* Campos do card expandido */}
       <h1>{inimigoData.nome}</h1>

@@ -7,7 +7,7 @@
 -> Adicionar os botões de avançar e voltar turnos
 
 
--> Adicionar a funcionalidade de condição nos inimigos
+-> Substituir a duração da condição por um número, e adicionar "turnos" no input
 
 
 
