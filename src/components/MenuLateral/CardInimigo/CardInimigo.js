@@ -11,6 +11,8 @@ const FormCardInimigo = ({
   handleDelete,
   isExpanded,
   index,
+  getDuracaoDaCondicao,
+  setSetDuracaoDaCondicao,
 }) => {
   return (
     <div
@@ -18,6 +20,7 @@ const FormCardInimigo = ({
         inimigoData.condicao ? "cardComCondicao" : ""
       }`}
     >
+      {/* Campos do card expandido */}
       <h1>{inimigoData.nome}</h1>
       <form className="card-inimigo-info">
         {isExpanded && (
@@ -62,6 +65,17 @@ const FormCardInimigo = ({
                 onChange={handleChange}
               />
             </label>
+            {inimigoData.condicao && (
+              <label>
+                <p>Duração: </p>
+                <input
+                  type="text"
+                  name="duracao"
+                  value={getDuracaoDaCondicao}
+                  onChange={(e) => setSetDuracaoDaCondicao(e.target.value)}
+                />
+              </label>
+            )}
             <button type="submit" onClick={(e) => handleDelete(e, index)}>
               <RiDeleteBin7Fill />
             </button>
@@ -71,30 +85,59 @@ const FormCardInimigo = ({
           </div>
         )}
       </form>
-
+      {/* Campos do card retraído */}
       {!isExpanded && (
         <div className="card-inimigo-info-retraido">
-          <label>
-            <GiCheckedShield />
-            <input
-              type="text"
-              name="ca"
-              value={inimigoData.ca}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            <FaHeart />
-            <input
-              type="text"
-              name="pv"
-              value={inimigoData.pv}
-              onChange={handleChange}
-            />
-          </label>
-          <button type="button" onClick={toggleExpand}>
-            <FaPencilRuler />
-          </button>
+          <div className="card-inimigo-info-retraido-top">
+            <label>
+              <GiCheckedShield />
+              <input
+                type="text"
+                name="ca"
+                value={inimigoData.ca}
+                onChange={handleChange}
+              />
+            </label>
+            <label>
+              <FaHeart />
+              <input
+                type="text"
+                name="pv"
+                value={inimigoData.pv}
+                onChange={handleChange}
+              />
+            </label>
+            <button type="button" onClick={toggleExpand}>
+              <FaPencilRuler />
+            </button>
+          </div>
+          {/* Campos do card retraído com condicao */}
+          {inimigoData.condicao && (
+            <div className="card-inimigo-info-retraido-bottom">
+              <div className="info">
+                <h2>Condição: </h2>
+                <label>
+                  <input
+                    type="text"
+                    name="condicao"
+                    value={inimigoData.condicao}
+                    onChange={handleChange}
+                  />
+                </label>
+              </div>
+              <div className="info">
+                <h2>Duração: </h2>
+                <label>
+                  <input
+                    type="text"
+                    name="duracao"
+                    value={getDuracaoDaCondicao}
+                    onChange={(e) => setSetDuracaoDaCondicao(e.target.value)}
+                  />
+                </label>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -103,6 +146,7 @@ const FormCardInimigo = ({
 
 const CardInimigo = ({ inimigo }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [getDuracaoDaCondicao, setSetDuracaoDaCondicao] = useState("");
   const inimigos = JSON.parse(localStorage.getItem("cardsInimigos")) || [];
 
   const inimigoObject = inimigos.find((p) =>
@@ -187,6 +231,13 @@ const CardInimigo = ({ inimigo }) => {
       });
     }
   }, [inimigoData, storageKey]);
+
+  /* Deleta a duração da condição caso a condição seja removida */
+  useEffect(() => {
+    if (!inimigoData[0].condicao) {
+      setSetDuracaoDaCondicao("");
+    }
+  }, [inimigoData[0].condicao]);
 
   const toggleExpand = () => setIsExpanded((prevState) => !prevState);
 

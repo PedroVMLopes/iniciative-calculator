@@ -17,6 +17,14 @@
     font-style: italic;
 }
 
+.card-inimigo h2 {
+    padding-left: 8px;
+    font-style: italic;
+    font-weight: bold;
+    color: var(--cinza-escuro);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 .card-inimigo-info {
     display: grid;
     gap: 6px;
@@ -59,10 +67,17 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.cardComCondicao {
+    border: 1px solid var(--amarelo);
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 /* Edição do card retraído */
 .card-inimigo-info-retraido {
     width: 100%;
     display: flex;
+    flex-direction: column;
     gap: 0px;
     align-items: center;
 }
@@ -78,12 +93,45 @@
 }
 
 .card-inimigo-info-retraido label {
+    width: 40%;
     padding-left: 6px;
-    width: 35%;
 }
 
-.cardComCondicao {
-    border: 1px solid var(--amarelo);
-    border-radius: 8px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+/* Parte de cima do retraído */
+.card-inimigo-info-retraido-top {
+    width: 100%;
+    display: flex;
+    gap: 0px;
+    align-items: center;
+    flex-direction: row;
+}
+
+/* Parte de baixo do retraído */
+.card-inimigo-info-retraido-bottom {
+    width: 100%;
+    margin-bottom: 6px;
+    gap: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-self: start;
+}
+
+.card-inimigo-info-retraido-bottom label {
+    padding-top: 6px;
+    width: 100%;
+}
+
+.card-inimigo-info-retraido-bottom input {
+    width: 100%;
+    max-inline-size: 50%;
+    margin-left: 0%;
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
 }

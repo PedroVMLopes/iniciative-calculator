@@ -1,7 +1,6 @@
 ---------------------------------------------------------------
   Tasks 
 
--> Ler a documentação do useEffect pq era isso q tava causando problema no CardPlayer
 
 -> Adicionar um botão no card de adicionar inimigos que remove todos os inimigos
 
