@@ -9,10 +9,15 @@
 
 -> Substituir a duração da condição por um número, e adicionar "turnos" no input
 
+-> Limpar os campos de condição quando a vida do inimigo chegar a 0
+
+-> Substituir os ícones de edição dos cards por engrenagens
+
+-> Utilizar o novo layout do figma
 
 
 
--> Quando o PV for 0 alterar o card para estado de morto
+
 
 ---------------------------------------------------------------
 localStorage
