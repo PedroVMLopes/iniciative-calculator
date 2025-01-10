@@ -52,9 +52,9 @@
 .menu-add-player-corpo form button {
   border-radius: 8px;
   border: none;
-  padding: 5px 16px;
+  padding: 10px 16px;
   margin: 5px;
-  background-color: var(--azul-claro);
+  background-color: var(--azul-escuro);
   color: #fff;
   font-weight: bold;
   cursor: pointer;

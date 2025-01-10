@@ -102,7 +102,7 @@ export default function MenuAddPlayer() {
             value={fieldNome}
             onChange={(e) => setFieldNome(e.target.value)}
           />
-
+          <br />
           <label>CA</label>
           <input
             type="text"
@@ -110,7 +110,7 @@ export default function MenuAddPlayer() {
             value={fieldCa}
             onChange={(e) => setFieldCa(e.target.value)}
           />
-
+          <br />
           <label>PV</label>
           <input
             type="text"
@@ -118,7 +118,7 @@ export default function MenuAddPlayer() {
             value={fieldPv}
             onChange={(e) => setFieldPv(e.target.value)}
           />
-
+          <br />
           <label>Modificadores</label>
           <input
             type="text"
@@ -126,7 +126,7 @@ export default function MenuAddPlayer() {
             value={fieldMod}
             onChange={(e) => setFieldMod(e.target.value)}
           />
-
+          <br />
           <label>Rolagem</label>
           <input
             type="text"
@@ -134,8 +134,12 @@ export default function MenuAddPlayer() {
             value={fieldRolagem}
             onChange={(e) => setFieldRolagem(e.target.value)}
           />
-
-          <button type="submit" onClick={handleSubmit}>
+          <br />
+          <button
+            type="submit"
+            onClick={handleSubmit}
+            className="hover:bg-[var(--azul-claro)]"
+          >
             Adicionar
           </button>
 

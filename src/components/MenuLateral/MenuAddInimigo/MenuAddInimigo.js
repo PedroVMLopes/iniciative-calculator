@@ -1,5 +1,5 @@
 import "./MenuAddInimigo.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 // Função que obtém os cards de inimigos armazenados no localStorage
 const getCardsInimigos = () => {
@@ -11,7 +11,7 @@ const saveInimigos = (cardsInimigos) => {
   localStorage.setItem("cardsInimigos", JSON.stringify(cardsInimigos));
 };
 
-function MenuAddInimigo() {
+export default function MenuAddInimigo() {
   const [fieldNome, setFieldNome] = useState("");
   const [fieldCa, setFieldCa] = useState("");
   const [fieldPv, setFieldPv] = useState("");
@@ -22,6 +22,15 @@ function MenuAddInimigo() {
 
   const [grupoDeInimigos, setGrupoDeInimigos] = useState([]);
   const [numDeInimigos, setNumDeInimigos] = useState(1);
+
+  /* Animação de renderizar o componente */
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    if (menuRef.current) {
+      menuRef.current.classList.add("animate-show");
+    }
+  }, []);
 
   // Carregar cards de inimigos armazenados no localStorage ao inicializar
   useEffect(() => {
@@ -119,11 +128,14 @@ function MenuAddInimigo() {
   };
 
   return (
-    <div className="menu-add-inimigo">
+    <div
+      className={`menu-add-inimigo m-8 shadow-xl opacity-0 transform origin-top scale-95 transition-all duration-600 ease-in-out`}
+      ref={menuRef}
+    >
       <div className="menu-add-inimigo header">
         <h1>Adicionar Inimigo</h1>
       </div>
-      <div className="menu-add-inimigo menu-add-inimigo-corpo">
+      <div className="menu-add-inimigo menu-add-inimigo-corpo w-full p-4">
         <form id="add-inimigo">
           <label htmlFor="nome">Nome:</label>
           <input
@@ -166,21 +178,21 @@ function MenuAddInimigo() {
           />
           <br />
           <button
-            className="botao-add-inimigo"
+            className="botao-add-inimigo hover:bg-[var(--vermelho-claro)]"
             type="submit"
             onClick={adicionarInimigo}
           >
             Enviar Inimigo Único
           </button>
           <button
-            className="botao-add-inimigo"
+            className="botao-add-inimigo hover:bg-[var(--vermelho-claro)]"
             type="button"
             onClick={adicionarAoGrupo}
           >
             Adicionar outro ao grupo
           </button>
           <button
-            className="botao-add-inimigo"
+            className="botao-add-inimigo hover:bg-[var(--vermelho-claro)]"
             type="submit"
             onClick={enviarGrupo}
           >
@@ -191,5 +203,3 @@ function MenuAddInimigo() {
     </div>
   );
 }
-
-export default MenuAddInimigo;
