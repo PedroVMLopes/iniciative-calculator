@@ -75,13 +75,13 @@ const MenuLateral = () => {
           <div className="flex">
             <button
               onClick={toggleExpandPlayer}
-              className="w-14 h-10 p-1 bg-sky-900 border-2 border-[#522546] border-r-0 flex items-center justify-evenly rounded-l-lg text-white hover:bg-sky-950 hover:border-sky-950 text-2xl font-extrabold shadow-xl "
+              className="w-14 h-10 p-1 bg-sky-900  flex items-center justify-evenly rounded-l-lg text-white hover:bg-sky-950 hover:border-sky-950 text-2xl font-extrabold shadow-xl "
             >
               <IoIosAdd /> <GiBattleGear />
             </button>
             <button
               onClick={toggleExpandInimigo}
-              className="w-14 h-10 p-1 bg-[var(--vermelho-escuro)] border-2 border-[#522546] border-l-0 flex items-center justify-evenly rounded-r-lg text-white hover:bg-red-950 hover:border-red-950 text-2xl font-extrabold shadow-xl "
+              className="w-14 h-10 p-1 bg-[var(--vermelho-escuro)] flex items-center justify-evenly rounded-r-lg text-white hover:bg-red-950 hover:border-red-950 text-2xl font-extrabold shadow-xl "
             >
               <IoIosAdd /> <GiOrcHead />
             </button>

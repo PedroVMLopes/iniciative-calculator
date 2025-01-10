@@ -1,27 +1,17 @@
 ---------------------------------------------------------------
-  Tasks 
+-------------                Tasks                -------------
+---------------------------------------------------------------
 
 
 -> Adicionar um botão no card de adicionar inimigos que remove todos os inimigos
 
--> Adicionar os botões de avançar e voltar turnos
-
-
--> Alterar o título e o ícone da página
+-> implementar os botões de avançar e voltar turnos
 
 -> Substituir a duração da condição por um número, e adicionar "turnos" no input
 
--> Limpar os campos de condição quando a vida do inimigo chegar a 0
-
 -> Substituir os ícones de edição dos cards por engrenagens
 
--> Substituir os ícones de escudo dos jogadores e dos inimigos
-
 -> Adicionar um botão de "Adicionar Party" no card de adição de jogador para adicionar os 6 de uma só vez
-
--> Utilizar o novo layout do figma
-
--> Fazer o menu lateral ter uma barra de rolagem a parte
 
 
 
