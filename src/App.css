@@ -1,9 +1,5 @@
 html, body, #root {
-  background-color: #252422;
-  margin: 0;           /* Remove as margens padrão */
-  padding: 0;          /* Remove os preenchimentos padrão */
-  height: 100%;        /* Faz com que ocupem toda a altura da janela */
-  width: 100%;         /* Faz com que ocupem toda a largura da janela */
+  background-color: var(--cinza-escuro);
 }
 
 body {

@@ -1,7 +1,7 @@
 .menu-lateral {
-  background-color: #403d39;
+  background-color: var(--cinza-medio);
   width: 500px;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }

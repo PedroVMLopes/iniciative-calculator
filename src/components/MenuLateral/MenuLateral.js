@@ -7,10 +7,10 @@ import styles from "./MenuLateral.css";
 import NumeroIniciativa from "./NumeroIniciativa/NumeroIniciativa";
 import MenuAddInimigo from "./MenuAddInimigo/MenuAddInimigo";
 import MenuAddPlayer from "./MenuAddPlayer/MenuAddPlayer";
-
-/* Importa os icones */
+/* Import dos icones */
 import { GiOrcHead } from "react-icons/gi";
 import { GiBattleGear } from "react-icons/gi";
+import { IoIosAdd } from "react-icons/io";
 
 // Função para obter os dados armazenados no localStorage
 const getLocalStorageData = (key) => {
@@ -63,25 +63,29 @@ const MenuLateral = () => {
   };
 
   return (
-    <div className="menu-lateral">
-      <img src="../Decoracao__topo.png" className="position-absolute "></img>
-      <div className="flex items-center justify-evenly mt-4 mb-2">
+    <div className="menu-lateral w-lg">
+      <img
+        src="../Decoracao__topo.png"
+        className="fixed max-w-[500px] -top-4 -z-5"
+      ></img>
+      <div className="flex items-center justify-evenly mt-4 mb-2 pt-10 z-10">
         <button
           onClick={toggleExpandPlayer}
-          className="w-14 h-10 p-0 bg-[var(--azul-escuro)] flex items-center justify-evenly rounded-lg text-white hover:bg-[var(--azul-claro)] text-2xl font-extrabold"
+          className="w-14 h-10 p-1 bg-[var(--azul-escuro)] flex items-center justify-evenly rounded-lg text-white hover:bg-[var(--azul-claro)] text-2xl font-extrabold"
         >
-          +<GiBattleGear />
+          <IoIosAdd /> <GiBattleGear />
         </button>
         <h1 className="font-unifraktur">Contagem De Iniciativa</h1>
         <button
           onClick={toggleExpandInimigo}
-          className="w-14 h-10 p-0 bg-[var(--vermelho-escuro)] flex items-center justify-evenly rounded-lg text-white hover:bg-[var(--vermelho-claro)] text-2xl font-extrabold"
+          className="w-14 h-10 p-1 bg-[var(--vermelho-escuro)] flex items-center justify-evenly rounded-lg text-white hover:bg-[var(--vermelho-claro)] text-2xl font-extrabold"
         >
-          +<GiOrcHead />
+          <IoIosAdd /> <GiOrcHead />
         </button>
       </div>
+      <br />
 
-      <div className="CardsLinhaDeIniciativa">
+      <div className="CardsLinhaDeIniciativa z-10">
         {isInimigoExpanded && <MenuAddInimigo />}
         {isPlayerExpanded && <MenuAddPlayer />}
         {/* Renderizar jogadores */}
@@ -93,6 +97,11 @@ const MenuLateral = () => {
           </div>
         ))}
       </div>
+      <br />
+      <img
+        src="../plants.png"
+        className="fixed -bottom-0 -left-4 max-w-lg -z-5 opacity-5"
+      ></img>
     </div>
   );
 };

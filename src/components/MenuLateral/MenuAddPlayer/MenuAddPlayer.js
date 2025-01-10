@@ -87,7 +87,7 @@ export default function MenuAddPlayer() {
 
   return (
     <div
-      className={`menu-add-player m-8 shadow-xl opacity-0 transform origin-top scale-95 transition-all duration-600 ease-in-out`}
+      className={`menu-add-player m-8 mt-0 shadow-xl opacity-0 transform origin-top scale-95 transition-all duration-600 ease-in-out`}
       ref={menuRef}
     >
       <div className="menu-add-player menu-add-player-header">
