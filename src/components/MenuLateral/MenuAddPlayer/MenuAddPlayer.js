@@ -1,5 +1,5 @@
 import "./MenuAddPlayer.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 // Função para obter os dados armazenados no localStorage
 const getPlayers = () => {
@@ -20,6 +20,15 @@ export default function MenuAddPlayer() {
   const [fieldRolagem, setFieldRolagem] = useState("");
   const [fieldCondicao, setFieldCondicao] = useState("");
   const [players, setPlayers] = useState(getPlayers()); // Carregar dados do localStorage ao inicializar
+
+  /* Animação de renderizar o componente */
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    if (menuRef.current) {
+      menuRef.current.classList.add("animate-show");
+    }
+  }, []);
 
   const clearPlayers = (event) => {
     localStorage.clear(); // Limpa todos os dados do localStorage
@@ -77,7 +86,10 @@ export default function MenuAddPlayer() {
   };
 
   return (
-    <div className={`menu-add-player m-8 shadow-xl `}>
+    <div
+      className={`menu-add-player m-8 shadow-xl opacity-0 transform origin-top scale-95 transition-all duration-600 ease-in-out`}
+      ref={menuRef}
+    >
       <div className="menu-add-player menu-add-player-header">
         <h1>Adicione os dados do jogador</h1>
       </div>
