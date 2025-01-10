@@ -92,7 +92,7 @@ const CardPlayer = ({ player }) => {
   return (
     <div
       key={storageKey}
-      className={`card-player ${
+      className={`card-player shadow-xl ${
         playerData[0].condicao ? "cardComCondicao" : ""
       }`}
     >

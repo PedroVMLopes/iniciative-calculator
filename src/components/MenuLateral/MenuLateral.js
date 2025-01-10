@@ -11,6 +11,8 @@ import MenuAddPlayer from "./MenuAddPlayer/MenuAddPlayer";
 import { GiOrcHead } from "react-icons/gi";
 import { GiBattleGear } from "react-icons/gi";
 import { IoIosAdd } from "react-icons/io";
+import { FaHandPointLeft } from "react-icons/fa";
+import { FaHandPointRight } from "react-icons/fa";
 
 // Função para obter os dados armazenados no localStorage
 const getLocalStorageData = (key) => {
@@ -63,45 +65,56 @@ const MenuLateral = () => {
   };
 
   return (
-    <div className="menu-lateral w-lg">
-      <img
-        src="../Decoracao__topo.png"
-        className="fixed max-w-[500px] -top-4 -z-5"
-      ></img>
-      <div className="flex items-center justify-evenly mt-4 mb-2 pt-10 z-10">
-        <button
-          onClick={toggleExpandPlayer}
-          className="w-14 h-10 p-1 bg-[var(--azul-escuro)] flex items-center justify-evenly rounded-lg text-white hover:bg-[var(--azul-claro)] text-2xl font-extrabold"
-        >
-          <IoIosAdd /> <GiBattleGear />
-        </button>
-        <h1 className="font-unifraktur">Contagem De Iniciativa</h1>
-        <button
-          onClick={toggleExpandInimigo}
-          className="w-14 h-10 p-1 bg-[var(--vermelho-escuro)] flex items-center justify-evenly rounded-lg text-white hover:bg-[var(--vermelho-claro)] text-2xl font-extrabold"
-        >
-          <IoIosAdd /> <GiOrcHead />
-        </button>
+    <div className="menu-lateral shadow-xl">
+      <div className="sticky pb-2 top-0 z-20 bg-[#522546] bg-opacity-80 shadow-sm rounded-lg">
+        <img
+          src="../Decoracao__topo.png"
+          className="fixed max-w-[490px] -top-3 -z-5"
+        ></img>
+        <div className="flex items-center justify-evenly mt-2 mb-2 pt-10 z-10">
+          <div className="flex">
+            <button
+              onClick={toggleExpandPlayer}
+              className="w-14 h-10 p-1 bg-sky-900 border-2 border-[#522546] border-r-0 flex items-center justify-evenly rounded-l-lg text-white hover:bg-sky-950 hover:border-sky-950 text-2xl font-extrabold shadow-xl "
+            >
+              <IoIosAdd /> <GiBattleGear />
+            </button>
+            <button
+              onClick={toggleExpandInimigo}
+              className="w-14 h-10 p-1 bg-[var(--vermelho-escuro)] border-2 border-[#522546] border-l-0 flex items-center justify-evenly rounded-r-lg text-white hover:bg-red-950 hover:border-red-950 text-2xl font-extrabold shadow-xl "
+            >
+              <IoIosAdd /> <GiOrcHead />
+            </button>
+          </div>
+          <h1 className="font-unifraktur pl-2 pr-2">Contagem De Iniciativas</h1>
+          <div className="flex">
+            <button className="w-11 h-10 bg-[var(--cinza-claro)] border-2 border-[#522546] border-r-0 flex items-center justify-evenly rounded-l-lg text-black hover:bg-[var(--bege)] text-xl font-extrabold shadow-xl ">
+              <FaHandPointLeft />
+            </button>
+            <button className="w-11 h-10 bg-[var(--cinza-claro)] border-2 border-[#522546] border-l-0 flex items-center justify-evenly rounded-r-lg text-black hover:bg-[var(--bege)] text-xl font-extrabold shadow-xl ">
+              <FaHandPointRight />
+            </button>
+          </div>
+        </div>
       </div>
-      <br />
 
-      <div className="CardsLinhaDeIniciativa z-10">
+      <div className="CardsLinhaDeIniciativa z-10 overflow-y-auto">
         {isInimigoExpanded && <MenuAddInimigo />}
         {isPlayerExpanded && <MenuAddPlayer />}
         {/* Renderizar jogadores */}
+        <br />
         {sortedList.map((card, index) => (
-          <div key={index} className="CardComIniciativa">
+          <div key={index} className="CardComIniciativa z-10 pb-1">
             {card.tipo === "player" && <CardPlayer player={card} />}
             {card.tipo === "inimigo" && <CardInimigo inimigo={card} />}
             <NumeroIniciativa iniciativa={card.iniciativa} />
           </div>
         ))}
+        <div className=" flex justify-center align-bottom -left-4 h-[100%] sticky bottom-0 -z-5 opacity-5">
+          <img src="../plants.png" className="h-[100%] bottom-0"></img>
+        </div>
       </div>
       <br />
-      <img
-        src="../plants.png"
-        className="fixed -bottom-0 -left-4 max-w-lg -z-5 opacity-5"
-      ></img>
     </div>
   );
 };

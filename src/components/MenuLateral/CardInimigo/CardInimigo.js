@@ -16,7 +16,9 @@ const FormCardInimigo = ({
 }) => {
   return (
     <div
-      className={`card-inimigo ${inimigoData.condicao ? "cardComCondicao" : ""}
+      className={`card-inimigo shadow-xl ${
+        inimigoData.condicao ? "cardComCondicao" : ""
+      }
       ${inimigoData.pv === "0" ? "morto" : ""}
       `}
     >
