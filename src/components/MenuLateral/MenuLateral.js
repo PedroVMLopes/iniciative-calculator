@@ -8,6 +8,7 @@ import NumeroIniciativa from "./NumeroIniciativa/NumeroIniciativa";
 import MenuAddInimigo from "./MenuAddInimigo/MenuAddInimigo";
 import MenuAddPlayer from "./MenuAddPlayer/MenuAddPlayer";
 
+/* Importa os icones */
 import { GiOrcHead } from "react-icons/gi";
 import { GiBattleGear } from "react-icons/gi";
 
@@ -63,17 +64,18 @@ const MenuLateral = () => {
 
   return (
     <div className="menu-lateral">
-      <div className="flex items-center justify-evenly mt-5 mb-2">
+      <img src="../Decoracao__topo.png" className="position-absolute "></img>
+      <div className="flex items-center justify-evenly mt-4 mb-2">
         <button
           onClick={toggleExpandPlayer}
           className="w-14 h-10 p-0 bg-[var(--azul-escuro)] flex items-center justify-evenly rounded-lg text-white hover:bg-[var(--azul-claro)] text-2xl font-extrabold"
         >
           +<GiBattleGear />
         </button>
-        <h1 className="flex items-center p-0">CONTAGEM DE INICIATIVA</h1>
+        <h1 className="font-unifraktur">Contagem De Iniciativa</h1>
         <button
           onClick={toggleExpandInimigo}
-          className="w-14 h-10 p-0 bg-[var(--vermelho-claro)] flex items-center justify-evenly rounded-lg text-white hover:bg-[var(--vermelho-escuro)] text-2xl font-extrabold"
+          className="w-14 h-10 p-0 bg-[var(--vermelho-escuro)] flex items-center justify-evenly rounded-lg text-white hover:bg-[var(--vermelho-claro)] text-2xl font-extrabold"
         >
           +<GiOrcHead />
         </button>
@@ -87,10 +89,7 @@ const MenuLateral = () => {
           <div key={index} className="CardComIniciativa">
             {card.tipo === "player" && <CardPlayer player={card} />}
             {card.tipo === "inimigo" && <CardInimigo inimigo={card} />}
-            <NumeroIniciativa
-              iniciativa={card.iniciativa}
-              className="numero-iniciativa"
-            />
+            <NumeroIniciativa iniciativa={card.iniciativa} />
           </div>
         ))}
       </div>

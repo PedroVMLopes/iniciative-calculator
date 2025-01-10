@@ -97,6 +97,8 @@
 .card-player-info-retraido label {
   width: 40%;
   padding-left: 6px;
+  display: flex;
+  flex-direction: row;
 }
 
 /* Parte de cima do retraído */

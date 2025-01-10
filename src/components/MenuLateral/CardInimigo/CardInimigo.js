@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaPencilRuler, FaHeart } from "react-icons/fa";
-import { GiCheckedShield } from "react-icons/gi";
+import { FaShieldAlt } from "react-icons/fa";
 import { RiDeleteBin7Fill } from "react-icons/ri";
 import "./CardInimigo.css";
 
@@ -27,7 +27,7 @@ const FormCardInimigo = ({
           <div>
             <label>
               <p>
-                <GiCheckedShield />
+                <FaShieldAlt />
               </p>
               <input
                 type="text"
@@ -48,7 +48,7 @@ const FormCardInimigo = ({
               />
             </label>
             <label>
-              <p>MOD: </p>
+              <p>Modificadores: </p>
               <input
                 type="text"
                 name="mod"
@@ -57,7 +57,7 @@ const FormCardInimigo = ({
               />
             </label>
             <label>
-              <p>CONDICAO: </p>
+              <p>Condição: </p>
               <input
                 type="text"
                 name="condicao"
@@ -76,12 +76,14 @@ const FormCardInimigo = ({
                 />
               </label>
             )}
-            <button type="submit" onClick={(e) => handleDelete(e, index)}>
-              <RiDeleteBin7Fill />
-            </button>
-            <button type="button" onClick={toggleExpand}>
-              <FaPencilRuler /> Concluir
-            </button>
+            <div className="flex row">
+              <button type="submit" onClick={(e) => handleDelete(e, index)}>
+                <RiDeleteBin7Fill />
+              </button>
+              <button type="button" onClick={toggleExpand}>
+                Concluir
+              </button>
+            </div>
           </div>
         )}
       </form>
@@ -90,7 +92,7 @@ const FormCardInimigo = ({
         <div className="card-inimigo-info-retraido">
           <div className="card-inimigo-info-retraido-top">
             <label>
-              <GiCheckedShield />
+              <FaShieldAlt />
               <input
                 type="text"
                 name="ca"

@@ -1,67 +1,62 @@
 .menu-add-player {
-    background-color: var(--cinza-claro);
-    border-radius: 8px;
-    width: 500px;
-    margin: 10px;
-    padding: 10px;
-    padding-top: 0%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative; /* Garante que o botão de fechar fique no canto */
+  background-color: var(--cinza-claro);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .menu-add-player h1 {
-    font-weight: bold;
-    font-size: larger;
-    color: #fff;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding-left: 10px;
+  font-weight: bold;
+  font-size: larger;
+  color: #fff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding-left: 10px;
+  align-self: center;
 }
 
 .menu-add-player-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    margin: 0px;
-    height: 40px;
-    padding-top: 4px;
-    border-radius: 6px 8px 0px 0px;
-    background: linear-gradient(to right, var(--azul-escuro), var(--azul-claro));
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  border-radius: 4px 4px 0px 0px;
+  background: linear-gradient(to right, var(--azul-escuro), var(--azul-claro));
 }
 
 .menu-add-player-corpo {
-    display: flex;
+  width: 100%;
+  display: flex;
 }
 
 .menu-add-player-corpo form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .menu-add-player-corpo form label {
-    font-weight: bold;
-    margin: 5px;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  font-weight: bold;
+  margin: 5px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 .menu-add-player-corpo form input {
-    border-radius: 8px;
-    border: none;
-    padding: 5px;
-    margin: 5px;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  border: none;
+  padding: 5px;
+  margin: 5px;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .menu-add-player-corpo form button {
-    border-radius: 8px;
-    border: none;
-    padding: 5px 16px;
-    margin: 5px;
-    background-color: var(--azul-claro);
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  border: none;
+  padding: 5px 16px;
+  margin: 5px;
+  background-color: var(--azul-claro);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }

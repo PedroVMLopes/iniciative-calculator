@@ -2,6 +2,8 @@
   background-color: #403d39;
   width: 500px;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .menu-lateral h1 {
@@ -12,14 +14,14 @@
 }
 
 .CardsLinhaDeIniciativa {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
 }
 
 .CardComIniciativa {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-evenly;
 }

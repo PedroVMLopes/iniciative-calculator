@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaPencilRuler, FaHeart } from "react-icons/fa";
-import { GiCheckedShield } from "react-icons/gi";
+import { FaShieldAlt } from "react-icons/fa";
 import { RiDeleteBin7Fill } from "react-icons/ri";
 import "./CardPlayer.css";
 
@@ -103,7 +103,7 @@ const CardPlayer = ({ player }) => {
           <div>
             <label>
               <p>
-                <GiCheckedShield />
+                <FaShieldAlt />
               </p>
               <input
                 type="text"
@@ -152,12 +152,14 @@ const CardPlayer = ({ player }) => {
                 />
               </label>
             )}
-            <button type="submit" onClick={handleDelete}>
-              <RiDeleteBin7Fill />
-            </button>
-            <button type="button" onClick={toggleExpand}>
-              <FaPencilRuler /> Concluir
-            </button>
+            <div className="flex row">
+              <button type="submit" onClick={handleDelete}>
+                <RiDeleteBin7Fill />
+              </button>
+              <button type="button" onClick={toggleExpand}>
+                Concluir
+              </button>
+            </div>
           </div>
         )}
       </form>
@@ -167,7 +169,7 @@ const CardPlayer = ({ player }) => {
         <div className="card-player-info-retraido">
           <div className="card-player-info-retraido-top">
             <label>
-              <GiCheckedShield />
+              <FaShieldAlt />
               <input
                 type="text"
                 name="ca"

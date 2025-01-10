@@ -77,47 +77,52 @@ export default function MenuAddPlayer() {
   };
 
   return (
-    <div className="menu-add-player">
+    <div className={`menu-add-player m-8 shadow-xl `}>
       <div className="menu-add-player menu-add-player-header">
         <h1>Adicione os dados do jogador</h1>
       </div>
-      <div className="menu-add-player menu-add-player-corpo">
+      <div className="menu-add-player menu-add-player-corpo p-4">
         <form>
-          <label>Nome:</label>
+          <label>Nome</label>
           <input
             type="text"
             name="playerName"
             value={fieldNome}
             onChange={(e) => setFieldNome(e.target.value)}
           />
-          <label>CA:</label>
+
+          <label>CA</label>
           <input
             type="text"
             name="playerCa"
             value={fieldCa}
             onChange={(e) => setFieldCa(e.target.value)}
           />
-          <label>PV:</label>
+
+          <label>PV</label>
           <input
             type="text"
             name="playerPv"
             value={fieldPv}
             onChange={(e) => setFieldPv(e.target.value)}
           />
-          <label>MOD:</label>
+
+          <label>Modificadores</label>
           <input
             type="text"
             name="playerMod"
             value={fieldMod}
             onChange={(e) => setFieldMod(e.target.value)}
           />
-          <label>Rolagem:</label>
+
+          <label>Rolagem</label>
           <input
             type="text"
             name="playerRolagem"
             value={fieldRolagem}
             onChange={(e) => setFieldRolagem(e.target.value)}
           />
+
           <button type="submit" onClick={handleSubmit}>
             Adicionar
           </button>

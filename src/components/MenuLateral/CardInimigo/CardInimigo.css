@@ -37,8 +37,9 @@
   padding: 10px;
 }
 
-/* ícones e descrição das labels do card do player */
+/* ícones e descrição das labels do card do inimigo */
 .card-inimigo-info p {
+  font-size: 1.2em;
   justify-self: end;
   align-self: center;
   color: var(--bege);
@@ -100,6 +101,8 @@
 .card-inimigo-info-retraido label {
   width: 40%;
   padding-left: 6px;
+  display: flex;
+  flex-direction: row;
 }
 
 /* Parte de cima do retraído */
