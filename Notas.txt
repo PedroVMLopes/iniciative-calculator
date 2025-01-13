@@ -13,6 +13,8 @@
 
 -> Adicionar um botão de "Adicionar Party" no card de adição de jogador para adicionar os 6 de uma só vez
 
+-> Fazer os outros cards de perícias ficarem cinza ao fazer hover
+
 
 
 

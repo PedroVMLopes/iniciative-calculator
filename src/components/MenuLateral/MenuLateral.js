@@ -75,7 +75,7 @@ const MenuLateral = () => {
           <div className="flex">
             <button
               onClick={toggleExpandPlayer}
-              className="w-14 h-10 p-1 bg-sky-900  flex items-center justify-evenly rounded-l-lg text-white hover:bg-sky-950  text-2xl font-extrabold shadow-xl "
+              className="w-14 h-10 p-1 bg-sky-900 flex items-center justify-evenly rounded-l-lg text-white hover:bg-sky-950  text-2xl font-extrabold shadow-xl "
             >
               <IoIosAdd /> <GiBattleGear />
             </button>
@@ -88,10 +88,10 @@ const MenuLateral = () => {
           </div>
           <h1 className="font-unifraktur pl-2 pr-2">Contagem De Iniciativas</h1>
           <div className="flex">
-            <button className="w-11 h-10 bg-[var(--cinza-claro)] border-2 border-[#522546] border-r-0 flex items-center justify-evenly rounded-l-lg text-black hover:bg-[var(--bege)] text-xl font-extrabold shadow-xl ">
+            <button className="w-11 h-10 bg-[var(--cinza-claro)] border-2 border-[var(--cinza-medio)] border-r-0 flex items-center justify-evenly rounded-l-lg text-black hover:bg-[var(--bege)] text-xl font-extrabold shadow-xl ">
               <FaHandPointLeft />
             </button>
-            <button className="w-11 h-10 bg-[var(--cinza-claro)] border-2 border-[#522546] border-l-0 flex items-center justify-evenly rounded-r-lg text-black hover:bg-[var(--bege)] text-xl font-extrabold shadow-xl ">
+            <button className="w-11 h-10 bg-[var(--cinza-claro)] border-2 border-[var(--cinza-medio)] border-l-0 flex items-center justify-evenly rounded-r-lg text-black hover:bg-[var(--bege)] text-xl font-extrabold shadow-xl ">
               <FaHandPointRight />
             </button>
           </div>
