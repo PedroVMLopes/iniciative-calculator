@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { AbilitiesList } from "./AbilityList";
+import { ExpertiseList } from "./ExpertiseList";
+import { ExpertiseCard } from "./ExpertiseCard";
 
 /* Ícones */
 import { FaFeatherAlt } from "react-icons/fa";
@@ -61,7 +63,7 @@ const Tests = () => {
   };
 
   return (
-    <div className="flex flex-col items-center text-white w-full">
+    <div className="flex flex-col justify-center items-center text-white w-[97%] ">
       <h1 className="font-bold font-unifraktur text-3xl pt-4">Habilidades</h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-1 p-1 text-[var(--bege)] bg-[var(--cinza-medio)] rounded-xl m-2 mt-4 w-full">
         {AbilitiesList.map((ability) => (
@@ -77,6 +79,19 @@ const Tests = () => {
       </div>
       <br />
       <h1 className="font-bold font-unifraktur text-3xl pt-4">Perícias</h1>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1 p-1 text-[var(--bege)] bg-[var(--cinza-medio)] rounded-xl m-2 mt-4 w-full">
+        {ExpertiseList.map((expertise) => (
+          <ExpertiseCard
+            key={expertise.id}
+            name={expertise.name}
+            description={expertise.description}
+            examples={expertise.examples}
+            icon={expertise.icon}
+            color={expertise.color}
+          />
+        ))}
+      </div>
+      <br />
     </div>
   );
 };

@@ -7,7 +7,7 @@ import Main from "./components/Main/Main";
 
 function App() {
   return (
-    <div className="flex-row w-screen max-w-screen">
+    <div className="flex-row w-full">
       <MenuLateral />
       <Main />
     </div>

@@ -66,7 +66,7 @@ export const AbilitiesList = [
       "Analiasr características de uma criatura",
     ],
     icon: <GiWisdom />,
-    color: "#7E5CAD",
+    color: "#FF7F3F",
   },
   {
     id: 6,
