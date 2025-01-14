@@ -1,5 +1,6 @@
 import React from "react";
 import Tests from "./Tests/Tests";
+import Party from "./Party/Party";
 import {
   BrowserRouter as Router,
   Route,
@@ -26,11 +27,19 @@ const NavBar = () => {
       label: "NPC's",
       path: "/npcs",
     },
+    {
+      label: "Tesouros",
+      path: "/treasures",
+    },
+    {
+      label: "Party",
+      path: "/party",
+    },
   ];
 
   return (
     <nav
-      className="relative flex rounded-md justify-evenly p-1 pt-2 max-w-3xl text-[var(--bege)] font-bold "
+      className="relative flex rounded-md justify-evenly p-1 pt-2 max-w-3xl text-[var(--bege)] font-bold shadow-lg"
       id="navbar"
     >
       {links.map((link) => (
@@ -80,6 +89,7 @@ const Main = () => {
         <div className="flex justify-center mt-3 w-[98%]" id="content">
           <Routes>
             <Route path="/" element={<TestsContent />} />
+            <Route path="/party" element={<Party />} />
           </Routes>
         </div>
       </div>

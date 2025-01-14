@@ -86,7 +86,7 @@ const MenuLateral = () => {
               <IoIosAdd /> <GiOrcHead />
             </button>
           </div>
-          <h1 className="font-unifraktur pl-2 pr-2">Contagem De Iniciativas</h1>
+          <h1 className="font-unifraktur pl-2 pr-2">Contagem De Iniciativa</h1>
           <div className="flex">
             <button className="w-11 h-10 bg-[var(--cinza-claro)] border-2 border-[var(--cinza-medio)] border-r-0 flex items-center justify-evenly rounded-l-lg text-black hover:bg-[var(--bege)] text-xl font-extrabold shadow-xl ">
               <FaHandPointLeft />
