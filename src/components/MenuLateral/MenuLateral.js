@@ -65,13 +65,13 @@ const MenuLateral = () => {
   };
 
   return (
-    <div className="menu-lateral shadow-xl max-w-[500px] w-[40%]">
+    <div className="menu-lateral shadow-xl xl:w-[30%] lg:w-[35%] sm:w-[40%] ">
       <div className="sticky pb-2 top-0 z-20 bg-[var(--cinza-medio)] shadow-sm rounded-t-md ">
         <img
           src="../Decoracao__topo.png"
-          className="fixed max-w-[500px] w-[40%] -top-3 -z-5"
+          className="fixed left-0-top-3 -z-5 xl:w-[30%] lg:w-[35%] sm:w-[40%]"
         ></img>
-        <div className="flex items-center justify-evenly mt-2 mb-2 pt-10 z-10">
+        <div className="flex flex-col items-center justify-evenly mt-2 mb-2 pt-[14%] px-3 z-10 md:flex-row">
           <div className="flex">
             <button
               onClick={toggleExpandPlayer}
@@ -104,7 +104,7 @@ const MenuLateral = () => {
         {/* Renderizar jogadores */}
         <br />
         {sortedList.map((card, index) => (
-          <div key={index} className="CardComIniciativa z-10 pb-1">
+          <div key={index} className="CardComIniciativa z-10 pb-1 ">
             {card.tipo === "player" && <CardPlayer player={card} />}
             {card.tipo === "inimigo" && <CardInimigo inimigo={card} />}
             <NumeroIniciativa iniciativa={card.iniciativa} />

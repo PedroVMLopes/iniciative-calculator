@@ -5,7 +5,6 @@
     var(--vermelho-claro)
   );
   border-radius: 8px;
-  width: 400px;
   margin-top: 8px;
   padding: 8px 0px 8px 8px;
 }
@@ -28,13 +27,6 @@
   font-weight: bold;
   color: var(--cinza-escuro);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.card-inimigo-info {
-  display: grid;
-  gap: 6px;
-  grid-template-columns: repeat(2, 1fr); /* 2 colunas com tamanhos iguais */
-  padding: 10px;
 }
 
 /* ícones e descrição das labels do card do inimigo */

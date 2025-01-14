@@ -16,7 +16,7 @@ const FormCardInimigo = ({
 }) => {
   return (
     <div
-      className={`card-inimigo shadow-xl ${
+      className={`card-inimigo shadow-xl w-full ${
         inimigoData.condicao ? "cardComCondicao" : ""
       }
       ${inimigoData.pv === "0" ? "morto" : ""}
@@ -24,43 +24,50 @@ const FormCardInimigo = ({
     >
       {/* Campos do card expandido */}
       <h1>{inimigoData.nome}</h1>
-      <form className="card-inimigo-info">
+      <form className="flex flex-col justify-between font-bold text-lg text-[var(--bege)] mt-4 ">
         {isExpanded && (
           <div>
-            <label>
-              <p>
-                <FaShieldAlt />
-              </p>
-              <input
-                type="text"
-                name="ca"
-                value={inimigoData.ca}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              <p>
-                <FaHeart />
-              </p>
-              <input
-                type="text"
-                name="pv"
-                value={inimigoData.pv}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
+            <div className="flex flex-row w-full justify-evenly">
+              <label className="flex flex-row">
+                <p>
+                  <FaShieldAlt />
+                </p>
+                <input
+                  className="w-20 ml-2 mb-2 rounded-lg shadow-xl text-black pl-2"
+                  type="text"
+                  name="ca"
+                  value={inimigoData.ca}
+                  onChange={handleChange}
+                />
+              </label>
+              <label className="flex flex-row">
+                <p>
+                  <FaHeart />
+                </p>
+                <input
+                  className="w-20 ml-2 mb-2 rounded-lg shadow-xl text-black pl-2"
+                  type="text"
+                  name="pv"
+                  value={inimigoData.pv}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
+
+            <label className="flex flex-col mx-7">
               <p>Modificadores: </p>
               <input
+                className="flex flex-col w-full rounded-lg shadow-xl text-black pl-2"
                 type="text"
                 name="mod"
                 value={inimigoData.mod}
                 onChange={handleChange}
               />
             </label>
-            <label>
+            <label className="flex flex-col mx-7 mb-2">
               <p>Condição: </p>
               <input
+                className="flex flex-col w-full rounded-lg shadow-xl text-black pl-2"
                 type="text"
                 name="condicao"
                 value={inimigoData.condicao}
@@ -91,20 +98,22 @@ const FormCardInimigo = ({
       </form>
       {/* Campos do card retraído */}
       {!isExpanded && (
-        <div className="card-inimigo-info-retraido">
-          <div className="card-inimigo-info-retraido-top">
-            <label>
+        <div className="flex flex-col w-full">
+          <div className="flex flex-row items-center justify-evenly">
+            <label className="flex row">
               <FaShieldAlt />
               <input
+                className="flex flex-col w-12 rounded-lg shadow-xl text-black font-bold ml-1 pl-2"
                 type="text"
                 name="ca"
                 value={inimigoData.ca}
                 onChange={handleChange}
               />
             </label>
-            <label>
+            <label className="flex row">
               <FaHeart />
               <input
+                className="flex flex-col w-12 rounded-lg shadow-xl text-black font-bold ml-1 pl-2"
                 type="text"
                 name="pv"
                 value={inimigoData.pv}
@@ -117,11 +126,12 @@ const FormCardInimigo = ({
           </div>
           {/* Campos do card retraído com condicao */}
           {inimigoData.condicao && (
-            <div className="card-inimigo-info-retraido-bottom">
+            <div className="flex flex-row justify-evenly mx-7 mb-2">
               <div className="info">
                 <h2>Condição: </h2>
                 <label>
                   <input
+                    className="flex flex-col w-[70%] rounded-lg shadow-xl text-black font-bold pl-2 mt-1"
                     type="text"
                     name="condicao"
                     value={inimigoData.condicao}
@@ -133,6 +143,7 @@ const FormCardInimigo = ({
                 <h2>Duração: </h2>
                 <label>
                   <input
+                    className="flex flex-col w-[70%] rounded-lg shadow-xl text-black font-bold pl-2 mt-1"
                     type="text"
                     name="duracao"
                     value={getDuracaoDaCondicao}
@@ -270,7 +281,7 @@ const CardInimigo = ({ inimigo }) => {
   };
 
   return (
-    <div key={storageKey}>
+    <div className="w-[80%]" key={storageKey}>
       {inimigoData.map((data, index) => (
         <FormCardInimigo
           key={data.id}

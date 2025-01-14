@@ -92,7 +92,7 @@ const CardPlayer = ({ player }) => {
   return (
     <div
       key={storageKey}
-      className={`card-player shadow-xl w-96 ${
+      className={`card-player shadow-xl w-[80%] ${
         playerData[0].condicao ? "cardComCondicao" : ""
       }`}
     >
@@ -107,7 +107,7 @@ const CardPlayer = ({ player }) => {
                   <FaShieldAlt />
                 </p>
                 <input
-                  className="w-20 ml-2 mb-2 rounded-lg shadow-xl text-black pl-2"
+                  className="w-20 ml-2 mb-2 rounded-lg shadow-xl text-black font-bold pl-2"
                   type="text"
                   name="ca"
                   value={playerData[0].ca}
@@ -119,7 +119,7 @@ const CardPlayer = ({ player }) => {
                   <FaHeart />
                 </p>
                 <input
-                  className="w-20 ml-2 mb-2 rounded-lg shadow-xl text-black pl-2"
+                  className="w-20 ml-2 mb-2 rounded-lg shadow-xl text-black font-bold pl-2"
                   type="text"
                   name="pv"
                   value={playerData[0].pv}
@@ -131,7 +131,7 @@ const CardPlayer = ({ player }) => {
             <label className="flex flex-col mx-7">
               <p>Modificadores: </p>
               <input
-                className="flex flex-col w-full rounded-lg shadow-xl text-black pl-2"
+                className="flex flex-col w-full rounded-lg shadow-xl text-black font-bold pl-2"
                 type="text"
                 name="mod"
                 value={playerData[0].mod}
@@ -141,7 +141,7 @@ const CardPlayer = ({ player }) => {
             <label className="flex flex-col mx-7 mb-2">
               <p>Condição: </p>
               <input
-                className="flex flex-col w-full rounded-lg shadow-xl text-black pl-2"
+                className="flex flex-col w-full rounded-lg shadow-xl text-black font-bold pl-2"
                 type="text"
                 name="condicao"
                 value={playerData[0].condicao}
@@ -152,7 +152,7 @@ const CardPlayer = ({ player }) => {
               <label className="flex flex-col mx-7 mb-2">
                 <p>Duração: </p>
                 <input
-                  className="flex flex-col w-full rounded-lg shadow-xl text-black pl-2"
+                  className="flex flex-col w-full rounded-lg shadow-xl text-black font-bold pl-2"
                   type="text"
                   name="duracao"
                   value={getDuracaoDaCondicao}
@@ -160,7 +160,7 @@ const CardPlayer = ({ player }) => {
                 />
               </label>
             )}
-            <div className="flex row">
+            <div className="flex row pl-4">
               <button type="submit" onClick={handleDelete}>
                 <RiDeleteBin7Fill />
               </button>
@@ -179,7 +179,7 @@ const CardPlayer = ({ player }) => {
             <label className="flex row">
               <FaShieldAlt />
               <input
-                className="flex flex-col w-12 rounded-lg shadow-xl text-black ml-1 pl-2"
+                className="flex flex-col w-12 rounded-lg shadow-xl text-black font-bold ml-1 pl-2"
                 type="text"
                 name="ca"
                 value={playerData[0].ca}
@@ -189,7 +189,7 @@ const CardPlayer = ({ player }) => {
             <label className="flex row">
               <FaHeart />
               <input
-                className="flex flex-col w-12 rounded-lg shadow-xl text-black ml-1 pl-2"
+                className="flex flex-col w-12 rounded-lg shadow-xl text-black font-bold ml-1 pl-2"
                 type="text"
                 name="pv"
                 value={playerData[0].pv}
@@ -202,11 +202,12 @@ const CardPlayer = ({ player }) => {
           </div>
           {/* Campos do card retraído com condicao */}
           {playerData[0].condicao && (
-            <div className="card-player-info-retraido-bottom">
+            <div className="flex flex-row justify-evenly mx-7 mb-2">
               <div className="info">
                 <h2>Condição: </h2>
                 <label>
                   <input
+                    className="flex flex-col w-[70%] rounded-lg shadow-xl text-black font-bold pl-2 mt-1"
                     type="text"
                     name="condicao"
                     value={playerData[0].condicao}
@@ -218,6 +219,7 @@ const CardPlayer = ({ player }) => {
                 <h2>Duração: </h2>
                 <label>
                   <input
+                    className="flex flex-col w-[70%] rounded-lg shadow-xl text-black font-bold pl-2 mt-1"
                     type="text"
                     name="duracao"
                     value={getDuracaoDaCondicao}

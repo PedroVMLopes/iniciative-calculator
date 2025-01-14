@@ -2,10 +2,6 @@ html, body, #root {
   background-color: var(--cinza-escuro);
 }
 
-body {
-  display: flex;       /* Habilita o uso de layout flexbox */
-}
-
 :root {
   --cinza-escuro: #252422;
   --cinza-medio: #403D39;
