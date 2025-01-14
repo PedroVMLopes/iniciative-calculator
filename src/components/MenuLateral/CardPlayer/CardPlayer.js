@@ -92,49 +92,56 @@ const CardPlayer = ({ player }) => {
   return (
     <div
       key={storageKey}
-      className={`card-player shadow-xl ${
+      className={`card-player shadow-xl w-96 ${
         playerData[0].condicao ? "cardComCondicao" : ""
       }`}
     >
       <h1>{playerData[0].nome}</h1>
-      <form className="card-player-info">
+      <form className="flex flex-col justify-between font-bold text-lg text-[var(--bege)] mt-4 ">
         {/* Campos do card - expandido */}
         {isExpanded && (
           <div>
-            <label>
-              <p>
-                <FaShieldAlt />
-              </p>
-              <input
-                type="text"
-                name="ca"
-                value={playerData[0].ca}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              <p>
-                <FaHeart />
-              </p>
-              <input
-                type="text"
-                name="pv"
-                value={playerData[0].pv}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
+            <div className="flex flex-row w-full justify-evenly">
+              <label className="flex flex-row">
+                <p>
+                  <FaShieldAlt />
+                </p>
+                <input
+                  className="w-20 ml-2 mb-2 rounded-lg shadow-xl text-black pl-2"
+                  type="text"
+                  name="ca"
+                  value={playerData[0].ca}
+                  onChange={handleChange}
+                />
+              </label>
+              <label className="flex flex-row">
+                <p>
+                  <FaHeart />
+                </p>
+                <input
+                  className="w-20 ml-2 mb-2 rounded-lg shadow-xl text-black pl-2"
+                  type="text"
+                  name="pv"
+                  value={playerData[0].pv}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
+
+            <label className="flex flex-col mx-7">
               <p>Modificadores: </p>
               <input
+                className="flex flex-col w-full rounded-lg shadow-xl text-black pl-2"
                 type="text"
                 name="mod"
                 value={playerData[0].mod}
                 onChange={handleChange}
               />
             </label>
-            <label>
+            <label className="flex flex-col mx-7 mb-2">
               <p>Condição: </p>
               <input
+                className="flex flex-col w-full rounded-lg shadow-xl text-black pl-2"
                 type="text"
                 name="condicao"
                 value={playerData[0].condicao}
@@ -142,9 +149,10 @@ const CardPlayer = ({ player }) => {
               />
             </label>
             {playerData[0].condicao && (
-              <label>
+              <label className="flex flex-col mx-7 mb-2">
                 <p>Duração: </p>
                 <input
+                  className="flex flex-col w-full rounded-lg shadow-xl text-black pl-2"
                   type="text"
                   name="duracao"
                   value={getDuracaoDaCondicao}
@@ -166,20 +174,22 @@ const CardPlayer = ({ player }) => {
 
       {/* Campos do card - retraído */}
       {!isExpanded && (
-        <div className="card-player-info-retraido">
-          <div className="card-player-info-retraido-top">
-            <label>
+        <div className="flex flex-col w-full">
+          <div className="flex flex-row items-center justify-evenly">
+            <label className="flex row">
               <FaShieldAlt />
               <input
+                className="flex flex-col w-12 rounded-lg shadow-xl text-black ml-1 pl-2"
                 type="text"
                 name="ca"
                 value={playerData[0].ca}
                 onChange={handleChange}
               />
             </label>
-            <label>
+            <label className="flex row">
               <FaHeart />
               <input
+                className="flex flex-col w-12 rounded-lg shadow-xl text-black ml-1 pl-2"
                 type="text"
                 name="pv"
                 value={playerData[0].pv}

@@ -65,11 +65,11 @@ const MenuLateral = () => {
   };
 
   return (
-    <div className="menu-lateral shadow-xl">
-      <div className="sticky pb-2 top-0 z-20 bg-[var(--cinza-medio)] shadow-sm rounded-t-md">
+    <div className="menu-lateral shadow-xl max-w-[500px] w-[40%]">
+      <div className="sticky pb-2 top-0 z-20 bg-[var(--cinza-medio)] shadow-sm rounded-t-md ">
         <img
           src="../Decoracao__topo.png"
-          className="fixed max-w-[500px] -top-3 -z-5"
+          className="fixed max-w-[500px] w-[40%] -top-3 -z-5"
         ></img>
         <div className="flex items-center justify-evenly mt-2 mb-2 pt-10 z-10">
           <div className="flex">
