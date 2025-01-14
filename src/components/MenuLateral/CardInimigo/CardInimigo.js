@@ -75,9 +75,10 @@ const FormCardInimigo = ({
               />
             </label>
             {inimigoData.condicao && (
-              <label>
+              <label className="flex flex-col mx-7 mb-2">
                 <p>Duração: </p>
                 <input
+                  className="flex flex-col w-full rounded-lg shadow-xl text-black pl-2"
                   type="text"
                   name="duracao"
                   value={getDuracaoDaCondicao}

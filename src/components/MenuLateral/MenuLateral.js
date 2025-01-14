@@ -69,7 +69,7 @@ const MenuLateral = () => {
       <div className="sticky pb-2 top-0 z-20 bg-[var(--cinza-medio)] shadow-sm rounded-t-md ">
         <img
           src="../Decoracao__topo.png"
-          className="fixed left-0-top-3 -z-5 -top-4 xl:w-[30%] lg:w-[35%] sm:w-[40%]"
+          className="fixed left-0-top-3 -z-5 -top-[2%] xl:w-[30%] lg:w-[35%] sm:w-[40%]"
         ></img>
         <div className="flex flex-col items-center justify-evenly mb-2 pt-[10%] px-3 z-10 md:flex-row">
           <div className="flex">
