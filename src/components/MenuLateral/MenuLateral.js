@@ -69,19 +69,19 @@ const MenuLateral = () => {
       <div className="sticky pb-2 top-0 z-20 bg-[var(--cinza-medio)] shadow-sm rounded-t-md ">
         <img
           src="../Decoracao__topo.png"
-          className="fixed left-0-top-3 -z-5 xl:w-[30%] lg:w-[35%] sm:w-[40%]"
+          className="fixed left-0-top-3 -z-5 -top-4 xl:w-[30%] lg:w-[35%] sm:w-[40%]"
         ></img>
-        <div className="flex flex-col items-center justify-evenly mt-2 mb-2 pt-[14%] px-3 z-10 md:flex-row">
+        <div className="flex flex-col items-center justify-evenly mb-2 pt-[10%] px-3 z-10 md:flex-row">
           <div className="flex">
             <button
               onClick={toggleExpandPlayer}
-              className="w-14 h-10 p-1 bg-sky-900 flex items-center justify-evenly rounded-l-lg text-white hover:bg-sky-950  text-2xl font-extrabold shadow-xl "
+              className="w-14 h-10 p-1 bg-[var(--azul-claro)] flex items-center justify-evenly rounded-l-lg text-white hover:bg-sky-950  text-2xl font-extrabold shadow-xl "
             >
               <IoIosAdd /> <GiBattleGear />
             </button>
             <button
               onClick={toggleExpandInimigo}
-              className="w-14 h-10 p-1 bg-[var(--vermelho-escuro)] flex items-center justify-evenly rounded-r-lg text-white hover:bg-red-950 text-2xl font-extrabold shadow-xl "
+              className="w-14 h-10 p-1 bg-[var(--vermelho-claro)] flex items-center justify-evenly rounded-r-lg text-white hover:bg-red-950 text-2xl font-extrabold shadow-xl "
             >
               <IoIosAdd /> <GiOrcHead />
             </button>

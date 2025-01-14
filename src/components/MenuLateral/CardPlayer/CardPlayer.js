@@ -174,7 +174,7 @@ const CardPlayer = ({ player }) => {
 
       {/* Campos do card - retraído */}
       {!isExpanded && (
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full p-2 pr-0">
           <div className="flex flex-row items-center justify-evenly">
             <label className="flex row">
               <FaShieldAlt />
