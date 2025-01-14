@@ -1,26 +1,32 @@
-import React, { useState } from "react";
-import { AbilitiesList } from "./AbilitiesList";
+import React, { useState, useRef, useEffect } from "react";
+import { AbilitiesList } from "./AbilityList";
 
 /* Ícones */
 import { FaFeatherAlt } from "react-icons/fa";
 
 const Tests = () => {
-  const [expandAbilities, setExpandAbilities] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  // Componente dos cards de habilidade do topo da tela de testes
   const AbilityCard = ({ name, description, examples, icon, color }) => {
-    const newColor = color;
+    const contentRef = useRef(null); // Referência para o conteúdo do card
+    const [contentHeight, setContentHeight] = useState(0); // Estado para controlar a altura do conteúdo
+
+    useEffect(() => {
+      setContentHeight(contentRef.current.scrollHeight); // Define a altura baseada no conteúdo
+    }, [examples]); // Recalcula a altura quando o conteúdo mudar (exemplos)
+
     return (
       <button
         className="flex flex-col p-2 rounded-lg bg-[var(--cinza-escuro)] shadow-xl text-left"
-        onClick={() => {
-          setExpandAbilities(!expandAbilities);
-        }}
+        onClick={toggleExpand}
       >
         <div className="flex flex-row border-b-2">
-          <div
-            className={`text-5xl flex items-center`}
-            style={{ color: newColor }}
-          >
+          <div className={`text-5xl flex items-center`} style={{ color }}>
             {icon}
           </div>
           <div className="ml-2">
@@ -28,11 +34,14 @@ const Tests = () => {
             <h3>{description}</h3>
           </div>
         </div>
+
         <div
-          className={`pt-2 overflow-hidden transition-max-height duration-300 ease-in-out`}
-          style={{ maxHeight: expandAbilities ? "200px" : "0" }}
+          className={`overflow-hidden transition-all duration-300 ease-in-out`}
+          style={{
+            height: isExpanded ? `${contentHeight}px` : "0px",
+          }}
         >
-          {expandAbilities && (
+          <div ref={contentRef} className="pt-2">
             <ul>
               {examples.map((example, index) => (
                 <li className="p-1" key={index}>
@@ -45,7 +54,7 @@ const Tests = () => {
                 </li>
               ))}
             </ul>
-          )}
+          </div>
         </div>
       </button>
     );
@@ -53,7 +62,7 @@ const Tests = () => {
 
   return (
     <div className="flex flex-col items-center text-white w-full">
-      <h1 className="font-bold font-unifraktur text-3xl pt-4">Hablilidades</h1>
+      <h1 className="font-bold font-unifraktur text-3xl pt-4">Habilidades</h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-1 p-1 text-[var(--bege)] bg-[var(--cinza-medio)] rounded-xl m-2 mt-4 w-full">
         {AbilitiesList.map((ability) => (
           <AbilityCard
@@ -66,6 +75,8 @@ const Tests = () => {
           />
         ))}
       </div>
+      <br />
+      <h1 className="font-bold font-unifraktur text-3xl pt-4">Perícias</h1>
     </div>
   );
 };

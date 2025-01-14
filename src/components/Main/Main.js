@@ -1,5 +1,5 @@
 import React from "react";
-import Tests from "./Tests";
+import Tests from "./Tests/Tests";
 
 export default function Main() {
   return (

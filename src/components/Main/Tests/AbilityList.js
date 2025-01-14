@@ -12,7 +12,7 @@ export const AbilitiesList = [
   {
     id: 1,
     name: "Força",
-    description: "Mede a potencia fisica e o treinamento atletico",
+    description: "Potência fisica e treinamento atlético",
     examples: [
       "Libertar-se de amarras",
       "Tombar uma estátua",
@@ -24,7 +24,7 @@ export const AbilitiesList = [
   {
     id: 2,
     name: "Destreza",
-    description: "Mede a agilidade, reflexos e equilíbrio",
+    description: "Agilidade, reflexos e equilíbrio",
     examples: [
       "Abrir uma fechadura",
       "Desarmar uma armadilha",
@@ -36,7 +36,7 @@ export const AbilitiesList = [
   {
     id: 3,
     name: "Constituição",
-    description: "Mede a saúde, resistência e resiliência",
+    description: "Saúde, resistência e resiliência",
     examples: [
       "Segurar a respiração",
       "Sobreviver sem comida",
@@ -48,7 +48,7 @@ export const AbilitiesList = [
   {
     id: 4,
     name: "Inteligência",
-    description: "Mede a memória, raciocínio e estudo",
+    description: "Memória, raciocínio e estudo",
     examples: [
       "Estimar o valor de um item precioso",
       "Recordar um conhecimento",
@@ -71,8 +71,7 @@ export const AbilitiesList = [
   {
     id: 6,
     name: "Carisma",
-    description:
-      "Capacidade de interagir com os outros, confiança e eloquência",
+    description: "Interações com os outros, confiança e eloquência",
     examples: [
       "Achar a melhor pessoa para saber sobre notícias rumores e boatos",
       "Misturar-se na multidão",
