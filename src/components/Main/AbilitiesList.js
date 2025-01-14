@@ -19,6 +19,7 @@ export const AbilitiesList = [
       "Quebrar correntes e algemas",
     ],
     icon: <GiWeightLiftingUp />,
+    color: "#DDA853",
   },
   {
     id: 2,
@@ -30,6 +31,7 @@ export const AbilitiesList = [
       "Escapar de amarras",
     ],
     icon: <GiNinjaHeroicStance />,
+    color: "#578E7E",
   },
   {
     id: 3,
@@ -41,6 +43,7 @@ export const AbilitiesList = [
       "Ficar sem dormir",
     ],
     icon: <GiHealthNormal />,
+    color: "#9F5255",
   },
   {
     id: 4,
@@ -52,6 +55,7 @@ export const AbilitiesList = [
       "Reconhecer um feitiço",
     ],
     icon: <GiBrain />,
+    color: "#3E5879",
   },
   {
     id: 5,
@@ -62,6 +66,7 @@ export const AbilitiesList = [
       "Analiasr características de uma criatura",
     ],
     icon: <GiWisdom />,
+    color: "#7E5CAD",
   },
   {
     id: 6,
@@ -73,5 +78,6 @@ export const AbilitiesList = [
       "Misturar-se na multidão",
     ],
     icon: <FaMasksTheater />,
+    color: "#C890A7",
   },
 ];

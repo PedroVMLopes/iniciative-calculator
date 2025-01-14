@@ -7,11 +7,17 @@ import { FaFeatherAlt } from "react-icons/fa";
 const Tests = () => {
   const isExpanded = false;
 
-  const AbilityCard = ({ name, description, examples, icon }) => {
+  const AbilityCard = ({ name, description, examples, icon, color }) => {
+    const newColor = color;
     return (
       <div className="flex flex-col p-2  rounded-lg bg-[var(--cinza-escuro)] shadow-xl">
         <div className="flex flex-row border-b-2">
-          <div className="text-5xl flex items-center">{icon}</div>
+          <div
+            className={`text-5xl flex items-center`}
+            style={{ color: newColor }}
+          >
+            {icon}
+          </div>
           <div className="ml-2">
             <h2 className="font-bold font-unifraktur text-lg">{name}</h2>
             <h3>{description}</h3>
@@ -46,6 +52,7 @@ const Tests = () => {
             description={ability.description}
             examples={ability.examples}
             icon={ability.icon}
+            color={ability.color}
           />
         ))}
       </div>
