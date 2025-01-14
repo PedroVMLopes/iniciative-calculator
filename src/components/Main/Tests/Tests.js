@@ -23,12 +23,20 @@ const Tests = () => {
   };
 
   const filteredExpertiseList = useMemo(() => {
-    return [...ExpertiseList].sort((a, b) => {
-      if (!hoverColor) return 0; // Sem filtro, mantém a ordem original.
-      if (a.color === hoverColor && b.color !== hoverColor) return -1;
-      if (a.color !== hoverColor && b.color === hoverColor) return 1;
-      return 0; // Mantém a ordem relativa dos demais itens.
-    });
+    return [...ExpertiseList]
+      .sort((a, b) => {
+        if (!hoverColor) return 0; // Sem filtro, mantém a ordem original.
+        if (a.color === hoverColor && b.color !== hoverColor) return -1;
+        if (a.color !== hoverColor && b.color === hoverColor) return 1;
+        return 0; // Mantém a ordem relativa dos demais itens.
+      })
+      .map((expertise) => {
+        // Se a cor do item não for a selecionada, altera para branco
+        if (hoverColor && expertise.color !== hoverColor) {
+          return { ...expertise, color: "var(--bege)" }; // Altera a cor para branco
+        }
+        return expertise; // Mantém a cor original se for a selecionada
+      });
   }, [hoverColor]); // Recalcula sempre que hoverColor mudar.
 
   const AbilityCard = ({ name, description, examples, icon, color }) => {
