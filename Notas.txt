@@ -13,7 +13,7 @@
 
 -> Adicionar um botão de "Adicionar Party" no card de adição de jogador para adicionar os 6 de uma só vez
 
--> Fazer os outros cards de perícias ficarem cinza ao fazer hover
+-> Colocar todos os cards de pericia em um array de objetos. Quando uma habilidade estiver em hover colocar as perícias dela no topo e a cor das outras em cinza
 
 
 

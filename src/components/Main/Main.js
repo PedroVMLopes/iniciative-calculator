@@ -1,5 +1,5 @@
 import React from "react";
-import Testes from "./Tests";
+import Tests from "./Tests";
 
 export default function Main() {
   return (
@@ -9,8 +9,8 @@ export default function Main() {
         <button className="p-2 mx-2">Jogadores</button>
         <button className="p-2 mx-2">Criador de NPC</button>
       </div>
-      <div className="Content flex mt-3">
-        <Testes />
+      <div className="Content flex mt-3 w-full">
+        <Tests />
       </div>
     </div>
   );
