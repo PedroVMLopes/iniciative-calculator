@@ -18,6 +18,12 @@
 
 
 
+-> Possibilitar alterações na aba de Party
+-> Fazer a opção de rolar iniciativa por si próprio funcionar
+
+
+
+
 
 ---------------------------------------------------------------
 localStorage

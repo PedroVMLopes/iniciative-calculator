@@ -25,7 +25,8 @@ const Party = () => {
 
     console.log(player);
 
-    /* const iniciativa = Math.floor(Math.random() * 20) + 1 + Number(mod); */
+    /* Esse componente já está funcionando */
+    /* Ao clicar no botão novamente ele gera novas iniciativas mantendo as informações dos jogadores */
 
     return (
       <div className="mx-3 px-2 max-w-80" key={id}>
