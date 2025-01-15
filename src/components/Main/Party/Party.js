@@ -78,7 +78,7 @@ const Party = () => {
       >
         Rolar Iniciativa Do Grupo
       </button>
-      <div className="grid grid-cols-3 gap-4 pt-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3  gap-4 pt-12">
         {players.map((player) => cardPlayer(player))}
       </div>
     </div>
