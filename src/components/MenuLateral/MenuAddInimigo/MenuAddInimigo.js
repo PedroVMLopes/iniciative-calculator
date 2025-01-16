@@ -75,14 +75,15 @@ export default function MenuAddInimigo() {
 
     // Atualiza o estado e o localStorage diretamente
     const cardsInimigosAtualizados = [...cardsInimigos, imimigoComIniciativa];
+    setCardsInimigos(cardsInimigosAtualizados);
     console.log("cardsInimigosAtualizados", cardsInimigosAtualizados);
     localStorage.setItem(
       "cardsInimigos",
       JSON.stringify(cardsInimigosAtualizados)
     );
 
-    window.dispatchEvent(new CustomEvent("cardsInimigosAtualizados"));
     limparCampos();
+    window.dispatchEvent(new CustomEvent("cardsInimigosAtualizados"));
   };
 
   // Adiciona o inimigo a um grupo de inimigos
@@ -108,6 +109,7 @@ export default function MenuAddInimigo() {
 
   // Envia o grupo de inimigos com a iniciativa calculada
   const enviarGrupo = (event) => {
+    event.preventDefault();
     const modificador = Number(fieldMod);
     const iniciativa = Math.floor(Math.random() * 20) + 1 + modificador;
     const grupoComIniciativa = {
@@ -125,9 +127,9 @@ export default function MenuAddInimigo() {
       JSON.stringify(cardsInimigosAtualizados)
     );
 
-    window.dispatchEvent(new CustomEvent("cardsInimigosAtualizados"));
     limparCampos();
     setGrupoDeInimigos([]);
+    window.dispatchEvent(new CustomEvent("cardsInimigosAtualizados"));
   };
 
   return (

@@ -30,13 +30,6 @@ const MenuLateral = () => {
     setCardsInimigos(getLocalStorageData("cardsInimigos"));
   }, []);
 
-  useEffect(() => {
-    window.addEventListener("cardsInimigosAtualizados", () => {
-      setCardsInimigos(getLocalStorageData("cardsInimigos"));
-    });
-    window.removeEventListener("cardsInimigosAtualizados", () => {});
-  }, []);
-
   /* Junta os jogadores e inimigos e marca os dois adequadamente */
   const listaTotal = [
     ...players.map((player) => ({ ...player, tipo: "player" })),
@@ -57,6 +50,11 @@ const MenuLateral = () => {
   const toggleExpandPlayer = () => {
     setIsPlayerExpanded((prevState) => !prevState);
   };
+
+  window.addEventListener("cardsInimigosAtualizados", () => {
+    console.log("cardsInimigosAtualizados");
+    setCardsInimigos(getLocalStorageData("cardsInimigos"));
+  });
 
   return (
     <div className="menu-lateral shadow-xl xl:w-[30%] lg:w-[35%] sm:w-[40%] ">
