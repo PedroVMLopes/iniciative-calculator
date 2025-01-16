@@ -8,6 +8,7 @@ const Party = () => {
 
   const savePlayer = (players) => {
     localStorage.setItem("players", JSON.stringify(players));
+    window.dispatchEvent(new CustomEvent("cardsAtualizados"));
   };
 
   const CardPlayer = (player) => {

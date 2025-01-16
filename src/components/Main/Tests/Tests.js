@@ -48,7 +48,7 @@ const Tests = () => {
     }, [isExpanded]);
 
     return (
-      <div>
+      <div className="flex flex-col h-full w-full justify-center">
         <div className="flex flex-row border-b-2">
           <div className={`text-5xl flex items-center`} style={{ color }}>
             {icon}

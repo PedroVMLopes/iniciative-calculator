@@ -12,7 +12,7 @@ export const AbilitiesList = [
   {
     id: 1,
     name: "Força",
-    description: "Potência fisica e treinamento atlético",
+    description: "Atletismo",
     examples: [
       "Libertar-se de amarras",
       "Tombar uma estátua",
@@ -24,7 +24,7 @@ export const AbilitiesList = [
   {
     id: 2,
     name: "Destreza",
-    description: "Agilidade, reflexos e equilíbrio",
+    description: "Acrobacia, Furtividade e Prestidigitação",
     examples: [
       "Abrir uma fechadura",
       "Desarmar uma armadilha",
@@ -36,7 +36,7 @@ export const AbilitiesList = [
   {
     id: 3,
     name: "Constituição",
-    description: "Saúde, resistência e resiliência",
+    description: "Lutar pela vida",
     examples: [
       "Segurar a respiração",
       "Sobreviver sem comida",
@@ -48,7 +48,7 @@ export const AbilitiesList = [
   {
     id: 4,
     name: "Inteligência",
-    description: "Memória, raciocínio e estudo",
+    description: "Arcanismo, História, Investigação, Natureza e Religião",
     examples: [
       "Estimar o valor de um item precioso",
       "Recordar um conhecimento",
@@ -60,10 +60,12 @@ export const AbilitiesList = [
   {
     id: 5,
     name: "Sabedoria",
-    description: "Conhecimento do mundo ao seu redor",
+    description:
+      "Adestrar Animais, Intuição, Medicina, Percepção e Sobrevivência",
     examples: [
       "Obter um pressentimento sobre o que fazer",
       "Analiasr características de uma criatura",
+      "Encontrar rastros",
     ],
     icon: <GiWisdom />,
     color: "#FF7F3F",
@@ -71,10 +73,11 @@ export const AbilitiesList = [
   {
     id: 6,
     name: "Carisma",
-    description: "Interações com os outros, confiança e eloquência",
+    description: "Atuação, Enganação, Intimidação e Persuasão",
     examples: [
       "Achar a melhor pessoa para saber sobre notícias rumores e boatos",
       "Misturar-se na multidão",
+      "Tocar um instrumento",
     ],
     icon: <FaMasksTheater />,
     color: "#C890A7",
