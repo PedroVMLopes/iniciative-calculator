@@ -30,17 +30,11 @@ const MenuLateral = () => {
     setCardsInimigos(getLocalStorageData("cardsInimigos"));
   }, []);
 
-  // Escuta mudanças no localStorage
   useEffect(() => {
-    const handleStorageChange = () => {
-      setPlayers(getLocalStorageData("players"));
+    window.addEventListener("cardsInimigosAtualizados", () => {
       setCardsInimigos(getLocalStorageData("cardsInimigos"));
-    };
-
-    window.addEventListener("storage", handleStorageChange);
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-    };
+    });
+    window.removeEventListener("cardsInimigosAtualizados", () => {});
   }, []);
 
   /* Junta os jogadores e inimigos e marca os dois adequadamente */

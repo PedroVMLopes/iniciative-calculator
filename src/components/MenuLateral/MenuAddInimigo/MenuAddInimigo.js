@@ -48,6 +48,7 @@ export default function MenuAddInimigo() {
 
   /* Função para adicionar um inimigo único ao grupo  */
   const adicionarInimigo = (event) => {
+    event.preventDefault();
     if (!fieldNome || !fieldCa || !fieldPv) {
       alert("Preencha todos os campos");
       return;
@@ -80,6 +81,7 @@ export default function MenuAddInimigo() {
       JSON.stringify(cardsInimigosAtualizados)
     );
 
+    window.dispatchEvent(new CustomEvent("cardsInimigosAtualizados"));
     limparCampos();
   };
 
@@ -123,6 +125,7 @@ export default function MenuAddInimigo() {
       JSON.stringify(cardsInimigosAtualizados)
     );
 
+    window.dispatchEvent(new CustomEvent("cardsInimigosAtualizados"));
     limparCampos();
     setGrupoDeInimigos([]);
   };
@@ -179,6 +182,7 @@ export default function MenuAddInimigo() {
           <br />
           <button
             className="botao-add-inimigo hover:bg-[var(--vermelho-claro)]"
+            id="inimigo-adicionado"
             type="submit"
             onClick={adicionarInimigo}
           >
