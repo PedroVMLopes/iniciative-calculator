@@ -82,6 +82,8 @@ export default function MenuAddPlayer() {
     setFieldPv("");
     setFieldMod("");
     setFieldRolagem("");
+
+    window.dispatchEvent(new CustomEvent("cardsAtualizados"));
   };
 
   return (

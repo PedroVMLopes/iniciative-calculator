@@ -9,12 +9,6 @@
 
 -> Substituir a duração da condição por um número, e adicionar "turnos" no input
 
--> Substituir os ícones de edição dos cards por engrenagens
-
--> Adicionar um botão de "Adicionar Party" no card de adição de jogador para adicionar os 6 de uma só vez
-
--> Colocar todos os cards de pericia em um array de objetos. Quando uma habilidade estiver em hover colocar as perícias dela no topo e a cor das outras em cinza
-
 
 
 

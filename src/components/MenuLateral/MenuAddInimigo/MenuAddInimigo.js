@@ -83,7 +83,7 @@ export default function MenuAddInimigo() {
     );
 
     limparCampos();
-    window.dispatchEvent(new CustomEvent("cardsInimigosAtualizados"));
+    window.dispatchEvent(new CustomEvent("cardsAtualizados"));
   };
 
   // Adiciona o inimigo a um grupo de inimigos
@@ -129,7 +129,7 @@ export default function MenuAddInimigo() {
 
     limparCampos();
     setGrupoDeInimigos([]);
-    window.dispatchEvent(new CustomEvent("cardsInimigosAtualizados"));
+    window.dispatchEvent(new CustomEvent("cardsAtualizados"));
   };
 
   return (

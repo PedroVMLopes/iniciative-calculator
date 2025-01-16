@@ -24,6 +24,13 @@ const MenuLateral = () => {
   const [players, setPlayers] = useState([]);
   const [cardsInimigos, setCardsInimigos] = useState([]);
 
+  window.addEventListener("cardsAtualizados", () => {
+    console.log("Novo card adicionado");
+    setCardsInimigos(getLocalStorageData("cardsInimigos"));
+    setPlayers(getLocalStorageData("players"));
+    console.log("players: ", players);
+  });
+
   // Carrega os dados ao montar o componente
   useEffect(() => {
     setPlayers(getLocalStorageData("players"));
@@ -50,11 +57,6 @@ const MenuLateral = () => {
   const toggleExpandPlayer = () => {
     setIsPlayerExpanded((prevState) => !prevState);
   };
-
-  window.addEventListener("cardsInimigosAtualizados", () => {
-    console.log("cardsInimigosAtualizados");
-    setCardsInimigos(getLocalStorageData("cardsInimigos"));
-  });
 
   return (
     <div className="menu-lateral shadow-xl xl:w-[30%] lg:w-[35%] sm:w-[40%] ">
