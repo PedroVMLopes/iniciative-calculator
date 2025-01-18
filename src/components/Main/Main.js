@@ -20,10 +20,6 @@ const NavBar = () => {
       path: "/",
     },
     {
-      label: "Nomes",
-      path: "/names",
-    },
-    {
       label: "NPC's",
       path: "/npcs",
     },
@@ -36,18 +32,22 @@ const NavBar = () => {
       path: "/party",
     },
     {
-      label: "Skate Wizards",
-      path: "/skateWizards",
+      label: "Regras da Casa",
+      path: "/houseRules",
     },
   ];
 
   return (
     <nav
-      className="relative flex rounded-md justify-evenly p-1 pt-2 max-w-3xl text-[var(--bege)] font-bold shadow-lg"
+      className={`relative grid grid-cols-${links.length} gap-[1px] py-2 px-0 rounded-md max-w-2xl text-[var(--bege)] font-bold shadow-lg`}
       id="navbar"
     >
       {links.map((link) => (
-        <Link key={link.path} to={link.path} className={`p-2 mx-2 mt-1 `}>
+        <Link
+          key={link.path}
+          to={link.path}
+          className={`py-3 px-2 flex justify-center bg-[var(--cinza-escuro)]`}
+        >
           {link.label}
         </Link>
       ))}
@@ -67,7 +67,7 @@ const NavBar = () => {
       */}
 
       <div
-        className={`absolute ml-[30px] top-0 text-[var(--amarelo)] transition-all duration-300 rounded-md`}
+        className={`absolute flex top-0 text-[var(--amarelo)] transition-all duration-300 justify-center items-center`}
         style={{
           width: `${100 / links.length}%`,
           left: `${
