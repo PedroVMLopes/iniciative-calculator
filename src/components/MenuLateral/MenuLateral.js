@@ -105,7 +105,10 @@ const MenuLateral = () => {
           </div>
         ))}
         <div className=" flex justify-center align-bottom -left-4 h-[100%] sticky bottom-0 -z-5 opacity-5">
-          <img src="../plants.png" className="h-[100%] bottom-0"></img>
+          <img
+            src="../plants.png"
+            className="h-[100%] bottom-0 opacity-70"
+          ></img>
         </div>
       </div>
       <br />

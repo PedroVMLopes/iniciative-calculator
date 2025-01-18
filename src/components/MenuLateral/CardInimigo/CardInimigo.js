@@ -22,13 +22,24 @@ const FormCardInimigo = ({
       ${inimigoData.pv === "0" ? "morto" : ""}
       `}
     >
+      <div className="flex relative flex-col w-[100%] justify-between font-bold text-lg text-[var(--bege)] ">
+        <img
+          src="../Decoracao_canto2.png"
+          className="absolute -z-9 w-[20%] top-0 left-0 opacity-20"
+        />
+        <h1>{inimigoData.nome}</h1>
+        <img
+          src="../Decoracao_canto2.png"
+          className="absolute -z-9 w-[20%] top-0 right-0 opacity-20 scale-x-[-1]"
+        />
+      </div>
+
       {/* Campos do card expandido */}
-      <h1>{inimigoData.nome}</h1>
       <form className="flex flex-col justify-between font-bold text-lg text-[var(--bege)] mt-4 ">
         {isExpanded && (
           <div>
             <div className="flex flex-row w-full justify-evenly">
-              <label className="flex flex-row">
+              <label className="flex z-10 flex-row">
                 <p>
                   <FaShieldAlt />
                 </p>
@@ -40,7 +51,7 @@ const FormCardInimigo = ({
                   onChange={handleChange}
                 />
               </label>
-              <label className="flex flex-row">
+              <label className="flex z-10 flex-row">
                 <p>
                   <FaHeart />
                 </p>
@@ -108,7 +119,7 @@ const FormCardInimigo = ({
       {/* Campos do card retraído */}
       {!isExpanded && (
         <div className="flex flex-col w-full">
-          <div className="flex flex-row items-center justify-evenly">
+          <div className="flex z-10 flex-row items-center justify-evenly">
             <label className="flex row">
               <FaShieldAlt />
               <input

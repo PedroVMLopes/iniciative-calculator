@@ -92,7 +92,7 @@ const CardPlayer = ({ player }) => {
   return (
     <div
       key={storageKey}
-      className={`flex flex-col card-player shadow-xl w-[80%] rounded-md ${
+      className={`flex flex-col card-player w-[80%] rounded-md ${
         playerData[0].condicao ? "cardComCondicao" : ""
       }`}
     >
@@ -108,8 +108,8 @@ const CardPlayer = ({ player }) => {
         />
       </div>
 
+      {/* Campos do card - expandido */}
       <form className="flex z-10 flex-col justify-between font-bold text-lg text-[var(--bege)] mt-4 ">
-        {/* Campos do card - expandido */}
         {isExpanded && (
           <div>
             <div className="flex flex-row w-full justify-evenly">
