@@ -92,12 +92,23 @@ const CardPlayer = ({ player }) => {
   return (
     <div
       key={storageKey}
-      className={`card-player shadow-xl w-[80%] rounded-md ${
+      className={`flex flex-col card-player shadow-xl w-[80%] rounded-md ${
         playerData[0].condicao ? "cardComCondicao" : ""
       }`}
     >
-      <h1>{playerData[0].nome}</h1>
-      <form className="flex flex-col justify-between font-bold text-lg text-[var(--bege)] mt-4 ">
+      <div className="flex relative flex-col w-[100%] justify-between font-bold text-lg text-[var(--bege)] ">
+        <img
+          src="../Decoracao_canto1.png"
+          className="absolute -z-5 w-[20%] top-0 left-0 opacity-30"
+        />
+        <h1>{playerData[0].nome}</h1>
+        <img
+          src="../Decoracao_canto1.png"
+          className="absolute -z-5 w-[20%] top-0 right-0 opacity-30 scale-x-[-1]"
+        />
+      </div>
+
+      <form className="flex z-10 flex-col justify-between font-bold text-lg text-[var(--bege)] mt-4 ">
         {/* Campos do card - expandido */}
         {isExpanded && (
           <div>
@@ -162,14 +173,14 @@ const CardPlayer = ({ player }) => {
             )}
             <div className="flex row pl-4">
               <button
-                className="rounded-full px-3 py-2"
+                className="rounded-full px-3 py-1"
                 type="submit"
                 onClick={handleDelete}
               >
                 <RiDeleteBin7Fill />
               </button>
               <button
-                className="rounded-full px-3 py-2"
+                className="rounded-full px-3 py-1"
                 type="button"
                 onClick={toggleExpand}
               >
@@ -182,7 +193,7 @@ const CardPlayer = ({ player }) => {
 
       {/* Campos do card - retraído */}
       {!isExpanded && (
-        <div className="flex flex-col w-full p-2 pr-0">
+        <div className="flex z-10 flex-col w-full p-2 pr-0">
           <div className="flex flex-row items-center justify-evenly">
             <label className="flex row">
               <FaShieldAlt />

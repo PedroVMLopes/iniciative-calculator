@@ -16,7 +16,7 @@ const FormCardInimigo = ({
 }) => {
   return (
     <div
-      className={`card-inimigo shadow-xl w-full ${
+      className={`card-inimigo shadow-xl w-full rounded-md ${
         inimigoData.condicao ? "cardComCondicao" : ""
       }
       ${inimigoData.pv === "0" ? "morto" : ""}
@@ -87,10 +87,18 @@ const FormCardInimigo = ({
               </label>
             )}
             <div className="flex row">
-              <button type="submit" onClick={(e) => handleDelete(e, index)}>
+              <button
+                className="rounded-full px-3 py-1"
+                type="submit"
+                onClick={(e) => handleDelete(e, index)}
+              >
                 <RiDeleteBin7Fill />
               </button>
-              <button type="button" onClick={toggleExpand}>
+              <button
+                className="rounded-full px-3 py-1"
+                type="button"
+                onClick={toggleExpand}
+              >
                 Concluir
               </button>
             </div>
@@ -104,7 +112,7 @@ const FormCardInimigo = ({
             <label className="flex row">
               <FaShieldAlt />
               <input
-                className="flex flex-col w-12 rounded-lg shadow-xl text-black font-bold ml-1 pl-2"
+                className="flex flex-col w-12 rounded-md shadow-xl text-black font-bold ml-2 pl-2"
                 type="text"
                 name="ca"
                 value={inimigoData.ca}
@@ -114,14 +122,18 @@ const FormCardInimigo = ({
             <label className="flex row">
               <FaHeart />
               <input
-                className="flex flex-col w-12 rounded-lg shadow-xl text-black font-bold ml-1 pl-2"
+                className="flex flex-col w-12 rounded-md shadow-xl text-black font-bold ml-2 pl-2"
                 type="text"
                 name="pv"
                 value={inimigoData.pv}
                 onChange={handleChange}
               />
             </label>
-            <button type="button" onClick={toggleExpand}>
+            <button
+              className="rounded-full px-3 py-2"
+              type="button"
+              onClick={toggleExpand}
+            >
               <FaPencilRuler />
             </button>
           </div>
