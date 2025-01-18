@@ -92,7 +92,7 @@ const CardPlayer = ({ player }) => {
   return (
     <div
       key={storageKey}
-      className={`card-player shadow-xl w-[80%] ${
+      className={`card-player shadow-xl w-[80%] rounded-md ${
         playerData[0].condicao ? "cardComCondicao" : ""
       }`}
     >
@@ -161,10 +161,18 @@ const CardPlayer = ({ player }) => {
               </label>
             )}
             <div className="flex row pl-4">
-              <button type="submit" onClick={handleDelete}>
+              <button
+                className="rounded-full px-3 py-2"
+                type="submit"
+                onClick={handleDelete}
+              >
                 <RiDeleteBin7Fill />
               </button>
-              <button type="button" onClick={toggleExpand}>
+              <button
+                className="rounded-full px-3 py-2"
+                type="button"
+                onClick={toggleExpand}
+              >
                 Concluir
               </button>
             </div>
@@ -179,7 +187,7 @@ const CardPlayer = ({ player }) => {
             <label className="flex row">
               <FaShieldAlt />
               <input
-                className="flex flex-col w-12 rounded-lg shadow-xl text-black font-bold ml-1 pl-2"
+                className="flex flex-col w-12 rounded-md shadow-xl text-black font-bold ml-2 pl-2"
                 type="text"
                 name="ca"
                 value={playerData[0].ca}
@@ -189,14 +197,18 @@ const CardPlayer = ({ player }) => {
             <label className="flex row">
               <FaHeart />
               <input
-                className="flex flex-col w-12 rounded-lg shadow-xl text-black font-bold ml-1 pl-2"
+                className="flex flex-col w-12 rounded-md shadow-xl text-black font-bold ml-2 pl-2"
                 type="text"
                 name="pv"
                 value={playerData[0].pv}
                 onChange={handleChange}
               />
             </label>
-            <button type="button" onClick={toggleExpand}>
+            <button
+              className="rounded-full px-3 py-2"
+              type="button"
+              onClick={toggleExpand}
+            >
               <FaPencilRuler />
             </button>
           </div>
