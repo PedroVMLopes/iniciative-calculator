@@ -191,7 +191,11 @@ export const ExpertiseList = [
     name: "Atuação",
     type: "Carisma",
     description: "Um teste de Carisma",
-    examples: ["Entreter uma plateia", "Chamar atenção"],
+    examples: [
+      "Entreter uma plateia",
+      "Chamar atenção",
+      "Tocar um instrumento",
+    ],
     icon: <GiClown />,
     color: "#C890A7",
   },

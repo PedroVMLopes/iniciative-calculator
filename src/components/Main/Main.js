@@ -35,6 +35,10 @@ const NavBar = () => {
       label: "Party",
       path: "/party",
     },
+    {
+      label: "Skate Wizards",
+      path: "/skateWizards",
+    },
   ];
 
   return (

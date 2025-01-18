@@ -59,8 +59,8 @@ const MenuLateral = () => {
   };
 
   return (
-    <div className="menu-lateral shadow-xl xl:w-[30%] lg:w-[35%] sm:w-[40%] ">
-      <div className="sticky pb-2 top-0 z-20 bg-[var(--cinza-medio)] shadow-sm rounded-t-md ">
+    <div className="menu-lateral shadow-xl xl:w-[30%] lg:w-[35%] sm:w-[40%] rounded-md">
+      <div className="sticky pb-2 top-0 z-20 bg-[var(--cinza-medio)] shadow-sm rounded-t-sm ">
         <img
           src="../Decoracao__topo.png"
           className="fixed left-0-top-3 -z-5 -top-[2%] xl:w-[30%] lg:w-[35%] sm:w-[40%]"
