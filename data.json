@@ -85,5 +85,19 @@
         {"id": 56,"type": "bandit" ,"name": "Caçador de Recompensas Inescrupuloso"},
         {"id": 57,"type": "bandit" ,"name": "Apostador Profissional"},
         {"id": 58,"type": "bandit" ,"name": "Espião ou Informante"}
+    ],
+    "uniqueTraits":[
+        {"id": 1, "name": "É um fisiculturista"},
+        {"id": 2, "name": "É um criminoso fugitivo, ou possui um familiar ou conhecido criminoso"},
+        {"id": 3, "name": "É curioso sobre o sobrenatural, mesmo sem ter poderes"},
+        {"id": 4, "name": "Cresceu ouvindo sobre lendas e culturas diferentes"},
+        {"id": 5, "name": "Tem conhecimento sobre plantas, animais e o terreno da região"},
+        {"id": 6, "name": "Fez parte de um culto local, ou conhece alguém que faz"},
+        {"id": 7, "name": "É especialmente cuidadoso com animais"},
+        {"id": 8, "name": "É muito bom em conectar informações recebidas com conhecimentos prévios"},
+        {"id": 9, "name": "Tem conhecimentos especiais em medicina"},
+        {"id": 10, "name": "Tem muito conhecimento de fofocas e segredos"},
+        {"id": 11, "name": "Tem conhecimento conhecimento de pontos fracos e vulnerabilidades de algo"},
+        {"id": 12, "name": "Pode arranjar informações com facilidade com seus contatos"} 
     ]
 }
