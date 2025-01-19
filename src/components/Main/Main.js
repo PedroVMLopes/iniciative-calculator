@@ -39,14 +39,14 @@ const NavBar = () => {
 
   return (
     <nav
-      className={`relative grid grid-cols-${links.length} gap-[1px] py-2 px-0 rounded-md max-w-2xl text-[var(--bege)] font-bold shadow-lg`}
+      className={`relative grid grid-cols-${links.length} gap-[1px] py-2 px-0 rounded-md max-w-2xl text-[var(--bege)] font-bold text-nowrap`}
       id="navbar"
     >
       {links.map((link) => (
         <Link
           key={link.path}
           to={link.path}
-          className={`py-3 px-2 flex justify-center bg-[var(--cinza-escuro)]`}
+          className={`py-4 px-2 flex justify-center bg-[var(--cinza-escuro)]`}
         >
           {link.label}
         </Link>
@@ -86,7 +86,7 @@ const Main = () => {
   return (
     <Router>
       <div
-        className="flex flex-col items-center w-full xl:pl-[32%] lg:pl-[37%] sm:pl-[42%]  p-3"
+        className="flex flex-col items-center w-full xl:pl-[28%] lg:pl-[37%] sm:pl-[42%]  p-3"
         id="main"
       >
         <NavBar />

@@ -67,11 +67,11 @@ const MenuLateral = () => {
   console.log("sortedList: ", sortedList);
 
   return (
-    <div className="menu-lateral shadow-xl xl:w-[30%] lg:w-[35%] sm:w-[40%] rounded-md">
+    <div className="menu-lateral shadow-xl xl:w-[25%] lg:w-[35%] sm:w-[40%] rounded-md">
       <div className="sticky pb-2 top-0 z-20 bg-[var(--cinza-medio)] shadow-sm rounded-t-sm ">
         <img
           src="../Decoracao__topo.png"
-          className="fixed left-0-top-3 -z-5 -top-[2%] xl:w-[30%] lg:w-[35%] sm:w-[40%] opacity-70"
+          className="fixed left-0-top-3 -z-5 -top-[2%] xl:w-[25%] lg:w-[35%] sm:w-[40%] opacity-70"
         ></img>
         <div className="flex flex-col items-center justify-evenly mb-2 pt-[10%] px-3 z-10 md:flex-row">
           <div className="flex">
@@ -108,14 +108,14 @@ const MenuLateral = () => {
         {sortedList.map((card, index) => (
           <div
             key={index}
-            className="flex flex-row px-3 py-2 justify-around z-10 pb-1  "
+            className="flex flex-row px-3 py-2 justify-around z-10 pb-1 "
           >
             <div className="flex flex-row w-[80%] items-center shadow-md shadow-r-none rounded-md">
               {card.tipo === "player" && <CardPlayer player={card} />}
               {card.tipo === "inimigo" && <CardInimigo inimigo={card} />}
             </div>
             <div
-              className={`flex relative flex-row w-[20%] items-center justify-center pr-4 rounded-r-md  ${
+              className={`flex relative flex-row w-[20%] items-center justify-center pr-4 rounded-r-md shadow ${
                 card.tipo === "player"
                   ? "bg-gradient-to-b from-[var(--azul-escuro)] to-[var(--azul-claro)]"
                   : "bg-gradient-to-b from-[var(--vermelho-escuro)] to-[var(--vermelho-claro)]"
