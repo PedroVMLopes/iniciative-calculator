@@ -5,7 +5,6 @@
   max-height: 97vh;
   display: flex;
   flex-direction: column;
-  margin: 0.75rem;
 }
 
 .menu-lateral h1 {
@@ -24,7 +23,7 @@
 
 /* Barra de rolagem para o container específico */
 .CardsLinhaDeIniciativa::-webkit-scrollbar {
-  width: 10px; /* Largura da barra de rolagem */
+  width: 8px; /* Largura da barra de rolagem */
 }
 
 /* Cor da parte da barra de rolagem que não foi rolada */

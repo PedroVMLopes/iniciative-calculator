@@ -67,36 +67,44 @@ const MenuLateral = () => {
   console.log("sortedList: ", sortedList);
 
   return (
-    <div className="menu-lateral shadow-xl xl:w-[25%] lg:w-[35%] sm:w-[40%] rounded-md">
-      <div className="sticky pb-2 top-0 z-20 bg-[var(--cinza-medio)] shadow-sm rounded-t-sm ">
+    <div className="menu-lateral m-3 shadow-xl xl:w-[25%] lg:w-[35%] sm:w-[40%] rounded-md">
+      <div className="relative pb-2 z-20 bg-[var(--cinza-medio)] shadow-sm rounded-t-sm ">
         <img
           src="../Decoracao__topo.png"
-          className="fixed left-0-top-3 -z-5 -top-[2%] xl:w-[25%] lg:w-[35%] sm:w-[40%] opacity-70"
+          className="absolute left-0 -top-5 -z-5 w-full opacity-70"
         ></img>
         <div className="flex flex-col items-center justify-evenly mb-2 pt-[10%] px-3 z-10 md:flex-row">
           <div className="flex">
             <button
               onClick={toggleExpandPlayer}
-              className="w-14 h-10 p-1 bg-[var(--azul-claro)] flex items-center justify-evenly rounded-l-md text-white hover:bg-sky-950  text-2xl font-extrabold shadow-xl "
+              className="relative w-12 h-10 p-1 pr-2 bg-[var(--azul-claro)] flex items-center justify-evenly rounded-md text-white hover:bg-sky-950 text-2xl font-extrabold shadow-xl "
             >
-              <IoIosAdd /> <GiBattleGear />
-            </button>
-            <button
-              onClick={toggleExpandInimigo}
-              className="w-14 h-10 p-1 bg-[var(--vermelho-claro)] flex items-center justify-evenly rounded-r-md text-white hover:bg-red-950 text-2xl font-extrabold shadow-xl "
-            >
-              <IoIosAdd /> <GiOrcHead />
+              <div className="absolute animate-pulse top-0 right-0">
+                <IoIosAdd />
+              </div>
+              <GiBattleGear />
             </button>
           </div>
           <h1 className="font-unifraktur pl-2 pr-2">Contagem De Iniciativa</h1>
+          <button
+            onClick={toggleExpandInimigo}
+            className="relative w-12 h-10 p-1 pr-2 bg-[var(--vermelho-claro)] flex items-center justify-evenly rounded-md text-white hover:bg-red-950 text-2xl font-extrabold shadow-xl "
+          >
+            <div className="absolute animate-pulse top-0 right-0">
+              <IoIosAdd />
+            </div>{" "}
+            <GiOrcHead />
+          </button>
+          {/*
           <div className="flex">
-            <button className="w-11 h-10 bg-[var(--cinza-claro)] border-2 border-[var(--cinza-medio)] border-r-0 flex items-center justify-evenly rounded-l-md text-black hover:bg-[var(--bege)] text-xl font-extrabold shadow-xl ">
+            <button className="w-14 h-10 bg-[var(--cinza-escuro)] flex items-center justify-evenly rounded-l-md text-black hover:bg-[var(--bege)] text-xl font-extrabold shadow-xl ">
               <FaHandPointLeft />
             </button>
-            <button className="w-11 h-10 bg-[var(--cinza-claro)] border-2 border-[var(--cinza-medio)] border-l-0 flex items-center justify-evenly rounded-r-md text-black hover:bg-[var(--bege)] text-xl font-extrabold shadow-xl ">
+            <button className="w-14 h-10 bg-[var(--cinza-escuro)] flex items-center justify-evenly rounded-r-md text-black hover:bg-[var(--bege)] text-xl font-extrabold shadow-xl ">
               <FaHandPointRight />
             </button>
           </div>
+          */}
         </div>
       </div>
 
@@ -115,17 +123,17 @@ const MenuLateral = () => {
               {card.tipo === "inimigo" && <CardInimigo inimigo={card} />}
             </div>
             <div
-              className={`flex relative flex-row w-[20%] items-center justify-center pr-4 rounded-r-md shadow ${
+              className={`flex relative flex-row w-[20%] items-center justify-center rounded-r-md shadow ${
                 card.tipo === "player"
                   ? "bg-gradient-to-b from-[var(--azul-escuro)] to-[var(--azul-claro)]"
                   : "bg-gradient-to-b from-[var(--vermelho-escuro)] to-[var(--vermelho-claro)]"
               }`}
             >
               <NumeroIniciativa iniciativa={card.iniciativa} />
-              <img
+              {/*<img
                 src="../Decoracao_canto1.png"
                 className="absolute -z-9 w-[80%] top-0 right-0 opacity-30 max-h-full scale-x-[-1]"
-              />
+              />*/}
             </div>
           </div>
         ))}

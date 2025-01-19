@@ -16,7 +16,7 @@ const FormCardInimigo = ({
 }) => {
   return (
     <div
-      className={`card-inimigo shadow-xl w-full rounded-l-md ${
+      className={`flex flex-col card-inimigo w-full rounded-l-md pb-2${
         inimigoData.condicao ? "cardComCondicao" : ""
       }
       ${inimigoData.pv === "0" ? "morto" : ""}
@@ -24,8 +24,8 @@ const FormCardInimigo = ({
     >
       <div className="flex relative flex-col w-[100%] justify-between font-bold text-lg text-[var(--bege)] pt-1">
         <img
-          src="../Decoracao_canto1.png"
-          className="absolute -z-5 w-[20%] top-0 left-0 opacity-30"
+          src="../Decoracao_canto2.png"
+          className="absolute -z-5 w-[20%] top-0 left-0 opacity-50 max-h-[100px]"
         />
         <h1>{inimigoData.nome}</h1>
       </div>
@@ -86,7 +86,7 @@ const FormCardInimigo = ({
                 <label className="flex flex-col w-full mb-2">
                   <p>Duração: </p>
                   <input
-                    className="flex flex-col w-full rounded-lg shadow-xl text-black font-bold pl-2"
+                    className="flex flex-col rounded-lg shadow-xl text-black font-bold pl-2"
                     type="text"
                     name="duracao"
                     value={getDuracaoDaCondicao}
@@ -117,7 +117,7 @@ const FormCardInimigo = ({
       </form>
       {/* Campos do card retraído */}
       {!isExpanded && (
-        <div className="flex z-10 flex-col w-full p-2 pr-0 pt-0">
+        <div className="flex z-10 flex-col w-full p-2 pr-0">
           <div className="flex flex-row items-center justify-evenly">
             <label className="flex row text-white">
               <FaShieldAlt />
@@ -140,7 +140,7 @@ const FormCardInimigo = ({
               />
             </label>
             <button
-              className="rounded-lg px-3 py-2"
+              className="rounded-lg px-2 py-2 m-0 text-xs"
               type="button"
               onClick={toggleExpand}
             >
