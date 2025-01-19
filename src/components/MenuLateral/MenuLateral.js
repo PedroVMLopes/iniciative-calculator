@@ -64,6 +64,8 @@ const MenuLateral = () => {
     setIsPlayerExpanded((prevState) => !prevState);
   };
 
+  console.log("sortedList: ", sortedList);
+
   return (
     <div className="menu-lateral shadow-xl xl:w-[30%] lg:w-[35%] sm:w-[40%] rounded-md">
       <div className="sticky pb-2 top-0 z-20 bg-[var(--cinza-medio)] shadow-sm rounded-t-sm ">
@@ -121,8 +123,8 @@ const MenuLateral = () => {
             >
               <NumeroIniciativa iniciativa={card.iniciativa} />
               <img
-                src="../Decoracao_canto3.png"
-                className="absolute -z-9 w-[80%] top-0 right-0 opacity-30 "
+                src="../Decoracao_canto1.png"
+                className="absolute -z-9 w-[80%] top-0 right-0 opacity-30 max-h-full scale-x-[-1]"
               />
             </div>
           </div>

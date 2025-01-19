@@ -92,7 +92,7 @@ const CardPlayer = ({ player }) => {
   return (
     <div
       key={storageKey}
-      className={`flex flex-col card-player w-full rounded-l-md ${
+      className={`flex flex-col card-player w-full rounded-l-md pb-2 ${
         playerData[0].condicao ? "cardComCondicao" : ""
       }`}
     >
@@ -107,8 +107,8 @@ const CardPlayer = ({ player }) => {
       {/* Campos do card - expandido */}
       <form className="flex z-10 flex-col justify-between font-bold text-lg text-[var(--bege)] mt-4 ">
         {isExpanded && (
-          <div>
-            <div className="flex flex-row w-full justify-evenly">
+          <div className="flex flex-col w-full mx-2 px-8">
+            <div className="flex flex-row w-full justify-between">
               <label className="flex flex-row">
                 <p>
                   <FaShieldAlt />
@@ -135,26 +135,29 @@ const CardPlayer = ({ player }) => {
               </label>
             </div>
 
-            <label className="flex flex-col mx-7">
-              <p>Modificadores: </p>
-              <input
-                className="flex flex-col w-full rounded-lg shadow-xl text-black font-bold pl-2"
-                type="text"
-                name="mod"
-                value={playerData[0].mod}
-                onChange={handleChange}
-              />
-            </label>
-            <label className="flex flex-col mx-7 mb-2">
-              <p>Condição: </p>
-              <input
-                className="flex flex-col w-full rounded-lg shadow-xl text-black font-bold pl-2"
-                type="text"
-                name="condicao"
-                value={playerData[0].condicao}
-                onChange={handleChange}
-              />
-            </label>
+            <div className="flex flex-col items-center">
+              <label className="flex flex-col w-full">
+                <p>Modificadores: </p>
+                <input
+                  className="flex flex-col rounded-lg shadow-xl text-black font-bold pl-2"
+                  type="text"
+                  name="mod"
+                  value={playerData[0].mod}
+                  onChange={handleChange}
+                />
+              </label>
+              <label className="flex flex-col w-full mb-2">
+                <p>Condição: </p>
+                <input
+                  className="flex flex-col rounded-lg shadow-xl text-black font-bold pl-2"
+                  type="text"
+                  name="condicao"
+                  value={playerData[0].condicao}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
+
             {playerData[0].condicao && (
               <label className="flex flex-col mx-7 mb-2">
                 <p>Duração: </p>
@@ -167,16 +170,16 @@ const CardPlayer = ({ player }) => {
                 />
               </label>
             )}
-            <div className="flex row pl-4">
+            <div className="flex row justify-end my-3">
               <button
-                className="rounded-full px-3 py-1"
+                className="rounded-lg px-3 py-1"
                 type="submit"
                 onClick={handleDelete}
               >
                 <RiDeleteBin7Fill />
               </button>
               <button
-                className="rounded-full px-3 py-1"
+                className="rounded-lg px-3 py-1 ml-2"
                 type="button"
                 onClick={toggleExpand}
               >
@@ -212,7 +215,7 @@ const CardPlayer = ({ player }) => {
               />
             </label>
             <button
-              className="rounded-full px-3 py-2"
+              className="rounded-lg px-3 py-2"
               type="button"
               onClick={toggleExpand}
             >

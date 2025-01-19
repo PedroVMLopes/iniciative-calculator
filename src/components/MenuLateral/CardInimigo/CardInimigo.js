@@ -277,6 +277,7 @@ const CardInimigo = ({ inimigo }) => {
   const toggleExpand = () => setIsExpanded((prevState) => !prevState);
 
   const handleDelete = (e, index) => {
+    e.preventDefault();
     setInimigoData((prevData) => {
       const deletedId = prevData[index]?.id; // Armazena o ID do item a ser excluído
       const updatedData = prevData.filter((_, i) => i !== index); // Filtra o item a ser removido
