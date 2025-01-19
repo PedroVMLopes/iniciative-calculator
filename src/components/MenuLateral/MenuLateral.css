@@ -22,13 +22,6 @@
   flex-direction: column;
 }
 
-.CardComIniciativa {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
 /* Barra de rolagem para o container específico */
 .CardsLinhaDeIniciativa::-webkit-scrollbar {
   width: 10px; /* Largura da barra de rolagem */

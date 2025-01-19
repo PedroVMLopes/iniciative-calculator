@@ -92,7 +92,7 @@ const CardPlayer = ({ player }) => {
   return (
     <div
       key={storageKey}
-      className={`flex flex-col card-player w-[80%] rounded-md ${
+      className={`flex flex-col card-player w-full rounded-l-md ${
         playerData[0].condicao ? "cardComCondicao" : ""
       }`}
     >
@@ -102,10 +102,6 @@ const CardPlayer = ({ player }) => {
           className="absolute -z-5 w-[20%] top-0 left-0 opacity-30"
         />
         <h1>{playerData[0].nome}</h1>
-        <img
-          src="../Decoracao_canto1.png"
-          className="absolute -z-5 w-[20%] top-0 right-0 opacity-30 scale-x-[-1]"
-        />
       </div>
 
       {/* Campos do card - expandido */}

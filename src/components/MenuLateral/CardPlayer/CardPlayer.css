@@ -1,6 +1,5 @@
 .card-player {
   background: linear-gradient(to bottom, var(--azul-escuro), var(--azul-claro));
-  margin-top: 8px;
 }
 
 .card-player p {

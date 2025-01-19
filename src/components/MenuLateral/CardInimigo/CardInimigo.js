@@ -16,7 +16,7 @@ const FormCardInimigo = ({
 }) => {
   return (
     <div
-      className={`card-inimigo shadow-xl w-full rounded-md ${
+      className={`card-inimigo shadow-xl w-full rounded-l-md ${
         inimigoData.condicao ? "cardComCondicao" : ""
       }
       ${inimigoData.pv === "0" ? "morto" : ""}
@@ -24,14 +24,10 @@ const FormCardInimigo = ({
     >
       <div className="flex relative flex-col w-[100%] justify-between font-bold text-lg text-[var(--bege)] ">
         <img
-          src="../Decoracao_canto2.png"
-          className="absolute -z-9 w-[20%] top-0 left-0 opacity-20"
+          src="../Decoracao_canto1.png"
+          className="absolute -z-9 w-[20%] top-0 left-0 opacity-30"
         />
         <h1>{inimigoData.nome}</h1>
-        <img
-          src="../Decoracao_canto2.png"
-          className="absolute -z-9 w-[20%] top-0 right-0 opacity-20 scale-x-[-1]"
-        />
       </div>
 
       {/* Campos do card expandido */}
@@ -305,7 +301,7 @@ const CardInimigo = ({ inimigo }) => {
   };
 
   return (
-    <div className="w-[80%]" key={storageKey}>
+    <div className="w-[100%]" key={storageKey}>
       {inimigoData.map((data, index) => (
         <FormCardInimigo
           key={data.id}

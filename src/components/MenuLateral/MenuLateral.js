@@ -39,8 +39,14 @@ const MenuLateral = () => {
 
   /* Junta os jogadores e inimigos e marca os dois adequadamente */
   const listaTotal = [
-    ...players.map((player) => ({ ...player, tipo: "player" })),
-    ...cardsInimigos.map((inimigo) => ({ ...inimigo, tipo: "inimigo" })),
+    ...players.map((player) => ({
+      ...player,
+      tipo: "player",
+    })),
+    ...cardsInimigos.map((inimigo) => ({
+      ...inimigo,
+      tipo: "inimigo",
+    })),
   ];
 
   /* Organiza a lista na ordem correta de iniciativa */
@@ -98,10 +104,27 @@ const MenuLateral = () => {
         {/* Renderizar jogadores */}
         <br />
         {sortedList.map((card, index) => (
-          <div key={index} className="CardComIniciativa z-10 pb-1 ">
-            {card.tipo === "player" && <CardPlayer player={card} />}
-            {card.tipo === "inimigo" && <CardInimigo inimigo={card} />}
-            <NumeroIniciativa iniciativa={card.iniciativa} />
+          <div
+            key={index}
+            className="flex flex-row px-3 py-2 justify-around z-10 pb-1  "
+          >
+            <div className="flex flex-row w-[80%] items-center shadow-md shadow-r-none rounded-md">
+              {card.tipo === "player" && <CardPlayer player={card} />}
+              {card.tipo === "inimigo" && <CardInimigo inimigo={card} />}
+            </div>
+            <div
+              className={`flex relative flex-row w-[20%] items-center justify-center pr-4 rounded-r-md  ${
+                card.tipo === "player"
+                  ? "bg-gradient-to-b from-[var(--azul-escuro)] to-[var(--azul-claro)]"
+                  : "bg-gradient-to-b from-[var(--vermelho-escuro)] to-[var(--vermelho-claro)]"
+              }`}
+            >
+              <NumeroIniciativa iniciativa={card.iniciativa} />
+              <img
+                src="../Decoracao_canto3.png"
+                className="absolute -z-9 w-[80%] top-0 right-0 opacity-30 "
+              />
+            </div>
           </div>
         ))}
         <div className=" flex justify-center align-bottom -left-4 h-[100%] sticky bottom-0 -z-5 opacity-5">
