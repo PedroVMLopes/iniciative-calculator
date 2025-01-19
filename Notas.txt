@@ -5,9 +5,7 @@
 
 -> Adicionar um botão no card de adicionar inimigos que remove todos os inimigos
 
--> implementar os botões de avançar e voltar turnos
-
--> Substituir a duração da condição por um número, e adicionar "turnos" no input
+-> Corrigir o problema de interferência ao inserir novos inimigos
 
 
 

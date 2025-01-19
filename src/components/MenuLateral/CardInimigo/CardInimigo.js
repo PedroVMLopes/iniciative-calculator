@@ -140,7 +140,7 @@ const FormCardInimigo = ({
               />
             </label>
             <button
-              className="rounded-lg px-2 py-2 m-0 text-xs"
+              className="rounded-lg px-2 py-2 m-0 text-xs shadow-xl"
               type="button"
               onClick={toggleExpand}
             >

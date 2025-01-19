@@ -215,7 +215,7 @@ const CardPlayer = ({ player }) => {
               />
             </label>
             <button
-              className="rounded-lg px-2 py-2 text-xs"
+              className="rounded-lg px-2 py-2 text-xs shadow-xl"
               type="button"
               onClick={toggleExpand}
             >
