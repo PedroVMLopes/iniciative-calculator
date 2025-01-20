@@ -1,5 +1,5 @@
 {
-    "behaviors": [
+    "behaviors": [      
         {"id": 1, "type": "positive", "name": "Amigável"},
         {"id": 2, "type": "positive", "name": "Generoso"},
         {"id": 3, "type": "positive", "name": "Corajoso"},

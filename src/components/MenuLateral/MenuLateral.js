@@ -64,8 +64,6 @@ const MenuLateral = () => {
     setIsPlayerExpanded((prevState) => !prevState);
   };
 
-  console.log("sortedList: ", sortedList);
-
   return (
     <div className="menu-lateral m-3 shadow-xl xl:w-[25%] lg:w-[35%] sm:w-[40%] rounded-md">
       <div className="relative pb-2 z-20 bg-[var(--cinza-medio)] shadow-sm rounded-t-sm ">

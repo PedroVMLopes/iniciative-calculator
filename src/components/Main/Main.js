@@ -1,6 +1,7 @@
 import React from "react";
 import Tests from "./Tests/Tests";
 import Party from "./Party/Party";
+import Npcs from "./Npcs/Npcs";
 import {
   BrowserRouter as Router,
   Route,
@@ -39,7 +40,7 @@ const NavBar = () => {
 
   return (
     <nav
-      className={`relative grid grid-cols-${links.length} gap-[1px] py-2 px-0 rounded-md max-w-2xl text-[var(--bege)] font-bold text-nowrap`}
+      className={`relative grid grid-cols-5 grid-rows-1 py-2 px-0 rounded-md max-w-2xl text-[var(--bege)] font-bold text-nowrap `}
       id="navbar"
     >
       {links.map((link) => (
@@ -94,6 +95,7 @@ const Main = () => {
           <Routes>
             <Route path="/" element={<TestsContent />} />
             <Route path="/party" element={<Party />} />
+            <Route path="/npcs" element={<Npcs />} />
           </Routes>
         </div>
       </div>
