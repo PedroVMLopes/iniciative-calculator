@@ -14,10 +14,8 @@ export function Behavior() {
             Dita como será a interação dele com os jogadores
           </h2>
         </div>
-        <div className="flex flex-row justify-evenly w-full bg-[var(--cinza-escuro)] rounded-b-md p-3">
-          <Traits type="positive" />
-          <Traits type="negative" />
-          <Traits type="neutral" />
+        <div className="flex flex-row justify-evenly w-full">
+          <Traits />
         </div>
         <div className="flex flex-row justify-end w-full">
           <button className="animate-pulse p-2 m-2 rounded-md bg-[var(--cinza-escuro)] hover:bg-[var(--laranja)] shadow-xl">
@@ -39,43 +37,24 @@ const Traits = (prop) => {
       .catch((error) => console.error("Erro ao buscar behaviors", error));
   }, []);
 
-  const filteredBehaviors = behaviors.filter(
-    (behavior) => behavior.type === prop.type
-  );
-
-  let behaviorTypeName = "";
-
-  switch (prop.type) {
-    case "positive":
-      behaviorTypeName = "Traços Positivos";
-      break;
-    case "negative":
-      behaviorTypeName = "Traços Negativos";
-      break;
-    case "neutral":
-      behaviorTypeName = "Traços Neutros";
-      break;
-    default:
-      behaviorTypeName = "";
-      break;
-  }
-
   return (
-    <div className="flex flex-col items-center">
-      <h1 className=" font-greatVibes text-3xl ">{behaviorTypeName}</h1>
-      <div className="flex flex-col w-[70%]">
-        {filteredBehaviors.map((behavior) => (
-          <div key={behavior.id}>
-            <div className="flex flex-row justify-start items-center py-1">
-              <p className="text-[var(--bege)] text-sm">
-                <FaFeatherAlt />
-              </p>
-              <p className="px-1"></p>
-              {behavior.name}
-            </div>
+    <div className="flex flex-row justify-evenly w-full bg-[var(--cinza-escuro)] rounded-b-md p-3">
+      {Object.entries(behaviors).map(([key, value]) => (
+        <div key={key} className="flex flex-col items-center">
+          <h1 className=" font-greatVibes text-3xl ">{value.title}</h1>
+          <div className="flex flex-col justify-center">
+            {value.traits.map((trait) => (
+              <div className="flex flex-row items-center py-1">
+                <p key={trait} className="text-[var(--bege)]">
+                  <FaFeatherAlt />
+                </p>
+                <p className="px-1"></p>
+                {trait}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 };

@@ -1,32 +1,44 @@
 {
-    "behaviors": [      
-        {"id": 1, "type": "positive", "name": "Amigável"},
-        {"id": 2, "type": "positive", "name": "Generoso"},
-        {"id": 3, "type": "positive", "name": "Corajoso"},
-        {"id": 4, "type": "positive", "name": "Criativo"},
-        {"id": 5, "type": "positive", "name": "Leal"},
-        {"id": 6, "type": "positive", "name": "Curioso"},
-        {"id": 7, "type": "positive", "name": "Sábio"},
-        {"id": 8, "type": "positive", "name": "Otimista"},
-        {"id": 9, "type": "negative", "name": "Agressivo"},
-        {"id": 10, "type": "negative", "name": "Covarde"},
-        {"id": 11, "type": "negative", "name": "Arrogante"},
-        {"id": 12, "type": "negative", "name": "Ganancioso"},
-        {"id": 13, "type": "negative", "name": "Teimoso"},
-        {"id": 14, "type": "negative", "name": "Egoísta"},
-        {"id": 16, "type": "negative", "name": "Impaciente"},
-        {"id": 17, "type": "negative", "name": "Manipulador"},
-        {"id": 18, "type": "negative", "name": "Vingativo"},
-        {"id": 19, "type": "negative", "name": "Imprudente"},
-        {"id": 20, "type": "negative", "name": "Preguiçoso"},
-        {"id": 21, "type": "negative", "name": "Estabanado"},
-        {"id": 22, "type": "neutral", "name": "Sarcástico"},
-        {"id": 23, "type": "neutral", "name": "Introvertido"},
-        {"id": 24, "type": "neutral", "name": "Extrovertido"},
-        {"id": 25, "type": "neutral", "name": "Ambicioso"},
-        {"id": 26, "type": "neutral", "name": "Impulsivo"},
-        {"id": 27, "type": "neutral", "name": "Observador"}
-    ],
+    "behaviors": {
+        "positive": {
+            "title": "Traços Positivos",
+            "traits": [
+                "Amigável",
+                "Generoso",
+                "Corajoso",
+                "Criativo",
+                "Leal",
+                "Curioso",
+                "Sábio",
+                "Otimista"
+                ]},
+        "negative": {
+            "title": "Traços Negativos",
+            "traits":[
+                "Agressivo",
+                 "Covarde",
+                 "Arrogante",
+                 "Ganancioso",
+                 "Teimoso",
+                 "Egoísta",
+                 "Impaciente",
+                 "Manipulador",
+                 "Vingativo",
+                 "Imprudente",
+                 "Preguiçoso",
+                 "Estabanado"
+                ]},
+        "neutral": {
+            "title": "Traços Neutros",
+            "traits":[
+                 "Sarcástico",
+                 "Introvertido",
+                 "Extrovertido",
+                 "Ambicioso",
+                 "Impulsivo",
+                 "Observador"
+                ]}
+  },
     "ocupations": [
         {"id": 1,"type": "miserable" ,"name": "Limpador de Esgotos"},
         {"id": 2,"type": "miserable" ,"name": "Pedinte e Catador de Moedas"},
