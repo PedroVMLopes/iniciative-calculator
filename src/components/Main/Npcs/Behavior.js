@@ -3,7 +3,7 @@ import { FaFeatherAlt } from "react-icons/fa";
 
 export function Behavior() {
   return (
-    <div className="flex flex-col justify-center items-center mt-3 w-full bg-[var(--cinza-medio)] rounded-md p-1">
+    <div className="flex flex-col justify-center items-center mt-6 w-full bg-[var(--cinza-medio)] rounded-md p-1">
       <div className="flex flex-col justify-center items-center w-full bg-[var(--cinza-escuro)] rounded-md">
         <div className="flex flex-row items-center w-full bg-[var(--cinza-escuro)] rounded-t-md p-6 pt-4">
           <h1 className="justify-start font-greatVibes text-3xl text-[var(--bege)]">
@@ -27,8 +27,9 @@ export function Behavior() {
   );
 }
 
-const Traits = (prop) => {
+const Traits = () => {
   const [behaviors, setBehaviors] = useState([]);
+  const [selectedTrait, setSelectedTrait] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:5000/behaviors")
@@ -40,17 +41,19 @@ const Traits = (prop) => {
   return (
     <div className="flex flex-row justify-evenly w-full bg-[var(--cinza-escuro)] rounded-b-md p-3">
       {Object.entries(behaviors).map(([key, value]) => (
-        <div key={key} className="flex flex-col items-center">
+        <div key={key} className="flex flex-col items-center rounded-md">
           <h1 className=" font-greatVibes text-3xl ">{value.title}</h1>
           <div className="flex flex-col justify-center">
             {value.traits.map((trait) => (
-              <div className="flex flex-row items-center py-1">
-                <p key={trait} className="text-[var(--bege)]">
+              <button className="flex flex-row items-center my-1 group">
+                <p
+                  key={trait}
+                  className="text-[var(--bege)] group-hover:text-[var(--laranja)] group-focus:text-[var(--laranja)]"
+                >
                   <FaFeatherAlt />
                 </p>
-                <p className="px-1"></p>
-                {trait}
-              </div>
+                <div className="pl-2 text-lg">{trait}</div>
+              </button>
             ))}
           </div>
         </div>
