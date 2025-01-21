@@ -29,7 +29,7 @@ export function Behavior() {
 
 const Traits = () => {
   const [behaviors, setBehaviors] = useState([]);
-  const [selectedTrait, setSelectedTrait] = useState(null);
+  const [selectedTraits, setSelectedTrait] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:5000/behaviors")
@@ -38,6 +38,10 @@ const Traits = () => {
       .catch((error) => console.error("Erro ao buscar behaviors", error));
   }, []);
 
+  useEffect(() => {
+    console.log("selectedTraits:", selectedTraits);
+  }, [selectedTraits]);
+
   return (
     <div className="flex flex-row justify-evenly w-full bg-[var(--cinza-escuro)] rounded-b-md p-3">
       {Object.entries(behaviors).map(([key, value]) => (
@@ -45,15 +49,29 @@ const Traits = () => {
           <h1 className=" font-greatVibes text-3xl ">{value.title}</h1>
           <div className="flex flex-col justify-center">
             {value.traits.map((trait) => (
-              <button className="flex flex-row items-center my-1 group">
-                <p
-                  key={trait}
-                  className="text-[var(--bege)] group-hover:text-[var(--laranja)] group-focus:text-[var(--laranja)]"
+              <label
+                className="flex flex-row items-center my-1 group cursor-pointer"
+                key={trait}
+              >
+                <input
+                  type="radio"
+                  className="hidden"
+                  name="trait"
+                  value={trait}
+                  checked={selectedTraits === trait}
+                  onChange={() => setSelectedTrait(trait)}
+                />
+                <div
+                  className={`flex items-center group-hover:text-[var(--laranja)] ${
+                    selectedTraits.includes(trait)
+                      ? "text-[var(--laranja)]"
+                      : "text-[var(--bege)]"
+                  }`}
                 >
                   <FaFeatherAlt />
-                </p>
-                <div className="pl-2 text-lg">{trait}</div>
-              </button>
+                </div>
+                <span className="pl-2 text-lg">{trait}</span>
+              </label>
             ))}
           </div>
         </div>
