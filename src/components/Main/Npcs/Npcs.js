@@ -1,5 +1,6 @@
 import React from "react";
 import { Behavior } from "./Behavior";
+import { Ocupation } from "./Ocupation";
 
 const Npcs = () => {
   return (
@@ -8,6 +9,7 @@ const Npcs = () => {
         Criador de NPC
       </h1>
       <Behavior />
+      <Ocupation />
     </div>
   );
 };

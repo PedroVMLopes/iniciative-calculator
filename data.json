@@ -41,6 +41,7 @@
   },
     "ocupations": {
         "miserable": {
+            "id": 0,
             "title": "Miseravel",
             "data": [
                 "Limpador de Esgotos",
@@ -49,6 +50,7 @@
             ]
         },
         "poor": {
+            "id": 1,
             "title": "Pobre",
             "data": [
                 "Lenhador",
@@ -63,6 +65,7 @@
             ]
         },
         "middleClass": {
+            "id": 2,
             "title": "Classe Média",
             "data": [
                 "Costureiro",
@@ -78,6 +81,7 @@
             ]
         },
         "bourgeois": {
+            "id": 3,
             "title": "Burguês",
             "data": [
                 "Estilista",
@@ -93,6 +97,7 @@
             ]
         },
         "noble": {
+            "id": 4,
             "title": "Nobre",
             "data": [
                 "Diplomata ou Embaixador",
@@ -106,6 +111,7 @@
             ]
         },
         "royalty": {
+            "id": 5,
             "title": "Realeza",
             "data": [
                 "Regente ou Conselheiro Real",
@@ -119,6 +125,7 @@
             ]
         },
         "bandit": {
+            "id": 6,
             "title": "Bandido",
             "data": [
                 "Ladrão ou Arrombador Solo",
@@ -132,7 +139,8 @@
             ]
         }
     },
-    "uniqueTraits":  [
+    "uniqueTraits":  {
+        "data": [
             "É um Fisiculturista",
             "É um criminoso fugitivo, ou possui um familiar ou conhecido criminoso",
             "É curioso sobre o sobrenatural, com ou sem poderes",
@@ -146,4 +154,5 @@
             "Tem conhecimento conhecimento de pontos fracos e vulnerabilidades de algo",
             "Pode arranjar informações com facilidade com seus contatos"
         ]
+    }
 }
