@@ -4,7 +4,6 @@ import { FaEraser } from "react-icons/fa";
 
 export function Behavior() {
   const [behaviors, setBehaviors] = useState([]);
-
   const [selectedTraits, setSelectedTraits] = useState({
     positive: "",
     negative: "",
