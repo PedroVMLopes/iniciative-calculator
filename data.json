@@ -39,77 +39,111 @@
                  "Observador"
                 ]}
   },
-    "ocupations": [
-        {"id": 1,"type": "miserable" ,"name": "Limpador de Esgotos"},
-        {"id": 2,"type": "miserable" ,"name": "Pedinte e Catador de Moedas"},
-        {"id": 3,"type": "miserable" ,"name": "Controlador de Pestes"},
-        {"id": 4,"type": "poor" ,"name": "Lenhador"},
-        {"id": 5,"type": "poor" ,"name": "Criador de Animais"},
-        {"id": 6,"type": "poor" ,"name": "Oleiro"},
-        {"id": 7,"type": "poor" ,"name": "Pedreiro"},
-        {"id": 8,"type": "poor" ,"name": "Cozinheiro"},
-        {"id": 9,"type": "poor" ,"name": "Fazendeiro"},
-        {"id": 10,"type": "poor" ,"name": "Pescador"},
-        {"id": 11,"type": "poor" ,"name": "Minerador"},
-        {"id": 12,"type": "poor" ,"name": "Coveiro"},
-        {"id": 13,"type": "middleClass" ,"name": "Costureiro"},
-        {"id": 14,"type": "middleClass" ,"name": "Coureiro"},
-        {"id": 15,"type": "middleClass" ,"name": "Ferreiro"},
-        {"id": 16,"type": "middleClass" ,"name": "Carpinteiro"},
-        {"id": 17,"type": "middleClass" ,"name": "Entalhador"},
-        {"id": 18,"type": "middleClass" ,"name": "Cervejeiro"},
-        {"id": 19,"type": "middleClass" ,"name": "Escriba"},
-        {"id": 20,"type": "middleClass" ,"name": "Curandeiro"},
-        {"id": 21,"type": "middleClass" ,"name": "Mercenário"},
-        {"id": 22,"type": "middleClass" ,"name": "Sacerdote ou Clérigo"},
-        {"id": 23,"type": "bourgeois" ,"name": "Estilista"},
-        {"id": 24,"type": "bourgeois" ,"name": "Ferreiro Fino"},
-        {"id": 25,"type": "bourgeois" ,"name": "Carpinteiro Fino"},
-        {"id": 26,"type": "bourgeois" ,"name": "Funileiro (Metais Frios)"},
-        {"id": 27,"type": "bourgeois" ,"name": "Joalheiro"},
-        {"id": 28,"type": "bourgeois" ,"name": "Pintor"},
-        {"id": 29,"type": "bourgeois" ,"name": "Vidreiro"},
-        {"id": 30,"type": "bourgeois" ,"name": "Banqueiro ou Agiota"},
-        {"id": 31,"type": "bourgeois" ,"name": "Proprietário de Minas"},
-        {"id": 32,"type": "bourgeois" ,"name": "Dono de Caravanas ou Companhias de Transporte"},
-        {"id": 33,"type": "bourgeois" ,"name": "Proprietário de uma Guilda de Artesãos"},
-        {"id": 34,"type": "noble" ,"name": "Diplomata ou Embaixador"},
-        {"id": 35,"type": "noble" ,"name": "Cartógrafo"},
-        {"id": 36,"type": "noble" ,"name": "Cavaleiro ou Oficial Militar"},
-        {"id": 37,"type": "noble" ,"name": "Governante Regional ou Senhor Feudal"},
-        {"id": 38,"type": "noble" ,"name": "Patrono de Artistas e Bardos Renomados"},
-        {"id": 39,"type": "noble" ,"name": "Administrador de Grandes Propriedades"},
-        {"id": 40,"type": "noble" ,"name": "Acadêmico ou Mago de Prestígio"},
-        {"id": 41,"type": "noble" ,"name": "Clérigo de Alto Escalão ou Arcebispo"},
-        {"id": 42,"type": "noble" ,"name": "Líder de Tropas (Capitão ou General)"},
-        {"id": 43,"type": "royalty" ,"name": "Regente ou Conselheiro Real"},
-        {"id": 45,"type": "royalty" ,"name": "Mago da Corte"},
-        {"id": 46,"type": "royalty" ,"name": "Mestre de Cerimônias"},
-        {"id": 47,"type": "royalty" ,"name": "Comandante Supremo do Exército"},
-        {"id": 48,"type": "royalty" ,"name": "Capitão da Guarda Pessoal"},
-        {"id": 49,"type": "royalty" ,"name": "Ministro ou Tesoureiro Real"},
-        {"id": 50,"type": "royalty" ,"name": "Poeta Loureado ou Artista da Corte"},
-        {"id": 51,"type": "royalty" ,"name": "Negociador de Alianças Políticas"},
-        {"id": 52,"type": "bandit" ,"name": "Ladão ou Arrombador"},
-        {"id": 53,"type": "bandit" ,"name": "Charlatão"},
-        {"id": 54,"type": "bandit" ,"name": "Contrabandista ou Falsificador"},
-        {"id": 55,"type": "bandit" ,"name": "Assassino (Armas ou Venenos)"},
-        {"id": 56,"type": "bandit" ,"name": "Caçador de Recompensas Inescrupuloso"},
-        {"id": 57,"type": "bandit" ,"name": "Apostador Profissional"},
-        {"id": 58,"type": "bandit" ,"name": "Espião ou Informante"}
-    ],
+    "ocupations": {
+        "miserable": {
+            "title": "Miseravel",
+            "data": [
+                "Limpador de Esgotos",
+                "Pedinte e Catador de Moedas",
+                "Controlador de Pestes"
+            ]
+        },
+        "poor": {
+            "title": "Pobre",
+            "data": [
+                "Lenhador",
+                "Criador de Animais",
+                "Oleiro",
+                "Pedreiro",
+                "Cozinheiro",
+                "Fazendeiro",
+                "Pescador",
+                "Minerador",
+                "Coveiro"
+            ]
+        },
+        "middleClass": {
+            "title": "Classe Média",
+            "data": [
+                "Costureiro",
+                "Coureiro",
+                "Ferreiro",
+                "Carpinteiro",
+                "Fazendeiro Especialista",
+                "Cervejeiro",
+                "Escriba",
+                "Curandeiro",
+                "Mercenário",
+                "Sacerdote ou Clérigo"
+            ]
+        },
+        "bourgeois": {
+            "title": "Burguês",
+            "data": [
+                "Estilista",
+                "Ferreiro Fino",
+                "Carpinteiro Fino",
+                "Joalheiro",
+                "Artista Renomado",
+                "Arquiteto",
+                "Banqueiro ou Agiota",
+                "Proprietário de Minas",
+                "Dono de Companhias de Transporte",
+                "Proprietário de uma Guilda de Artesãos"
+            ]
+        },
+        "noble": {
+            "title": "Nobre",
+            "data": [
+                "Diplomata ou Embaixador",
+                "Cartógrafo",
+                "Cavaleiro ou Oficial Militar",
+                "Governante Regional ou Senhor Feudal",
+                "Administrador de Grandes Propriedades",
+                "Acadêmico ou Mago de Prestígio",
+                "Clérigo de Alto Escalão ou Arcebispo",
+                "Líder de Tropas (Capitão ou General)"
+            ]
+        },
+        "royalty": {
+            "title": "Realeza",
+            "data": [
+                "Regente ou Conselheiro Real",
+                "Mago da Corte",
+                "Mestre de Cerimônias",
+                "Comandante Supremo do Exército",
+                "Capitão da Guarda Pessoal",
+                "Ministro ou Tesoureiro Real",
+                "Poeta Loureado ou Artista da Corte",
+                "Negociador de Alianças políticas"
+            ]
+        },
+        "bandit": {
+            "title": "Bandido",
+            "data": [
+                "Ladrão ou Arrombador Solo",
+                "Membro de uma Organização Criminosa",
+                "Charlatão ou Vendedor de Mentiras",
+                "Contrabandista ou Falsificador",
+                "Assasssino (Armas ou Venenos)",
+                "Apostador Profissional",
+                "Espião ou Informante",
+                "Corrupto"
+            ]
+        }
+    },
     "uniqueTraits":[
         {"id": 1, "name": "É um fisiculturista"},
         {"id": 2, "name": "É um criminoso fugitivo, ou possui um familiar ou conhecido criminoso"},
-        {"id": 3, "name": "É curioso sobre o sobrenatural, mesmo sem ter poderes"},
+        {"id": 3, "name": "É curioso sobre o sobrenatural, tendo poderes ou não"},
         {"id": 4, "name": "Cresceu ouvindo sobre lendas e culturas diferentes"},
         {"id": 5, "name": "Tem conhecimento sobre plantas, animais e o terreno da região"},
-        {"id": 6, "name": "Fez parte de um culto local, ou conhece alguém que faz"},
+        {"id": 6, "name": "Conhece um culto local, ou conhece alguém que faz parte"},
         {"id": 7, "name": "É especialmente cuidadoso com animais"},
         {"id": 8, "name": "É muito bom em conectar informações recebidas com conhecimentos prévios"},
         {"id": 9, "name": "Tem conhecimentos especiais em medicina"},
         {"id": 10, "name": "Tem muito conhecimento de fofocas e segredos"},
-        {"id": 11, "name": "Tem conhecimento conhecimento de pontos fracos e vulnerabilidades de algo"},
+        {"id": 11, "name": "Tem conhecimento de pontos fracos e vulnerabilidades de algo"},
         {"id": 12, "name": "Pode arranjar informações com facilidade com seus contatos"} 
     ]
 }

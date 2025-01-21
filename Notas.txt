@@ -7,6 +7,8 @@
 
 -> Corrigir o problema de interferência ao inserir novos inimigos
 
+-> Adicionar botões de rolagem aleatória em cada traço de comportamento
+
 
 
 
