@@ -132,18 +132,18 @@
             ]
         }
     },
-    "uniqueTraits":[
-        {"id": 1, "name": "É um fisiculturista"},
-        {"id": 2, "name": "É um criminoso fugitivo, ou possui um familiar ou conhecido criminoso"},
-        {"id": 3, "name": "É curioso sobre o sobrenatural, tendo poderes ou não"},
-        {"id": 4, "name": "Cresceu ouvindo sobre lendas e culturas diferentes"},
-        {"id": 5, "name": "Tem conhecimento sobre plantas, animais e o terreno da região"},
-        {"id": 6, "name": "Conhece um culto local, ou conhece alguém que faz parte"},
-        {"id": 7, "name": "É especialmente cuidadoso com animais"},
-        {"id": 8, "name": "É muito bom em conectar informações recebidas com conhecimentos prévios"},
-        {"id": 9, "name": "Tem conhecimentos especiais em medicina"},
-        {"id": 10, "name": "Tem muito conhecimento de fofocas e segredos"},
-        {"id": 11, "name": "Tem conhecimento de pontos fracos e vulnerabilidades de algo"},
-        {"id": 12, "name": "Pode arranjar informações com facilidade com seus contatos"} 
-    ]
+    "uniqueTraits":  [
+            "É um Fisiculturista",
+            "É um criminoso fugitivo, ou possui um familiar ou conhecido criminoso",
+            "É curioso sobre o sobrenatural, com ou sem poderes",
+            "Cresceu ouvindo sobre lendas e culturas diferentes",
+            "Tem conhecimento sobre plantas, animais e o terreno da região",
+            "Fez parte de um culto local, ou conhece alguém que faz",
+            "É especialmente cuidadoso com animais",
+            "É muito bom em conectar informações recebidas com conhecimentos prévios",
+            "Tem conhecimentos especiais em medicina",
+            "Tem muito conhecimento de fofocas e segredos",
+            "Tem conhecimento conhecimento de pontos fracos e vulnerabilidades de algo",
+            "Pode arranjar informações com facilidade com seus contatos"
+        ]
 }
