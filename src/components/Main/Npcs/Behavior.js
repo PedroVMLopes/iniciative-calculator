@@ -29,7 +29,11 @@ export function Behavior() {
 
 const Traits = () => {
   const [behaviors, setBehaviors] = useState([]);
-  const [selectedTraits, setSelectedTrait] = useState("");
+  const [selectedTraits, setSelectedTraits] = useState({
+    positive: "",
+    negative: "",
+    neutral: "",
+  });
 
   useEffect(() => {
     fetch("http://localhost:5000/behaviors")
@@ -39,8 +43,15 @@ const Traits = () => {
   }, []);
 
   useEffect(() => {
-    console.log("selectedTraits:", selectedTraits);
+    console.log("selectedTraits:", selectedTraits.negative);
   }, [selectedTraits]);
+
+  const handleSelection = (key, trait) => {
+    setSelectedTraits((prevState) => ({
+      ...prevState,
+      [key]: trait,
+    }));
+  };
 
   return (
     <div className="flex flex-row justify-evenly w-full bg-[var(--cinza-escuro)] rounded-b-md p-3">
@@ -56,14 +67,14 @@ const Traits = () => {
                 <input
                   type="radio"
                   className="hidden"
-                  name="trait"
+                  name="key"
                   value={trait}
-                  checked={selectedTraits === trait}
-                  onChange={() => setSelectedTrait(trait)}
+                  checked={selectedTraits[key] === trait}
+                  onChange={() => handleSelection(key, trait)}
                 />
                 <div
                   className={`flex items-center group-hover:text-[var(--laranja)] ${
-                    selectedTraits.includes(trait)
+                    selectedTraits[key] === trait
                       ? "text-[var(--laranja)]"
                       : "text-[var(--bege)]"
                   }`}
