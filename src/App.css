@@ -1,10 +1,11 @@
 html, body, #root {
   background-color: var(--cinza-escuro);
 }
-
+/*343131*/
 :root {
   --cinza-escuro: #252422;
   --cinza-medio: #403D39;
+  --cinza-medio2: #35312b;
   --cinza-claro: #CCC5B9;
   --vermelho-escuro: #3D0000;
   --vermelho-claro: #6D2323;

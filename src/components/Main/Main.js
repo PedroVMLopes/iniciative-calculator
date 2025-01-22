@@ -10,6 +10,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { SiDungeonsanddragons } from "react-icons/si";
+import { FaDiceD20 } from "react-icons/fa";
 
 const TestsContent = () => <Tests />;
 
@@ -77,7 +78,7 @@ const NavBar = () => {
           }%`,
         }}
       >
-        <SiDungeonsanddragons />
+        <FaDiceD20 />
       </div>
     </nav>
   );

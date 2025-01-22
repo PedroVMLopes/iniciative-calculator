@@ -62,10 +62,10 @@ const MenuLateral = () => {
 
   return (
     <div className="menu-lateral m-3 shadow-xl xl:w-[25%] lg:w-[35%] sm:w-[40%] rounded-md">
-      <div className="relative pb-2 z-20 bg-[var(--cinza-medio)] shadow-sm rounded-t-sm ">
+      <div className="relative pb-2 z-20 bg-[var(--cinza-medio2)] shadow-sm rounded-t-sm ">
         <img
           src="../Decoracao__topo.png"
-          className="absolute left-0 -top-5 -z-5 w-full opacity-70"
+          className="absolute left-0 -top-5 -z-5 w-full opacity-40"
         ></img>
         <div className="flex flex-col items-center justify-evenly mb-2 pt-[10%] px-3 z-10 md:flex-row">
           <div className="flex">

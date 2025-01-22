@@ -1,7 +1,7 @@
 .menu-lateral {
   position: fixed;
   height: 100%;
-  background-color: var(--cinza-medio);
+  background-color: var(--cinza-medio2);
   max-height: 97vh;
   display: flex;
   flex-direction: column;
@@ -34,7 +34,7 @@
 
 /* Cor de fundo da área da barra de rolagem */
 .CardsLinhaDeIniciativa::-webkit-scrollbar-track {
-  background-color: var(--cinza-medio); /* Cor de fundo da "trilha" da barra */
+  background-color: var(--cinza-medio2); /* Cor de fundo da "trilha" da barra */
   border-radius: 10px; /* Bordas arredondadas da área da barra */
 }
 
