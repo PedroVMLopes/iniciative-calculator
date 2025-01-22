@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaFeatherAlt } from "react-icons/fa";
-import { FaEraser } from "react-icons/fa";
+import { FaFeatherAlt, FaEraser } from "react-icons/fa";
 
 export function Behavior() {
   const [behaviors, setBehaviors] = useState([]);
@@ -78,7 +77,9 @@ const Traits = ({ behaviors, selectedTraits, setSelectedTraits }) => {
     <div className="flex flex-row justify-evenly w-full bg-[var(--cinza-escuro)] rounded-b-md p-3">
       {Object.entries(behaviors).map(([key, value]) => (
         <div key={key} className="flex flex-col items-center rounded-md">
-          <h1 className="font-greatVibes text-3xl">{value.title}</h1>
+          <h1 className="font-greatVibes text-3xl text-[var(--cinza-claro)]">
+            {value.title}
+          </h1>
           <div className="flex flex-col justify-center">
             {value.traits.map((trait) => (
               <label
