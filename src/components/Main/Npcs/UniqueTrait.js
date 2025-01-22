@@ -29,7 +29,7 @@ export const UniqueTrait = () => {
             Característica Única
           </h1>
           <h2 className="font-cormorant text-lg">
-            "Dá uma característica única para o personagem. Desde um passatempo
+            "Da uma característica única para o personagem. Desde um passatempo
             ou interesse até um conhecimento específico ou envolvimento com algo
             maior."
           </h2>
