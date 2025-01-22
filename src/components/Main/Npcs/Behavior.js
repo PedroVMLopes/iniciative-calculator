@@ -29,7 +29,7 @@ export function Behavior() {
   return (
     <div className="flex flex-col justify-center items-center mt-6 w-full bg-[var(--cinza-medio)] rounded-md p-1">
       <div className="flex flex-col justify-center items-center w-full bg-[var(--cinza-escuro)] rounded-md">
-        <div className="flex flex-row items-center w-full bg-[var(--cinza-escuro)] rounded-t-md p-6 pt-4">
+        <div className="flex flex-row items-center w-full bg-[var(--cinza-escuro)] rounded-t-md p-6">
           <h1 className="justify-start font-greatVibes text-3xl text-[var(--bege)]">
             Traços de Comportamento{" "}
           </h1>
@@ -97,12 +97,14 @@ const Traits = ({ behaviors, selectedTraits, setSelectedTraits }) => {
                   className={`flex items-center group-hover:text-[var(--laranja)] ${
                     selectedTraits[key] === trait
                       ? "text-[var(--laranja)]"
-                      : "text-[var(--bege)]"
+                      : "text-[var(--cinza-claro)]"
                   }`}
                 >
                   <FaFeatherAlt />
                 </div>
-                <span className="pl-2 text-lg">{trait}</span>
+                <span className="pl-2 text-lg group-hover:text-[var(--cinza-claro)]">
+                  {trait}
+                </span>
               </label>
             ))}
           </div>

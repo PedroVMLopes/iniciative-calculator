@@ -1,6 +1,7 @@
 import React from "react";
 import { Behavior } from "./Behavior";
 import { Ocupation } from "./Ocupation";
+import { UniqueTrait } from "./UniqueTrait";
 
 const Npcs = () => {
   return (
@@ -10,6 +11,7 @@ const Npcs = () => {
       </h1>
       <Behavior />
       <Ocupation />
+      <UniqueTrait />
     </div>
   );
 };

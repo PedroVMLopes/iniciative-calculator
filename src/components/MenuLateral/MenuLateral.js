@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import BotaoAdicionarJogador from "./BotoesAdicionar/BotaoAdicionarJogador";
-import BotaoAdicionarInimigo from "./BotoesAdicionar/BotaoAdicionarInimigo";
 import CardPlayer from "./CardPlayer/CardPlayer";
 import CardInimigo from "./CardInimigo/CardInimigo";
 import styles from "./MenuLateral.css";
@@ -11,8 +9,6 @@ import MenuAddPlayer from "./MenuAddPlayer/MenuAddPlayer";
 import { GiOrcHead } from "react-icons/gi";
 import { GiBattleGear } from "react-icons/gi";
 import { IoIosAdd } from "react-icons/io";
-import { FaHandPointLeft } from "react-icons/fa";
-import { FaHandPointRight } from "react-icons/fa";
 
 // Função para obter os dados armazenados no localStorage
 const getLocalStorageData = (key) => {
@@ -93,16 +89,6 @@ const MenuLateral = () => {
             </div>{" "}
             <GiOrcHead />
           </button>
-          {/*
-          <div className="flex">
-            <button className="w-14 h-10 bg-[var(--cinza-escuro)] flex items-center justify-evenly rounded-l-md text-black hover:bg-[var(--bege)] text-xl font-extrabold shadow-xl ">
-              <FaHandPointLeft />
-            </button>
-            <button className="w-14 h-10 bg-[var(--cinza-escuro)] flex items-center justify-evenly rounded-r-md text-black hover:bg-[var(--bege)] text-xl font-extrabold shadow-xl ">
-              <FaHandPointRight />
-            </button>
-          </div>
-          */}
         </div>
       </div>
 

@@ -4,16 +4,16 @@ export function Ocupation() {
   return (
     <div className="flex flex-col justify-center items-center mt-6 w-full bg-[var(--cinza-medio)] rounded-md p-1">
       <div className="flex flex-col justify-center items-center w-full bg-[var(--cinza-escuro)]">
-        <div className="flex flex-row items-center w-full bg-[var(--cinza-escuro)] rounded-t-md p-6 pb-4 pt-4">
+        <div className="flex flex-row items-center w-full bg-[var(--cinza-escuro)] rounded-t-md p-6 pb-2">
           <h1 className="justify-start font-greatVibes text-3xl text-[var(--bege)]">
             Profissão ou Ocupação
           </h1>
           <p className="px-2">-</p>
           <h2 className="text-lg">
-            Dita a função do personagem e sua posição na sociedade
+            Dita a ocupação do personagem e sua posição na sociedade
           </h2>
         </div>
-        <h2 className="font-cormorant text-lg">
+        <h2 className="font-cormorant text-lg w-full px-6 pb-4">
           "As condições de Bandido podem se aplicar a outras profissões,
           permitindo que qualquer personagem possa estar envolvido com o crime."
         </h2>
