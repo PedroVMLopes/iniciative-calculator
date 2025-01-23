@@ -22,7 +22,7 @@ export const UniqueTrait = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center mt-6 w-full bg-[var(--cinza-medio)] rounded-md p-1 mb-6">
+    <div className="flex flex-col justify-center items-center mt-6 w-full bg-[var(--cinza-medio)] rounded-md p-1 mb-6 shadow-xl">
       <div className="flex flex-col justify-center items-center w-full bg-[var(--cinza-escuro)] rounded-md">
         <div className="flex flex-col w-full bg-[var(--cinza-escuro)] rounded-t-md p-6">
           <h1 className="font-greatVibes text-3xl text-[var(--bege)]">

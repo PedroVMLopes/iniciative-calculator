@@ -14,7 +14,7 @@ export function Ocupation() {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center mt-6 w-full bg-[var(--cinza-medio)] rounded-md p-1">
+    <div className="flex flex-col justify-center items-center mt-6 w-full bg-[var(--cinza-medio)] rounded-md p-1 shadow-xl">
       <div className="flex flex-col justify-center items-center w-full bg-[var(--cinza-escuro)]">
         <div className="flex flex-row items-center w-full bg-[var(--cinza-escuro)] rounded-t-md p-6 pb-2">
           <h1 className="justify-start font-greatVibes text-3xl text-[var(--bege)]">
@@ -34,13 +34,6 @@ export function Ocupation() {
           selectedOcupation={selectedOcupation}
           setSelectedOcupation={setSelectedOcupation}
         />
-
-        <button
-          className="animate-pulse p-2 m-2 ml-0 rounded-md bg-[var(--cinza-escuro)] hover:bg-[var(--laranja)] shadow-xl self-end"
-          onClick={() => setSelectedOcupation({ index: "" })}
-        >
-          <FaEraser />
-        </button>
       </div>
     </div>
   );
@@ -62,21 +55,35 @@ const OcupationList = ({
   };
 
   return (
-    <div className="grid grid-cols-2 xl:grid-cols-3 gap-1 w-full ">
-      {Object.values(ocupations).map((ocupation, index) => (
-        <div key={ocupation.id} className="flex flex-col items-center">
-          <button
-            className="font-greatVibes text-3xl text-[var(--cinza-claro)] mt-4"
-            onClick={() => setSelectedOcupation({ index: "" })}
-          >
-            {ocupation.title}
-          </button>
-          <div className="w-[80%] mb-6">
+    <div className=" grid grid-cols-2 xl:grid-cols-3 gap-2 w-full px-6">
+      {Object.values(ocupations).map((ocupation) => (
+        <div
+          key={ocupation.id}
+          className="flex flex-col items-center mb-8 pb-3 shadow-xl"
+        >
+          <div className="relative w-full">
+            <div
+              className="flex justify-center font-greatVibes text-3xl text-[var(--cinza-claro)] mt-4"
+              onClick={() => setSelectedOcupation({ index: "" })}
+            >
+              {ocupation.title}
+            </div>
+            <div className="absolute top-0 right-0">
+              <button
+                className="p-2 m-2 ml-0 rounded-md bg-[var(--cinza-escuro)] hover:bg-[var(--laranja)] opacity-40 hover:opacity-100 shadow-xl self-end "
+                onClick={() => setSelectedOcupation({ index: "" })}
+              >
+                <FaEraser />
+              </button>
+            </div>
+          </div>
+
+          <div className="flex flex-col w-full my-3 px-6">
             {ocupation?.data &&
               ocupation.data.map((element, index) => (
                 <label
                   key={element}
-                  className="flex flex-row p-1 group cursor-pointer items-center"
+                  className="flex flex-row p-1 group cursor-pointer w-full "
                 >
                   <input
                     type="radio"
@@ -90,7 +97,7 @@ const OcupationList = ({
                     className={`flex items-center group-hover:text-[var(--laranja)] ${
                       selectedOcupation === element
                         ? "text-[var(--laranja)]"
-                        : "text-[var(--bege)]"
+                        : "text-[var(--cinza-claro)]"
                     } `}
                   >
                     <FaFeatherAlt />
@@ -101,13 +108,13 @@ const OcupationList = ({
                 </label>
               ))}
             <button
-              className={`flex items-center group hover:text-[var(--laranja)] ml-1`}
+              className={`flex items-center group text-[var(--bege)] hover:text-[var(--laranja)] ml-1 w-full`}
               onClick={() => selectRandomOcupation(ocupation)}
             >
-              <div className="animate-pulse text-xl text-[var(--bege)] group-hover:text-[var(--laranja)]">
+              <div className="animate-pulse text-xl group-hover:text-[var(--laranja)]">
                 <GiRollingDices />
               </div>
-              <span className="pl-2 text-lg">Randomizar</span>
+              <span className="pl-2 text-lg justify-start ">Randomizar</span>
             </button>
           </div>
         </div>

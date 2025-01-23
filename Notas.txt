@@ -7,7 +7,12 @@
 
 -> Corrigir o problema de interferência ao inserir novos inimigos
 
--> Adicionar botões de rolagem aleatória em cada traço de comportamento
+
+
+
+-> Fazer a aba de Tesouros simplificados.
+
+-> Fazer a aba de fichas de personagens. Utilizar o apêndice de Personagens do Mestre como base (pg. 342 Manual de Monstros)
 
 
 
