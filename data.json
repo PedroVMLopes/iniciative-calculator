@@ -154,5 +154,37 @@
             "Tem conhecimento conhecimento de pontos fracos e vulnerabilidades de algo",
             "Pode arranjar informações com facilidade com seus contatos"
         ]
+    },
+    "foraging": {
+        "forageables": [
+            "Flores", 
+            "Folhas",
+            "Raízes",
+            "Cogumelos",
+            "Ervas",
+            "Bagas",
+            "Mel Selvagem",
+            "Veneno Animal",
+            "Óleo Animal",
+            "Ovos",
+            "Inseto Raro",
+            "Seiva de Árvore"
+        ],
+        "medicinalEffects": [
+            "Cura 2d4 + 2",
+            "Antídoto Geral",
+            "Potencializador + 1",
+            "Cura 2d4 + 3",
+            "Restaura uma ferida grande",
+            "Cura 3d4 + 3"
+        ],
+        "poisonousEffects": [
+            "Veneno - ( 1d6/Round CD10 )",
+            "Fogo Alquímico - ( 1d6/Round CD10 )",
+            "Cegueira - ( CD10 )",
+            "Sono - ( CD10 )",
+            "Paralisia - ( 1 Round CD10 )",
+            "Veneno Mortal - Morte em 4h"
+        ]
     }
 }
