@@ -31,12 +31,12 @@ const NavBar = () => {
       path: "/premadeCharts",
     },
     {
-      label: "Tesouros",
-      path: "/treasures",
-    },
-    {
       label: "Party",
       path: "/party",
+    },
+    {
+      label: "Tesouros",
+      path: "/treasures",
     },
   ];
 

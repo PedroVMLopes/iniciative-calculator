@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 const PremadeCharts = () => {
   const [charts, setCharts] = useState("");
   const [selectedChart, setSelectedChart] = useState("");
+  const [hoverDescription, setHoverDescription] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:5000/mastersCharacters")
@@ -18,17 +19,37 @@ const PremadeCharts = () => {
       </h1>
       <div className="flex flex-row w-full mt-6">
         <div className="">
-          <ChartsList charts={charts} setSelectedChart={setSelectedChart} />
+          <ChartsList
+            charts={charts}
+            setSelectedChart={setSelectedChart}
+            setHoverDescription={setHoverDescription}
+          />
         </div>
         <div className="w-full ml-2 bg-[var(--cinza-medio)] rounded-md p-1">
-          <ChartDescription selectedChart={selectedChart} />
+          <ChartDescription
+            selectedChart={selectedChart}
+            hoverDescription={hoverDescription}
+          />
         </div>
       </div>
     </div>
   );
 };
 
-const ChartsList = ({ charts, setSelectedChart }) => {
+const ChartsList = ({
+  charts,
+  selectedChart,
+  setSelectedChart,
+  setHoverDescription,
+}) => {
+  const handleMouseEnter = (selectedChart) => {
+    setHoverDescription(selectedChart.description);
+  };
+
+  const handleMouseLeave = () => {
+    setHoverDescription(null);
+  };
+
   return (
     <div className="w-min min-w-48 bg-[var(--cinza-medio)] rounded-md p-1 shadow-xl">
       <div className="bg-[var(--cinza-escuro)] rounded-md p-2">
@@ -40,6 +61,8 @@ const ChartsList = ({ charts, setSelectedChart }) => {
             <button
               key={chart.name}
               onClick={() => setSelectedChart(chart)}
+              onMouseEnter={() => handleMouseEnter(chart)}
+              onMouseLeave={handleMouseLeave}
               className="my-1"
             >
               <h1>{chart.name}</h1>
@@ -51,13 +74,13 @@ const ChartsList = ({ charts, setSelectedChart }) => {
   );
 };
 
-const ChartDescription = ({ selectedChart }) => {
+const ChartDescription = ({ selectedChart, hoverDescription }) => {
   return (
     <div className="bg-[var(--cinza-escuro)] rounded-md p-3">
       <h1 className="font-greatVibes text-2xl text-[var(--bege)]">
         Descrição da Ficha
       </h1>
-      <p>{selectedChart.description}</p>
+      <p>{hoverDescription ? hoverDescription : selectedChart.description}</p>
     </div>
   );
 };
