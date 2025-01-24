@@ -14,6 +14,13 @@
 
 -> Fazer a aba de fichas de personagens. Utilizar o apêndice de Personagens do Mestre como base (pg. 342 Manual de Monstros)
 
+-> Inserir os dados de passivos de Percepção, Investigação e Intuição nos cards dos jogadores
+-> Apenas inserir nos dados da Party e renderizar nos cards
+Percepção Passiva: Usada para notar o óbvio (algo visual, auditivo ou sensorial) no ambiente.
+Investigação Passiva: Usada para analisar algo e perceber detalhes mais sutis ou escondidos, como pistas ou padrões.
+Intuição Passiva: Usada para avaliar emoções, mentiras ou intenções de NPCs ou criaturas.
+Cálculo: 10 + bonus da habilidade + Prof. (se tiver)
+
 
 
 
