@@ -163,12 +163,12 @@
             "Cogumelos",
             "Ervas",
             "Bagas",
+            "Seiva de Árvore",
             "Mel Selvagem",
             "Veneno Animal",
             "Óleo Animal",
             "Ovos",
-            "Inseto Raro",
-            "Seiva de Árvore"
+            "Inseto Raro"
         ],
         "medicinalEffects": [
             "Cura 2d4 + 2",
@@ -186,5 +186,73 @@
             "Paralisia - ( 1 Round CD10 )",
             "Veneno Mortal - Morte em 4h"
         ]
+    },
+    "mastersCharacters": {
+        "blank": {
+            "name": "",
+            "stats": {
+                "ca": "",
+                "pv": "",
+                "for": "",
+                "dex": "",
+                "con": "",
+                "int": "",
+                "wis": "",
+                "car": ""
+            },
+            "resistanceTests": "",
+            "expertises": "",
+            "damageResistances": "",
+            "senses": "",
+            "lenguages": "",
+            "cr": "",
+            "extras": "",
+            "actions": [""],
+            "description": ""
+        },
+        "acolyte": {
+            "name": "Acólito",
+            "stats": {
+                "ca": "10",
+                "pv": "9 (2d8)",
+                "for": "10",
+                "dex": "10",
+                "con": "10",
+                "int": "10",
+                "wis": "14 (+2)",
+                "car": "11"
+            },
+            "resistanceTests": "",
+            "expertises": "Medicina +4, Religião +2",
+            "damageResistances": "",
+            "senses": "Percepção Passiva 12",
+            "lenguages": "Um idioma qualquer (geralmente Comum)",
+            "cr": "1/4 (50 XP)",
+            "extras": "Conjuração. O acólito é um conjurador de 1° nível. Sua habilidade de conjuração é Sabedoria (CD de resistência de magia 12, +4 para atingir com ataques com magia). Ele possui as seguintes magias de clérigo preparadas: Truque (à vontade): chama sagrada, luz, taumaturgia 1° nível (3 espaços): bênção, curar ferimentos, santuário ",
+            "actions": ["Clava. Ataque Corpo-a-Corpo com Arma: +2 para atingir, alcance 1,5 m, um alvo. Acerto: 2 (1d4) de dano de concussão."],
+            "description": "Acólitos são membros juniores de um clericato, geralmente respondendo a um sacerdote. Eles realizam uma variedade de funções em um templo e recebem poderes de conjuração menores por suas divindades. "
+        },
+        "arcane": {
+            "name": "Arcano",
+            "stats": {
+                "ca": "12 (15 com armadura arcana",
+                "pv": "40 (9d8)",
+                "for": "9 (-1)",
+                "dex": "14 (+2)",
+                "con": "11",
+                "int": "17 (+3)",
+                "wis": "12 (+1)",
+                "car": "11"
+            },
+            "resistanceTests": "Int +6, Sab +4",
+            "expertises": "Arcanismo +6, História +6",
+            "damageResistances": "",
+            "senses": "Percepção passiva 11",
+            "lenguages": "quatro idiomas quaisquer ",
+            "cr": "6 (2.300 XP)",
+            "extras": "Conjuração. O arcano é um conjurador de 9° nível. Sua habilidade de conjuração é Inteligência (CD de resistência de magia 14, +6 para atingir com ataques com magia). Ele possui as seguintes magias de mago preparadas: Truques (à vontade): mãos mágicas, luz, prestidigitação, raio de fogo 1° nível (4 espaços): armadura arcana, detectar magia, escudo arcano, mísseis mágicos 2° nível (3 espaços): névoa obscurecente, sugestão 3° nível (3 espaços): bola de fogo, contramágica, voo 4° nível (3 espaços): invisibilidade maior, tempestade de gelo 5° nível (1 espaços): cone de frio",
+            "actions": ["Adaga. Ataque Corpo-a-Corpo ou à Distância com Arma: +5 para atingir, alcance 1,5 m ou distância 6/18 m, um alvo. Acerto: 4 (1d4 + 2) de dano perfurante."],
+            "description": "Arcanos passam suas vidas estudando e praticando mágica. Magos de tendência boa oferecem conselhos a nobre e outros poderes, enquanto que magos malignos residem em locais isolados para realizar experimentos inomináveis sem interferência."
+        }
     }
 }
