@@ -2,6 +2,7 @@ import React from "react";
 import Tests from "./Tests/Tests";
 import Party from "./Party/Party";
 import Npcs from "./Npcs/Npcs";
+import PremadeCharts from "./PremadeCharts/PremadeCharts";
 import {
   BrowserRouter as Router,
   Route,
@@ -26,16 +27,16 @@ const NavBar = () => {
       path: "/npcs",
     },
     {
+      label: "Fichas Prontas",
+      path: "/premadeCharts",
+    },
+    {
       label: "Tesouros",
       path: "/treasures",
     },
     {
       label: "Party",
       path: "/party",
-    },
-    {
-      label: "Regras da Casa",
-      path: "/houseRules",
     },
   ];
 
@@ -48,7 +49,7 @@ const NavBar = () => {
         <Link
           key={link.path}
           to={link.path}
-          className={`py-4 px-2 flex justify-center bg-[var(--cinza-escuro)]`}
+          className={`py-4 flex justify-center bg-[var(--cinza-escuro)]`}
         >
           {link.label}
         </Link>
@@ -97,6 +98,7 @@ const Main = () => {
             <Route path="/" element={<TestsContent />} />
             <Route path="/party" element={<Party />} />
             <Route path="/npcs" element={<Npcs />} />
+            <Route path="/premadeCharts" element={<PremadeCharts />} />
           </Routes>
         </div>
       </div>

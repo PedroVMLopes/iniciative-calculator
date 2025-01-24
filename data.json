@@ -188,28 +188,6 @@
         ]
     },
     "mastersCharacters": {
-        "blank": {
-            "name": "",
-            "stats": {
-                "ca": "",
-                "pv": "",
-                "for": "",
-                "dex": "",
-                "con": "",
-                "int": "",
-                "wis": "",
-                "car": ""
-            },
-            "resistanceTests": "",
-            "expertises": "",
-            "damageResistances": "",
-            "senses": "",
-            "lenguages": "",
-            "cr": "",
-            "extras": "",
-            "actions": [""],
-            "description": ""
-        },
         "acolyte": {
             "name": "Acólito",
             "stats": {
