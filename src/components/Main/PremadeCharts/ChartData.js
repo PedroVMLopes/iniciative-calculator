@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 
 export const ChartData = ({ selectedChart }) => {
   //console.log("selectedChart: ", selectedChart);
-  selectedChart.extras.map((element) => {
+  /*selectedChart?.extras.map((element) => {
     console.log("element: ", element);
-  });
+  });*/
   if (selectedChart) {
     return (
       <div className="bg-[var(--cinza-escuro)] rounded-md p-3 mt-1">

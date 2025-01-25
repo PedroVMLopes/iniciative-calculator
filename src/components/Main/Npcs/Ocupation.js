@@ -47,7 +47,6 @@ const OcupationList = ({
   const handleSelection = (element) => {
     setSelectedOcupation(element);
   };
-  console.log("selectedOcupation: ", selectedOcupation);
 
   const selectRandomOcupation = (ocupation) => {
     const newOcupationIndex = Math.floor(Math.random() * ocupation.data.length);
