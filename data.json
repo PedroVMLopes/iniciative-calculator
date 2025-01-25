@@ -170,22 +170,70 @@
             "Ovos",
             "Inseto Raro"
         ],
-        "medicinalEffects": [
-            "Cura 2d4 + 2",
-            "Antídoto Geral",
-            "Potencializador + 1",
-            "Cura 2d4 + 3",
-            "Restaura uma ferida grande",
-            "Cura 3d4 + 3"
-        ],
-        "poisonousEffects": [
-            "Veneno - ( 1d6/Round CD10 )",
-            "Fogo Alquímico - ( 1d6/Round CD10 )",
-            "Cegueira - ( CD10 )",
-            "Sono - ( CD10 )",
-            "Paralisia - ( 1 Round CD10 )",
-            "Veneno Mortal - Morte em 4h"
-        ]
+        "healinglEffects": {
+            "nome": "Efeitos Curativos",
+            "data": [
+                "Cura 2d4 + 2",
+                "Cura 2d4 + 2",
+                "Antídoto Geral",
+                "Cura 2d4 + 3",
+                "Restaura uma ferida grande",
+                "Cura 3d4 + 3"
+            ]
+        },
+        "resistanceEffects": {
+            "nome": "Efeitos de Resistência",
+            "data": [
+                "Concede resistência a dano de queda por 1 hora",
+                "Concede resistência a dano de frio por 1 hora",
+                "Concede resistência a dano de fogo por 1 hora",
+                "Dá vantagem em testes de resistência contra venenos por 1 hora.",
+                "Dá vantagem em testes de resistência contra doenças por 1 hora.",
+                "Permite segurar a respiração por até 30 minutos."
+            ]
+        },
+        "enhancingEffects": {
+            "nome": "Efeitos de Melhoria",
+            "data": [
+                "Concede +1 em testes de Força por 1h",
+                "Concede +1 em testes de Destreza por 1h",
+                "Concede +4 de vida temporária por 1h",
+                "Concede +1 em testes de Inteligência por 1h",
+                "Concede +1 em testes de Sabedoria por 1h",
+                "Concede +1 em testes de Carisma por 1h"
+            ]
+        },
+        "weakeningEffects": {
+            "nome": "Efeitos de Fraqueza",
+            "data": [
+                "Concede -1 em testes de Força por 1h",
+                "Concede -1 em testes de Destreza por 1h",
+                "Concede -1 em testes de Inteligência por 1h",
+                "Concede -1 em testes de Sabedoria por 1h",
+                "Concede -1 em testes de Carisma por 1h",
+                "Miopia - Desvantagem para enxergar além de 9m"
+            ]
+        },
+        "damagingEffects": {
+            "nome": "Efeitos de Dano",
+            "data": [
+                "Veneno - (1d6/Round CD10 )",
+                "Fogo Alquímico - (1d6/Round CD10 )",
+                "Cegueira - (10 min - CD10)",
+                "Sono - (10 min - CD10)",
+                "Paralisia - (1 Round CD10)",
+                "Veneno Mortal - Morte em 4h"
+            ]
+        },
+        "enhancings": {
+            "nome": "Efeitos Potencializadores",
+            "data": [
+                "Potencializador + 1",
+                "Potencializador + 1",
+                "Potencializador + 1",
+                "Potencializador + 2"
+            ]
+        }
     },
     "mastersCharacters": {
         "acolyte": {
