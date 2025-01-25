@@ -21,10 +21,8 @@ const MenuLateral = () => {
   const [cardsInimigos, setCardsInimigos] = useState([]);
 
   window.addEventListener("cardsAtualizados", () => {
-    console.log("Novo card adicionado");
     setCardsInimigos(getLocalStorageData("cardsInimigos"));
     setPlayers(getLocalStorageData("players"));
-    console.log("players: ", players);
   });
 
   // Carrega os dados ao montar o componente
