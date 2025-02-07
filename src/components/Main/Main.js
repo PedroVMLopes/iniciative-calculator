@@ -35,8 +35,8 @@ const NavBar = () => {
       path: "/party",
     },
     {
-      label: "Tesouros",
-      path: "/treasures",
+      label: "Loot",
+      path: "/loot",
     },
   ];
 
