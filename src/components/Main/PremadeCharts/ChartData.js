@@ -44,7 +44,7 @@ export const ChartData = ({ selectedChart }) => {
         </div>
         <p className="h-[2px] my-4 w-[70%] bg-[var(--cinza-medio)]" />
         <div className="pl-1 flex flex-col justify-evenly">
-          <h2>Testes de Resistência: {selectedChart.resistanceTests}</h2>
+          <h2>Bônus de Resistência: {selectedChart.resistanceTests}</h2>
           <h2>Perícias: {selectedChart.expertises}</h2>
           <h2>Resistência a Dano: {selectedChart.damageResistances}</h2>
           <h2>Sentidos: {selectedChart.senses}</h2>
