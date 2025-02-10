@@ -30,17 +30,6 @@ export default function MenuAddPlayer() {
     }
   }, []);
 
-  const clearPlayers = (event) => {
-    localStorage.clear(); // Limpa todos os dados do localStorage
-    setPlayers([]); // Atualiza o estado local para refletir a limpeza
-    console.clear();
-  };
-
-  const clearConsole = (event) => {
-    event.preventDefault();
-    console.clear();
-  };
-
   useEffect(() => {
     savePlayer(players); // Sincroniza o estado com o localStorage sempre que players mudar
   }, [players]);
@@ -88,7 +77,7 @@ export default function MenuAddPlayer() {
 
   return (
     <div
-      className={`menu-add-player mt-3 m-8 z-10 shadow-xl opacity-0 transform origin-top scale-95 transition-all duration-300 ease-in-out`}
+      className={`menu-add-player mt-3 mb-8 mx-4 z-10 shadow-xl opacity-0 transform origin-top scale-95 transition-all duration-300 ease-in-out`}
       ref={menuRef}
     >
       <div className="menu-add-player menu-add-player-header">
@@ -141,15 +130,7 @@ export default function MenuAddPlayer() {
             onClick={handleSubmit}
             className="hover:bg-[var(--azul-claro)]"
           >
-            Adicionar
-          </button>
-
-          <button onClick={clearPlayers} className="botao-limpar">
-            Limpar localStorage
-          </button>
-
-          <button onClick={clearConsole} className="botao-limpar">
-            Limpar console
+            Adicionar Jogador
           </button>
         </form>
       </div>

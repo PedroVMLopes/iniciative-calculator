@@ -232,7 +232,7 @@ export const ExpertiseList = [
     description: "Um teste de Carisma",
     examples: [
       "Influenciar com boa índole",
-      "Fazer pedidos cordiais com a etiqueta adequada",
+      "Pedir um favor com a etiqueta adequada",
       "Negociar ou inspirar alguém",
     ],
     icon: <IoLogoWechat />,

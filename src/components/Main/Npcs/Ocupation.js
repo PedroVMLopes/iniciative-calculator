@@ -26,8 +26,8 @@ export function Ocupation() {
           </h2>
         </div>
         <h2 className="font-cormorant text-lg w-full px-6 pb-4">
-          "As condições de Bandido podem se aplicar a outras profissões,
-          permitindo que qualquer personagem possa estar envolvido com o crime."
+          As condições de Bandido podem se aplicar a outras profissões,
+          permitindo que qualquer personagem possa estar envolvido com o crime.
         </h2>
         <OcupationList
           ocupations={ocupations}

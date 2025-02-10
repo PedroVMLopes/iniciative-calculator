@@ -32,7 +32,7 @@ export function Behavior() {
   return (
     <div className="flex flex-col justify-center items-center mt-6 w-full bg-[var(--cinza-medio)] rounded-md p-1 shadow-xl">
       <div className="flex flex-col justify-center items-center w-full bg-[var(--cinza-escuro)] rounded-md">
-        <div className="flex flex-row items-center w-full bg-[var(--cinza-escuro)] rounded-t-md p-6">
+        <div className="flex flex-row items-center w-full bg-[var(--cinza-escuro)] rounded-t-md p-6 pb-3">
           <h1 className="justify-start font-greatVibes text-3xl text-[var(--bege)]">
             Traços de Comportamento{" "}
           </h1>
@@ -41,6 +41,10 @@ export function Behavior() {
             Dita como será a interação dele com os jogadores
           </h2>
         </div>
+        <p className="w-full px-6 pb-4 text-lg font-cormorant">
+          Para dar maior profundidade, o botão de Selecionar Aleatoriamente
+          escolhe 3 traços, um de cada tipo.
+        </p>
         <div className="flex flex-row justify-evenly w-full">
           <Traits
             behaviors={behaviors}

@@ -27,22 +27,18 @@ const NavBar = () => {
       path: "/npcs",
     },
     {
-      label: "Fichas Prontas",
+      label: "Fichas",
       path: "/premadeCharts",
     },
     {
       label: "Party",
       path: "/party",
     },
-    {
-      label: "Loot",
-      path: "/loot",
-    },
   ];
 
   return (
     <nav
-      className={`relative grid grid-cols-5 grid-rows-1 py-2 px-0 rounded-md max-w-2xl text-[var(--bege)] font-bold text-nowrap `}
+      className={`relative grid grid-cols-4 grid-rows-1 gap-8 py-2 px-4 rounded-md max-w-2xl text-[var(--bege)] font-bold text-nowrap `}
       id="navbar"
     >
       {links.map((link) => (

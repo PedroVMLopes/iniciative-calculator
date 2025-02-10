@@ -132,9 +132,13 @@ export default function MenuAddInimigo() {
     window.dispatchEvent(new CustomEvent("cardsAtualizados"));
   };
 
+  const deleteAllEnemies = () => {
+    localStorage.removeItem("cardsInimigos");
+  };
+
   return (
     <div
-      className={`menu-add-inimigo m-8 mt-0 z-10 shadow-xl opacity-0 transform origin-top scale-95 transition-all duration-600 ease-in-out`}
+      className={`menu-add-inimigo mb-8 mx-4 z-10 shadow-xl opacity-0 transform origin-top scale-95 transition-all duration-600 ease-in-out`}
       ref={menuRef}
     >
       <div className="menu-add-inimigo header">
@@ -183,26 +187,35 @@ export default function MenuAddInimigo() {
           />
           <br />
           <button
-            className="botao-add-inimigo hover:bg-[var(--vermelho-claro)]"
+            className="hover:bg-[var(--vermelho-claro)]"
             id="inimigo-adicionado"
             type="submit"
             onClick={adicionarInimigo}
           >
             Enviar Inimigo Único
           </button>
+          <div className="flex w-full">
+            <button
+              className="w-full hover:bg-[var(--vermelho-claro)]"
+              type="button"
+              onClick={adicionarAoGrupo}
+            >
+              Adicionar ao grupo
+            </button>
+            <button
+              className="w-full hover:bg-[var(--vermelho-claro)]"
+              type="submit"
+              onClick={enviarGrupo}
+            >
+              Enviar Grupo
+            </button>
+          </div>
           <button
-            className="botao-add-inimigo hover:bg-[var(--vermelho-claro)]"
-            type="button"
-            onClick={adicionarAoGrupo}
-          >
-            Adicionar outro ao grupo
-          </button>
-          <button
-            className="botao-add-inimigo hover:bg-[var(--vermelho-claro)]"
+            className="hover:bg-[var(--vermelho-claro)]"
             type="submit"
-            onClick={enviarGrupo}
+            onClick={deleteAllEnemies}
           >
-            Enviar Grupo
+            Apagar todos os Inimigos
           </button>
         </form>
       </div>

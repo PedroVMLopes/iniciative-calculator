@@ -86,9 +86,9 @@ const Tests = () => {
 
   return (
     <div className="flex flex-col justify-center items-center text-white w-[97%] ">
-      <button onClick={toggleExpand}>
+      <button>
         <h1 className="font-bold font-unifraktur text-3xl pt-4 hover:text-[var(--cinza-claro)]">
-          Habilidades +
+          Habilidades
         </h1>
       </button>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-1 p-1 text-[var(--bege)] bg-[var(--cinza-medio)] rounded-xl m-2 mt-4 w-full">

@@ -3,7 +3,6 @@
 ---------------------------------------------------------------
 
 
--> Adicionar um botão no card de adicionar inimigos que remove todos os inimigos
 
 -> Corrigir o problema de interferência ao inserir novos inimigos
 
@@ -11,8 +10,6 @@
 
 
 -> Fazer a aba de Tesouros simplificados. - Ouro / Foraging
-
--> Fazer a aba de fichas de personagens. Utilizar o apêndice de Personagens do Mestre como base (pg. 342 Manual de Monstros)
 
 -> Inserir os dados de passivos de Percepção, Investigação e Intuição nos cards dos jogadores
 -> Apenas inserir nos dados da Party e renderizar nos cards

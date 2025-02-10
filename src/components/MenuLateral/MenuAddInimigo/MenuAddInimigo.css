@@ -52,21 +52,9 @@
 .menu-add-inimigo-corpo form button {
   border-radius: 8px;
   border: none;
-  padding: 10px 16px;
+  padding: 14px 16px;
   margin: 5px;
   background-color: var(--vermelho-escuro);
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.botao-add-inimigo {
-  border-radius: 8px;
-  border: none;
-  padding: 5px 16px;
-  margin: 5px;
-  background-color: var(--vermelho-claro);
   color: #fff;
   font-weight: bold;
   cursor: pointer;

@@ -63,7 +63,7 @@ const FormCardInimigo = ({
 
             <div className="flex flex-col items-center">
               <label className="flex flex-col w-full">
-                <p>Modificadores: </p>
+                <p>Modificador: </p>
                 <input
                   className="flex flex-col rounded-lg shadow-xl text-black font-bold pl-2"
                   type="text"
