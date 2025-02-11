@@ -49,5 +49,6 @@ console.log(localStorage.getItem('players'));
 
 ---------------------------------------------------------------
     Comandos de inicialização
+npm install
 npm start
 npm run server

@@ -2,6 +2,7 @@
   "name": "iniciative-calculator",
   "version": "0.1.0",
   "private": true,
+  "main": "main.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -20,7 +21,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server --watch data.json --port 5000"
+    "server": "json-server --watch data.json --port 5000",
+    "dev": "set NODE_ENV=development&& concurrently \"npm start\" \"wait-on http://localhost:3000 && npx electron .\"",
+    "electron": "set NODE_ENV=development&& electron ."
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +45,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
+    "electron": "^34.1.1",
     "postcss": "^8.5.1",
     "tailwindcss": "^3.4.17"
   }
