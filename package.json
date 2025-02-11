@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "main": "main.js",
+  "homepage": ".",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -18,12 +19,14 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run build:react",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "json-server --watch data.json --port 5000",
     "dev": "set NODE_ENV=development&& concurrently \"npm start\" \"wait-on http://localhost:3000 && npx electron .\"",
-    "electron": "set NODE_ENV=development&& electron ."
+    "electron": "set NODE_ENV=development&& electron .",
+    "build:react": "react-scripts build",
+    "dist": "npm run build && electron-builder"
   },
   "eslintConfig": {
     "extends": [
@@ -45,8 +48,36 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.2",
     "electron": "^34.1.1",
+    "electron-builder": "^25.1.8",
     "postcss": "^8.5.1",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "wait-on": "^8.0.2"
+  },
+  "build": {
+    "extends": null,
+    "appId": "com.IniciativeCalculator.id",
+    "productName": "IniciativeCalculator",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "build/**/*",
+      "main.js",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.icns"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png"
+    }
   }
 }
