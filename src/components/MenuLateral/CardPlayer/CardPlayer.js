@@ -98,7 +98,7 @@ const CardPlayer = ({ player }) => {
     >
       <div className="flex relative flex-col w-[100%] justify-between font-bold text-lg text-[var(--bege)] pt-1">
         <img
-          src="../Decoracao_canto1.png"
+          src={`${process.env.PUBLIC_URL}/Decoracao_canto1.png`}
           className="absolute -z-5 w-[20%] top-0 left-0 opacity-60 max-h-[100px]"
         />
         <h1>{playerData[0].nome}</h1>
