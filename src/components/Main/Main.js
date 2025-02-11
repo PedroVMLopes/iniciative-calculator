@@ -3,14 +3,7 @@ import Tests from "./Tests/Tests";
 import Party from "./Party/Party";
 import Npcs from "./Npcs/Npcs";
 import PremadeCharts from "./PremadeCharts/PremadeCharts";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Link,
-  useLocation,
-} from "react-router-dom";
-import { SiDungeonsanddragons } from "react-icons/si";
+import { HashRouter, Route, Routes, Link, useLocation } from "react-router-dom";
 import { FaDiceD20 } from "react-icons/fa";
 
 const TestsContent = () => <Tests />;
@@ -83,7 +76,7 @@ const NavBar = () => {
 
 const Main = () => {
   return (
-    <Router>
+    <HashRouter>
       <div
         className="flex flex-col items-center w-full xl:pl-[27%] lg:pl-[37%] sm:pl-[42%]  p-3"
         id="main"
@@ -98,7 +91,7 @@ const Main = () => {
           </Routes>
         </div>
       </div>
-    </Router>
+    </HashRouter>
   );
 };
 
