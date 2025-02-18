@@ -28,31 +28,44 @@ function createWindow() {
   }
 }
 
-app.on("ready", () => {
-  // Inicia o json-server
-  // Certifique-se de que o comando e o caminho para o arquivo JSON estejam corretos
-  const dbPath = path.join(__dirname, "data.json"); // ajuste conforme sua estrutura
-  const port = 5000; // defina a porta que desejar (diferente da porta de desenvolvimento, se necessário)
-  jsonServerProcess = exec(
-    `json-server --watch ${dbPath} --port ${port}`,
-    (error, stdout, stderr) => {
-      if (error) {
-        console.error(`Erro ao iniciar o json-server: ${error.message}`);
-        return;
-      }
-      if (stderr) {
-        console.error(`Stderr do json-server: ${stderr}`);
-        return;
-      }
-      console.log(`json-server iniciado: ${stdout}`);
-    }
+function startJsonServer() {
+  // Caminho absoluto para o arquivo de dados
+  const dbPath = path.join(__dirname, "data.json");
+  const port = 5000;
+
+  // Utilize o executável do json-server a partir da pasta node_modules
+  // Isso garante que ele seja encontrado mesmo que não esteja instalado globalmente
+  const jsonServerExecutable = path.join(
+    __dirname,
+    "node_modules",
+    ".bin",
+    "json-server"
   );
 
+  // Monta o comando
+  const command = `"${jsonServerExecutable}" --watch "${dbPath}" --port ${port}`;
+
+  console.log("Iniciando o json-server com o comando:", command);
+
+  jsonServerProcess = exec(command, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Erro ao iniciar o json-server: ${error.message}`);
+      return;
+    }
+    if (stderr) {
+      console.error(`Stderr do json-server: ${stderr}`);
+    }
+    console.log(`json-server iniciado: ${stdout}`);
+  });
+}
+
+app.on("ready", () => {
+  startJsonServer();
   createWindow();
 });
 
 app.on("window-all-closed", () => {
-  // Encerra o json-server ao fechar a aplicação
+  // Finaliza o json-server ao fechar a aplicação
   if (jsonServerProcess) {
     jsonServerProcess.kill();
   }
