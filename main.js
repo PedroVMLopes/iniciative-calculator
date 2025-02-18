@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 const url = require("url");
 const { exec } = require("child_process");
@@ -6,35 +6,10 @@ const { exec } = require("child_process");
 let mainWindow;
 let jsonServerProcess;
 
-function createWindow() {
-  const win = new BrowserWindow({
-    width: 1400,
-    height: 900,
-    webPreferences: {
-      nodeIntegration: false,
-    },
-  });
-
-  if (process.env.NODE_ENV === "development") {
-    win.loadURL("http://localhost:3000");
-  } else {
-    win.loadURL(
-      url.format({
-        pathname: path.join(__dirname, "build", "index.html"),
-        protocol: "file:",
-        slashes: true,
-      })
-    );
-  }
-}
-
 function startJsonServer() {
-  // Caminho absoluto para o arquivo de dados
   const dbPath = path.join(__dirname, "data.json");
   const port = 5000;
 
-  // Utilize o executável do json-server a partir da pasta node_modules
-  // Isso garante que ele seja encontrado mesmo que não esteja instalado globalmente
   const jsonServerExecutable = path.join(
     __dirname,
     "node_modules",
@@ -42,7 +17,6 @@ function startJsonServer() {
     "json-server"
   );
 
-  // Monta o comando
   const command = `"${jsonServerExecutable}" --watch "${dbPath}" --port ${port}`;
 
   console.log("Iniciando o json-server com o comando:", command);
@@ -59,23 +33,64 @@ function startJsonServer() {
   });
 }
 
-app.on("ready", () => {
+function createWindow() {
+  mainWindow = new BrowserWindow({
+    width: 1400,
+    height: 900,
+    webPreferences: {
+      preload: path.join(__dirname, "preload.js"),
+      contextIsolation: true,
+      nodeIntegration: false,
+      enableRemoteModule: false,
+    },
+    frame: true, // Permite o uso da barra de título customizada
+  });
+
+  const appURL =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : url.format({
+          pathname: path.join(__dirname, "build", "index.html"),
+          protocol: "file:",
+          slashes: true,
+        });
+
+  mainWindow.loadURL(appURL);
+
+  mainWindow.on("closed", () => {
+    mainWindow = null;
+  });
+}
+
+app.whenReady().then(() => {
   startJsonServer();
   createWindow();
+
+  app.on("activate", () => {
+    if (mainWindow === null) createWindow();
+  });
 });
 
+// IPC Handlers
+ipcMain.on("window-minimize", () => {
+  if (mainWindow) mainWindow.minimize();
+});
+
+ipcMain.on("window-maximize", () => {
+  if (mainWindow) {
+    mainWindow.isMaximized() ? mainWindow.unmaximize() : mainWindow.maximize();
+  }
+});
+
+ipcMain.on("window-close", () => {
+  if (mainWindow) mainWindow.close();
+});
+
+// Finalizar o json-server ao fechar a aplicação
 app.on("window-all-closed", () => {
-  // Finaliza o json-server ao fechar a aplicação
   if (jsonServerProcess) {
     jsonServerProcess.kill();
+    console.log("json-server finalizado.");
   }
-  if (process.platform !== "darwin") {
-    app.quit();
-  }
-});
-
-app.on("activate", () => {
-  if (mainWindow === null) {
-    createWindow();
-  }
+  if (process.platform !== "darwin") app.quit();
 });

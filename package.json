@@ -1,6 +1,6 @@
 {
   "name": "iniciative-calculator",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "main": "main.js",
   "homepage": ".",
@@ -60,7 +60,7 @@
   "build": {
     "extends": null,
     "appId": "com.IniciativeCalculator.id",
-    "productName": "RPV 3000",
+    "productName": "RPV",
     "directories": {
       "output": "dist"
     },
@@ -71,15 +71,15 @@
     ],
     "win": {
       "target": "nsis",
-      "icon": "assets/icon.ico"
+      "icon": "./treasure-icon.png"
     },
     "mac": {
       "target": "dmg",
-      "icon": "assets/icon.icns"
+      "icon": "./treasure-icon.png"
     },
     "linux": {
       "target": "AppImage",
-      "icon": "assets/icon.png"
+      "icon": "./treasure-icon.png"
     }
   }
 }
