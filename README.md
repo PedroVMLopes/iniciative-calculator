@@ -33,7 +33,7 @@ Siga os seguintes caminhos para instalar e usar o D&D Session Master:
 
   Vá até o diretório:
 
-    cd dnd-session-master
+    cd iniciative-calculator
 
   Instale as dependências:
 
