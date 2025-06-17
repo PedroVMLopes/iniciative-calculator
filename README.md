@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# RPV - Assistente para RPGs de Mesa
+## 📝 Descrição
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O RPV é uma aplicação criada para apoiar Dungeons Masters na organização das sessões de D&D.
+Com ele, é possível:
 
-## Available Scripts
+  - Cadastrar e acompanhar jogadores e inimigos junto às suas iniciativas, pontos de vida e condições.
 
-In the project directory, you can run:
+  - Aplicar efeitos e gerenciar o estado de cada um facilmente.
 
-### `npm start`
+  - Utilizar um sisteminha de criação de NPCs, que escolhe aleatoriamente a classe social, profissão e traços de personalidade para poupar tempo na hora de preparar suas aventuras.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+🔹 Tecnologias utilizadas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    React — para a construção da interface
 
-### `npm test`
+    JavaScript — como a principal linguagem de programação
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    Electron — para proporcionar uma versão desktop da aplicação
 
-### `npm run build`
+    LocalStorage — para o armazenamento permanente dos personagens, inimigos e NPCs criados
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ⚙ Instalação
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Caso queira baixar e usar a aplicação final em seu computador, o instalador dela está no Google Drive:
+  https://drive.google.com/drive/u/1/folders/1ngA243r2AfNMAHVmCo6PaA6PJc0yROEc
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Siga os seguintes caminhos para instalar e usar o D&D Session Master:
 
-### `npm run eject`
+  Clone o repositório:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    git clone https://github.com/usuario/dnd-session-master.git
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  Vá até o diretório:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    cd dnd-session-master
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  Instale as dependências:
 
-## Learn More
+    npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  Inicie o aplicativo:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    npm start
 
-### Code Splitting
+Isso deve preparar o aplicativo para execução no seu computador.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🔹 Uso
 
-### Analyzing the Bundle Size
+Depois que o aplicativo for iniciado:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  - Use a barra lateral para adicionar personagens, aplicar efeitos, e acompanhar o HP de cada um. Ao adicionar um personagem a rolagem de iniciativa dele é feita automaticamente
+  - Caso queira, é possível agrupar mais de um inimigo com a mesma iniciativa (Ex: um hobgoblin com um cão de guarda); isso pode ser feito clicando em "Adicionar ao grupo". Clique nesse botão para cada inimigo que você deseja adicionar ao grupo, e quando todos forem adicionados clique em "Enviar Grupo".
 
-### Making a Progressive Web App
+  - Vá até a página de **Criação de NPCs** para gerar facilmente NPCs aleatórios, sendo capaz de especificar a classe social, a profissão e até os seus traços de personalidade.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  - Vá até a página de **Fichas** para ver uma lista de uma grande gama de fichas pré montadas de D&D. Elas englobam diversos casos e possuem informações completas prontas para serem utilizadas caso alguém do grupo deseje atacar alguém inesperado, basta utilizá-las como base para seu NPC.
