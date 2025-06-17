@@ -29,7 +29,7 @@ Siga os seguintes caminhos para instalar e usar o D&D Session Master:
 
   Clone o repositório:
 
-    git clone https://github.com/usuario/dnd-session-master.git
+    git clone https://github.com/PedroVMLopes/iniciative-calculator
 
   Vá até o diretório:
 
