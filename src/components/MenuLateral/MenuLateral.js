@@ -72,7 +72,9 @@ const MenuLateral = () => {
             <GiBattleGear />
           </button>
         </div>
-        <h1 className="font-unifraktur pl-2 pr-2">Contagem De Iniciativa</h1>
+        <h1 className="font-unifraktur pl-2 pr-2 text-[var(--bege)] text-lg">
+          Contagem De Iniciativa
+        </h1>
         <button
           onClick={toggleExpandInimigo}
           className="relative w-12 h-10 p-1 pr-2 bg-[var(--vermelho-claro)] flex items-center justify-evenly rounded-md text-white hover:bg-red-950 text-2xl font-extrabold shadow-xl "

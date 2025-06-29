@@ -96,7 +96,7 @@ const CardPlayer = ({ player }) => {
         playerData[0].condicao ? "cardComCondicao" : ""
       }`}
     >
-      <div className="flex relative flex-col w-[100%] justify-between font-serif text-[var(--bege)] pt-1">
+      <div className="flex relative flex-col w-[100%] justify-between text-[var(--bege)] pt-1 font-sans font-semibold">
         <h1>{playerData[0].nome}</h1>
       </div>
 

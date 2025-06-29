@@ -48,13 +48,13 @@ const Tests = () => {
     }, [isExpanded]);
 
     return (
-      <div className="flex flex-col h-full w-full justify-center">
+      <div className="flex flex-col h-full w-full justify-center font-sans text-sm">
         <div className="flex flex-row border-b-2">
           <div className={`text-5xl flex items-center`} style={{ color }}>
             {icon}
           </div>
           <div className="ml-2">
-            <h2 className="font-bold font-unifraktur text-lg">{name}</h2>
+            <h2 className="font-semibold text-lg">{name}</h2>
             <h3>{description}</h3>
           </div>
         </div>

@@ -23,7 +23,7 @@ const FormCardInimigo = ({
       `}
     >
       <div className="flex relative flex-col w-[100%] justify-between text-lg text-[var(--bege)]">
-        <h1 className="font-serif">{inimigoData.nome}</h1>
+        <h1 className="font-sans font-semibold">{inimigoData.nome}</h1>
       </div>
 
       {/* Campos do card expandido */}
@@ -113,7 +113,7 @@ const FormCardInimigo = ({
       </form>
       {/* Campos do card retraído */}
       {!isExpanded && (
-        <div className="flex z-10 flex-col w-full pb-2">
+        <div className="flex z-10 flex-col w-full pb-4">
           <div className="flex flex-row items-center justify-evenly">
             <label className="flex row text-white">
               <FaShieldAlt />
