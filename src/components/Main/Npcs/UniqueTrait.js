@@ -22,19 +22,17 @@ export const UniqueTrait = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center mt-6 w-full bg-[var(--cinza-medio)] rounded-md p-1 mb-6 shadow-xl">
+    <div className="flex flex-col justify-center items-center mt-6 w-full bg-[var(--cinza-medio)] rounded-md p-1 mb-6 shadow-xl font-sans">
       <div className="flex flex-col justify-center items-center w-full bg-[var(--cinza-escuro)] rounded-md">
         <div className="flex flex-col w-full bg-[var(--cinza-escuro)] rounded-t-md p-6">
-          <h1 className="font-greatVibes text-3xl text-[var(--bege)]">
-            Característica Única
-          </h1>
-          <h2 className="font-cormorant text-lg">
+          <h1 className="text-xl text-[var(--bege)]">Característica Única</h1>
+          <h2 className="opacity-60 mt-2">
             "Da uma característica única para o personagem. Desde um passatempo
             ou interesse até um conhecimento específico ou envolvimento com algo
             maior."
           </h2>
         </div>
-        <div className="grid grid-cols-2 w-full gap-3 p-4 items-center">
+        <div className="grid grid-cols-2 w-full gap-4 p-4 items-center">
           {uniqueTraits?.data &&
             uniqueTraits.data.map((trait, index) => (
               <div key={index} className="flex justify-evenly w-full">
@@ -59,7 +57,7 @@ export const UniqueTrait = () => {
                   >
                     <FaFeatherAlt />
                   </div>
-                  <span className="pl-3 text-lg group-hover:text-[var(--cinza-claro)]">
+                  <span className="pl-3 group-hover:text-[var(--cinza-claro)]">
                     {trait}
                   </span>
                 </label>

@@ -41,7 +41,7 @@ export function Behavior() {
             Dita como será a interação dele com os jogadores
           </h2>
         </div>
-        <p className="w-full px-6 pb-4">
+        <p className="w-full px-6 pb-4 opacity-60">
           Para dar maior profundidade, o botão de Selecionar Aleatoriamente
           escolhe 3 traços, um de cada tipo.
         </p>
