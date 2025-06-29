@@ -25,7 +25,7 @@ Com ele, é possível:
 - Caso queira baixar e usar a aplicação final em seu computador, o instalador dela está no Google Drive:
   https://drive.google.com/drive/u/1/folders/1ngA243r2AfNMAHVmCo6PaA6PJc0yROEc
 
-Siga os seguintes caminhos para instalar e usar o D&D Session Master:
+Siga os seguintes caminhos para instalar e usar o RPV:
 
   Clone o repositório:
 
