@@ -27,9 +27,9 @@ export const UniqueTrait = () => {
         <div className="flex flex-col w-full bg-[var(--cinza-escuro)] rounded-t-md p-6">
           <h1 className="text-xl text-[var(--bege)]">Característica Única</h1>
           <h2 className="opacity-60 mt-2">
-            "Da uma característica única para o personagem. Desde um passatempo
+            Da uma característica única para o personagem. Desde um passatempo
             ou interesse até um conhecimento específico ou envolvimento com algo
-            maior."
+            maior.
           </h2>
         </div>
         <div className="grid grid-cols-2 w-full gap-4 p-4 items-center">
