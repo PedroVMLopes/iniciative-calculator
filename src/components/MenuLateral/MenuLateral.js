@@ -59,35 +59,29 @@ const MenuLateral = () => {
   };
 
   return (
-    <div className="menu-lateral m-3 shadow-xl xl:w-[25%] lg:w-[35%] sm:w-[40%] rounded-md">
-      <div className="relative pb-2 z-20 bg-[var(--cinza-medio2)] shadow-sm rounded-t-sm ">
-        <img
-          src={`${process.env.PUBLIC_URL}/Decoracao__topo.png`}
-          className="absolute left-0 -top-5 -z-5 w-full opacity-40"
-        ></img>
-        <div className="flex flex-col items-center justify-evenly mb-2 pt-[10%] px-3 z-10 md:flex-row">
-          <div className="flex">
-            <button
-              onClick={toggleExpandPlayer}
-              className="relative w-12 h-10 p-1 pr-2 bg-[var(--azul-claro)] flex items-center justify-evenly rounded-md text-white hover:bg-sky-950 text-2xl font-extrabold shadow-xl "
-            >
-              <div className="absolute animate-pulse top-0 right-0">
-                <IoIosAdd />
-              </div>
-              <GiBattleGear />
-            </button>
-          </div>
-          <h1 className="font-unifraktur pl-2 pr-2">Contagem De Iniciativa</h1>
+    <div className="menu-lateral m-3 xl:w-[25%] lg:w-[35%] sm:w-[40%] rounded-md bg-white z-20">
+      <div className="flex flex-col items-center justify-between mb-2 md:flex-row">
+        <div className="flex">
           <button
-            onClick={toggleExpandInimigo}
-            className="relative w-12 h-10 p-1 pr-2 bg-[var(--vermelho-claro)] flex items-center justify-evenly rounded-md text-white hover:bg-red-950 text-2xl font-extrabold shadow-xl "
+            onClick={toggleExpandPlayer}
+            className="relative w-12 h-10 p-1 pr-2 bg-[var(--azul-claro)] flex items-center justify-evenly rounded-md text-white hover:bg-sky-950 text-2xl font-extrabold shadow-xl "
           >
             <div className="absolute animate-pulse top-0 right-0">
               <IoIosAdd />
-            </div>{" "}
-            <GiOrcHead />
+            </div>
+            <GiBattleGear />
           </button>
         </div>
+        <h1 className="font-unifraktur pl-2 pr-2">Contagem De Iniciativa</h1>
+        <button
+          onClick={toggleExpandInimigo}
+          className="relative w-12 h-10 p-1 pr-2 bg-[var(--vermelho-claro)] flex items-center justify-evenly rounded-md text-white hover:bg-red-950 text-2xl font-extrabold shadow-xl "
+        >
+          <div className="absolute animate-pulse top-0 right-0">
+            <IoIosAdd />
+          </div>{" "}
+          <GiOrcHead />
+        </button>
       </div>
 
       <div className="CardsLinhaDeIniciativa z-10 overflow-y-auto">
@@ -98,7 +92,7 @@ const MenuLateral = () => {
         {sortedList.map((card, index) => (
           <div
             key={index}
-            className="flex flex-row px-3 py-2 justify-around z-10 pb-1 "
+            className="flex flex-row py-2 justify-around z-10 pb-1 "
           >
             <div className="flex flex-row w-[80%] items-center shadow-md shadow-r-none rounded-md">
               {card.tipo === "player" && <CardPlayer player={card} />}
@@ -112,19 +106,9 @@ const MenuLateral = () => {
               }`}
             >
               <NumeroIniciativa iniciativa={card.iniciativa} />
-              {/*<img
-                src="../Decoracao_canto1.png"
-                className="absolute -z-9 w-[80%] top-0 right-0 opacity-30 max-h-full scale-x-[-1]"
-              />*/}
             </div>
           </div>
         ))}
-        <div className=" flex justify-center align-bottom -left-4 h-[100%] sticky bottom-0 -z-5 opacity-5">
-          <img
-            src={`${process.env.PUBLIC_URL}/plants.png`}
-            className="h-[100%] bottom-0 opacity-70"
-          ></img>
-        </div>
       </div>
       <br />
     </div>

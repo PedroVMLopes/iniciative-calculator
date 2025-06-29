@@ -77,10 +77,10 @@ export default function MenuAddPlayer() {
 
   return (
     <div
-      className={`menu-add-player mt-3 mb-8 mx-4 z-10 shadow-xl opacity-0 transform origin-top scale-95 transition-all duration-300 ease-in-out`}
+      className={`menu-add-player mt-3 mb-8 z-10 shadow-xl opacity-0 transform origin-top scale-95 transition-all duration-300 ease-in-out`}
       ref={menuRef}
     >
-      <div className="menu-add-player menu-add-player-header">
+      <div className="menu-add-player menu-add-player-header font-cormorant">
         <h1>Adicione os dados do jogador</h1>
       </div>
       <div className="menu-add-player menu-add-player-corpo p-4">

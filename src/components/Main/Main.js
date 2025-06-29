@@ -38,7 +38,7 @@ const NavBar = () => {
         <Link
           key={link.path}
           to={link.path}
-          className={`py-4 flex justify-center bg-[var(--cinza-escuro)]`}
+          className={`py-4 flex justify-center`}
         >
           {link.label}
         </Link>
