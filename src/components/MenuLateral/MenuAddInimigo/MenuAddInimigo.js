@@ -138,7 +138,7 @@ export default function MenuAddInimigo() {
 
   return (
     <div
-      className={`menu-add-inimigo mb-8 mx-4 z-10 shadow-xl opacity-0 transform origin-top scale-95 transition-all duration-600 ease-in-out`}
+      className={`menu-add-inimigo mb-8 z-10 shadow-xl opacity-0 transform origin-top scale-95 transition-all duration-600 ease-in-out`}
       ref={menuRef}
     >
       <div className="menu-add-inimigo header">

@@ -1,7 +1,4 @@
-html, body, #root {
-  background-color: var(--cinza-escuro);
-}
-/*343131*/
+
 :root {
   --cinza-escuro: #252422;
   --cinza-medio: #403D39;
@@ -23,7 +20,7 @@ html, body, #root {
 
 /* Cor da parte da barra de rolagem que não foi rolada */
 ::-webkit-scrollbar-thumb {
-  background-color: var(--bege); /* Cor de fundo da "cabeça" da barra */
+  background-color: var(--cinza-medio); /* Cor de fundo da "cabeça" da barra */
   border-radius: 10px; /* Bordas arredondadas */
 }
 

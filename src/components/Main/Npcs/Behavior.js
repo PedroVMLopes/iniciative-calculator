@@ -30,10 +30,10 @@ export function Behavior() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center mt-6 w-full bg-[var(--cinza-medio)] rounded-md p-1 shadow-xl">
+    <div className="flex flex-col justify-center items-center mt-6 w-full bg-[var(--cinza-medio)] rounded-md p-1 shadow-xl font-sans">
       <div className="flex flex-col justify-center items-center w-full bg-[var(--cinza-escuro)] rounded-md">
         <div className="flex flex-row items-center w-full bg-[var(--cinza-escuro)] rounded-t-md p-6 pb-3">
-          <h1 className="justify-start font-greatVibes text-3xl text-[var(--bege)]">
+          <h1 className="justify-start text-xl text-[var(--bege)]">
             Traços de Comportamento{" "}
           </h1>
           <p className="px-2">-</p>
@@ -41,7 +41,7 @@ export function Behavior() {
             Dita como será a interação dele com os jogadores
           </h2>
         </div>
-        <p className="w-full px-6 pb-4 text-lg font-cormorant">
+        <p className="w-full px-6 pb-4 opacity-60">
           Para dar maior profundidade, o botão de Selecionar Aleatoriamente
           escolhe 3 traços, um de cada tipo.
         </p>
@@ -85,13 +85,13 @@ const Traits = ({ behaviors, selectedTraits, setSelectedTraits }) => {
     <div className="flex flex-row justify-evenly w-full bg-[var(--cinza-escuro)] rounded-b-md p-3">
       {Object.entries(behaviors).map(([key, value]) => (
         <div key={key} className="flex flex-col items-center rounded-md">
-          <h1 className="font-greatVibes text-3xl text-[var(--cinza-claro)]">
+          <h1 className="text-xl font-semibold text-[var(--cinza-claro)]">
             {value.title}
           </h1>
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col">
             {value.traits.map((trait) => (
               <label
-                className="flex flex-row items-center my-1 group cursor-pointer"
+                className="flex flex-row items-center my-2 group cursor-pointer"
                 key={trait}
               >
                 <input
@@ -106,12 +106,12 @@ const Traits = ({ behaviors, selectedTraits, setSelectedTraits }) => {
                   className={`flex items-center group-hover:text-[var(--laranja)] ${
                     selectedTraits[key] === trait
                       ? "text-[var(--laranja)]"
-                      : "text-[var(--cinza-claro)]"
+                      : "text-[var(--cinza-medio)]"
                   }`}
                 >
                   <FaFeatherAlt />
                 </div>
-                <span className="pl-2 text-lg group-hover:text-[var(--cinza-claro)]">
+                <span className="pl-2 group-hover:text-[var(--cinza-claro)]">
                   {trait}
                 </span>
               </label>

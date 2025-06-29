@@ -14,10 +14,10 @@ export function Ocupation() {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center mt-6 w-full bg-[var(--cinza-medio)] rounded-md p-1 shadow-xl">
+    <div className="flex flex-col justify-center items-center mt-6 w-full bg-[var(--cinza-medio)] rounded-md p-1 shadow-xl font-sans">
       <div className="flex flex-col justify-center items-center w-full bg-[var(--cinza-escuro)]">
         <div className="flex flex-row items-center w-full bg-[var(--cinza-escuro)] rounded-t-md p-6 pb-2">
-          <h1 className="justify-start font-greatVibes text-3xl text-[var(--bege)]">
+          <h1 className="justify-start text-xl text-[var(--bege)]">
             Profissão ou Ocupação
           </h1>
           <p className="px-2">-</p>
@@ -25,7 +25,7 @@ export function Ocupation() {
             Dita a ocupação do personagem e sua posição na sociedade
           </h2>
         </div>
-        <h2 className="font-cormorant text-lg w-full px-6 pb-4">
+        <h2 className="w-full px-6 pb-4 opacity-60">
           As condições de Bandido podem se aplicar a outras profissões,
           permitindo que qualquer personagem possa estar envolvido com o crime.
         </h2>
@@ -54,7 +54,7 @@ const OcupationList = ({
   };
 
   return (
-    <div className=" grid grid-cols-2 xl:grid-cols-3 gap-2 w-full px-6">
+    <div className="grid grid-cols-2 xl:grid-cols-3 gap-2 w-full px-6 font-sans">
       {Object.values(ocupations).map((ocupation) => (
         <div
           key={ocupation.id}
@@ -62,7 +62,7 @@ const OcupationList = ({
         >
           <div className="relative w-full">
             <div
-              className="flex justify-center font-greatVibes text-3xl text-[var(--cinza-claro)] mt-4"
+              className="flex justify-center text-xl font-semibold text-[var(--cinza-claro)] mt-4"
               onClick={() => setSelectedOcupation({ index: "" })}
             >
               {ocupation.title}
@@ -82,7 +82,7 @@ const OcupationList = ({
               ocupation.data.map((element, index) => (
                 <label
                   key={element}
-                  className="flex flex-row p-1 group cursor-pointer w-full "
+                  className="flex flex-row p-1 py-2 group cursor-pointer w-full "
                 >
                   <input
                     type="radio"
@@ -96,24 +96,24 @@ const OcupationList = ({
                     className={`flex items-center group-hover:text-[var(--laranja)] ${
                       selectedOcupation === element
                         ? "text-[var(--laranja)]"
-                        : "text-[var(--cinza-claro)]"
+                        : "text-[var(--cinza-medio)]"
                     } `}
                   >
                     <FaFeatherAlt />
                   </div>
-                  <span className="pl-3 text-lg group-hover:text-[var(--cinza-claro)]">
+                  <span className="pl-3 group-hover:text-[var(--cinza-claro)]">
                     {element}
                   </span>
                 </label>
               ))}
             <button
-              className={`flex items-center group text-[var(--bege)] hover:text-[var(--laranja)] ml-1 w-full`}
+              className={`flex items-center group text-[var(--bege)] hover:text-[var(--laranja)] ml-1 mt-2 w-full`}
               onClick={() => selectRandomOcupation(ocupation)}
             >
-              <div className="animate-pulse text-xl group-hover:text-[var(--laranja)]">
+              <div className="text-xl group-hover:text-[var(--laranja)]">
                 <GiRollingDices />
               </div>
-              <span className="pl-2 text-lg justify-start ">Randomizar</span>
+              <span className="pl-2 justify-start ">Randomizar</span>
             </button>
           </div>
         </div>
