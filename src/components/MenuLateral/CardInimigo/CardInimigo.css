@@ -10,21 +10,6 @@
   margin: 4px;
 }
 
-.card-inimigo h1 {
-  color: #fff;
-  font-weight: bold;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-style: italic;
-  padding-top: 0.75rem;
-}
-
-.card-inimigo h2 {
-  padding-left: 8px;
-  font-style: italic;
-  font-weight: bold;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
 /* ícones e descrição das labels do card do inimigo */
 .card-inimigo-info p {
   font-size: 1.2em;
@@ -77,7 +62,6 @@
 .card-inimigo-info-retraido input {
   margin-left: 6px;
   padding-left: 8px;
-  font-weight: bold;
   border-radius: 8px;
   border: none;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);

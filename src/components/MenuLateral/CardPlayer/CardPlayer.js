@@ -92,15 +92,11 @@ const CardPlayer = ({ player }) => {
   return (
     <div
       key={storageKey}
-      className={`flex flex-col card-player w-full rounded-l-md pb-2 ${
+      className={`flex flex-col card-player w-full pb-2 rounded-md ${
         playerData[0].condicao ? "cardComCondicao" : ""
       }`}
     >
-      <div className="flex relative flex-col w-[100%] justify-between font-bold text-lg text-[var(--bege)] pt-1">
-        <img
-          src={`${process.env.PUBLIC_URL}/Decoracao_canto1.png`}
-          className="absolute -z-5 w-[20%] top-0 left-0 opacity-60 max-h-[100px]"
-        />
+      <div className="flex relative flex-col w-[100%] justify-between font-serif text-[var(--bege)] pt-1">
         <h1>{playerData[0].nome}</h1>
       </div>
 
@@ -194,20 +190,20 @@ const CardPlayer = ({ player }) => {
       {!isExpanded && (
         <div className="flex z-10 flex-col w-full p-2 pr-0">
           <div className="flex flex-row items-center justify-evenly">
-            <label className="flex row text-white">
+            <label className="flex row text-white font-sans">
               <FaShieldAlt />
               <input
-                className="flex flex-col w-12 rounded-md shadow-xl text-black font-bold ml-2 pl-2"
+                className="flex flex-col w-12 rounded-md shadow-xl text-black font-semibold ml-2 pl-2"
                 type="text"
                 name="ca"
                 value={playerData[0].ca}
                 onChange={handleChange}
               />
             </label>
-            <label className="flex row text-white">
+            <label className="flex row text-white font-sans">
               <FaHeart />
               <input
-                className="flex flex-col w-12 rounded-md shadow-xl text-black font-bold ml-2 pl-2"
+                className="flex flex-col w-12 rounded-md shadow-xl text-black font-semibold ml-2 pl-2"
                 type="text"
                 name="pv"
                 value={playerData[0].pv}

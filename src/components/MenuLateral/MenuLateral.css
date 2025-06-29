@@ -1,7 +1,6 @@
 .menu-lateral {
   position: fixed;
   height: 100%;
-  background-color: var(--cinza-medio2);
   max-height: 97vh;
   display: flex;
   flex-direction: column;
@@ -10,8 +9,6 @@
 .menu-lateral h1 {
   color: #fff;
   text-align: center;
-  font-size: 20px;
-  font-weight: bold;
 }
 
 .CardsLinhaDeIniciativa {
@@ -28,7 +25,7 @@
 
 /* Cor da parte da barra de rolagem que não foi rolada */
 .CardsLinhaDeIniciativa::-webkit-scrollbar-thumb {
-  background-color: var(--bege); /* Cor de fundo da "cabeça" da barra */
+  background-color: var(--cinza-medio); /* Cor de fundo da "cabeça" da barra */
   border-radius: 10px; /* Bordas arredondadas */
 }
 

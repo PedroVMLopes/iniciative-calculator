@@ -78,7 +78,7 @@ const Main = () => {
   return (
     <HashRouter>
       <div
-        className="flex flex-col items-center w-full xl:pl-[27%] lg:pl-[37%] sm:pl-[42%]  p-3"
+        className="flex flex-col items-center w-full xl:pl-[27%] lg:pl-[37%] sm:pl-[42%] p-3 bg-[var(--cinza-escuro)]"
         id="main"
       >
         <NavBar />

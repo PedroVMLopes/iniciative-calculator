@@ -59,8 +59,8 @@ const MenuLateral = () => {
   };
 
   return (
-    <div className="menu-lateral m-3 xl:w-[25%] lg:w-[35%] sm:w-[40%] rounded-md bg-white z-20">
-      <div className="flex flex-col items-center justify-between mb-2 md:flex-row">
+    <div className="menu-lateral m-3 xl:w-[25%] lg:w-[35%] sm:w-[40%] rounded-md z-20">
+      <div className="flex flex-col items-center justify-between mb-2 pr-2 md:flex-row">
         <div className="flex">
           <button
             onClick={toggleExpandPlayer}
@@ -84,7 +84,7 @@ const MenuLateral = () => {
         </button>
       </div>
 
-      <div className="CardsLinhaDeIniciativa z-10 overflow-y-auto">
+      <div className="CardsLinhaDeIniciativa z-10 overflow-y-auto pr-2">
         {isInimigoExpanded && <MenuAddInimigo />}
         {isPlayerExpanded && <MenuAddPlayer />}
         {/* Renderizar jogadores */}
@@ -92,20 +92,14 @@ const MenuLateral = () => {
         {sortedList.map((card, index) => (
           <div
             key={index}
-            className="flex flex-row py-2 justify-around z-10 pb-1 "
+            className="flex flex-row py-2 justify-around z-10 pb-1 relative"
           >
-            <div className="flex flex-row w-[80%] items-center shadow-md shadow-r-none rounded-md">
+            <div className="flex absolute left-1 flex-row pt-2 pl-1 justify-center rounded-l-md opacity-30">
+              <NumeroIniciativa iniciativa={card.iniciativa} />
+            </div>
+            <div className="flex flex-row w-full items-center shadow-md">
               {card.tipo === "player" && <CardPlayer player={card} />}
               {card.tipo === "inimigo" && <CardInimigo inimigo={card} />}
-            </div>
-            <div
-              className={`flex relative flex-row w-[20%] items-center justify-center rounded-r-md shadow ${
-                card.tipo === "player"
-                  ? "bg-gradient-to-b from-[var(--azul-escuro)] to-[var(--azul-claro)]"
-                  : "bg-gradient-to-b from-[var(--vermelho-escuro)] to-[var(--vermelho-claro)]"
-              }`}
-            >
-              <NumeroIniciativa iniciativa={card.iniciativa} />
             </div>
           </div>
         ))}

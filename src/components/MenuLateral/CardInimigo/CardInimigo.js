@@ -16,31 +16,27 @@ const FormCardInimigo = ({
 }) => {
   return (
     <div
-      className={`flex flex-col card-inimigo w-full rounded-l-md pb-2${
+      className={`flex flex-col card-inimigo w-full rounded-md pt-2 ${
         inimigoData.condicao ? "cardComCondicao" : ""
       }
       ${inimigoData.pv === "0" ? "morto" : ""}
       `}
     >
-      <div className="flex relative flex-col w-[100%] justify-between text-lg text-[var(--bege)] pt-1">
-        <img
-          src={`${process.env.PUBLIC_URL}/Decoracao_canto2.png`}
-          className="absolute -z-5 w-[20%] top-0 left-0 opacity-50 max-h-[100px]"
-        />
+      <div className="flex relative flex-col w-[100%] justify-between text-lg text-[var(--bege)]">
         <h1 className="font-serif">{inimigoData.nome}</h1>
       </div>
 
       {/* Campos do card expandido */}
       <form className="flex z-10 flex-col justify-between text-[var(--bege)] mt-4 ">
         {isExpanded && (
-          <div className="flex flex-col w-full mx-2 px-8 font-serif">
+          <div className="flex flex-col w-full px-3 font-serif">
             <div className="flex flex-row w-full justify-between">
               <label className="flex flex-row">
                 <p>
                   <FaShieldAlt />
                 </p>
                 <input
-                  className="w-20 ml-2 mb-2 rounded-lg shadow-xl text-black pl-2"
+                  className="w-20 ml-2 mb-2 rounded-lg shadow-xl text-black pl-2 font-sans font-semibold"
                   type="text"
                   name="ca"
                   value={inimigoData.ca}
@@ -52,7 +48,7 @@ const FormCardInimigo = ({
                   <FaHeart />
                 </p>
                 <input
-                  className="w-20 ml-2 mb-2 rounded-lg shadow-xl text-black pl-2"
+                  className="w-20 ml-2 mb-2 rounded-lg shadow-xl text-black pl-2 font-sans font-semibold"
                   type="text"
                   name="pv"
                   value={inimigoData.pv}
@@ -61,21 +57,21 @@ const FormCardInimigo = ({
               </label>
             </div>
 
-            <div className="flex flex-col items-center">
-              <label className="flex flex-col w-full">
+            <div className="flex flex-col items-center gap-2">
+              <label className="flex flex-col w-full font-sans">
                 <p>Modificador: </p>
                 <input
-                  className="flex flex-col rounded-lg shadow-xl text-black pl-2"
+                  className="flex flex-col rounded-lg shadow-xl text-black pl-2 font-sans font-semibold"
                   type="text"
                   name="mod"
                   value={inimigoData.mod}
                   onChange={handleChange}
                 />
               </label>
-              <label className="flex flex-col w-full mb-2">
+              <label className="flex flex-col w-full font-sans">
                 <p>Condição: </p>
                 <input
-                  className="flex flex-col rounded-lg shadow-xl text-black pl-2"
+                  className="flex flex-col rounded-lg shadow-xl text-black pl-2 font-sans font-semibold"
                   type="text"
                   name="condicao"
                   value={inimigoData.condicao}
@@ -83,10 +79,10 @@ const FormCardInimigo = ({
                 />
               </label>
               {inimigoData.condicao && (
-                <label className="flex flex-col w-full mb-2">
+                <label className="flex flex-col w-full font-sans">
                   <p>Duração: </p>
                   <input
-                    className="flex flex-col rounded-lg shadow-xl text-black pl-2"
+                    className="flex flex-col rounded-lg shadow-xl text-black pl-2 font-sans font-semibold"
                     type="text"
                     name="duracao"
                     value={getDuracaoDaCondicao}
@@ -98,14 +94,14 @@ const FormCardInimigo = ({
 
             <div className="flex row justify-end my-3">
               <button
-                className="rounded-lg px-3 py-1"
+                className="rounded-lg p-2"
                 type="submit"
                 onClick={(e) => handleDelete(e, index)}
               >
                 <RiDeleteBin7Fill />
               </button>
               <button
-                className="rounded-lg px-3 py-1 ml-2"
+                className="rounded-lg p-2 ml-2 font-sans"
                 type="button"
                 onClick={toggleExpand}
               >
@@ -117,12 +113,12 @@ const FormCardInimigo = ({
       </form>
       {/* Campos do card retraído */}
       {!isExpanded && (
-        <div className="flex z-10 flex-col w-full p-2 pr-0">
+        <div className="flex z-10 flex-col w-full pb-2">
           <div className="flex flex-row items-center justify-evenly">
             <label className="flex row text-white">
               <FaShieldAlt />
               <input
-                className="flex flex-col w-12 rounded-md shadow-xl text-black ml-2 pl-2 font-serif"
+                className="flex flex-col w-12 rounded-md shadow-xl text-black ml-2 pl-2 font-sans font-semibold"
                 type="text"
                 name="ca"
                 value={inimigoData.ca}
@@ -132,7 +128,7 @@ const FormCardInimigo = ({
             <label className="flex row text-white">
               <FaHeart />
               <input
-                className="flex flex-col w-12 rounded-md shadow-xl text-black ml-2 pl-2 font-serif"
+                className="flex flex-col w-12 rounded-md shadow-xl text-black ml-2 pl-2 font-sans font-semibold"
                 type="text"
                 name="pv"
                 value={inimigoData.pv}
@@ -149,12 +145,12 @@ const FormCardInimigo = ({
           </div>
           {/* Campos do card retraído com condicao */}
           {inimigoData.condicao && (
-            <div className="flex flex-row justify-evenly mx-11 mb-2 text-white">
+            <div className="flex flex-row justify-center mx-3 my-2 text-white font-sans">
               <div className="info">
                 <h2>Condição: </h2>
                 <label>
                   <input
-                    className="flex flex-col w-[70%] rounded-md shadow-xl text-black pl-2 mt-1 font-serif"
+                    className="flex flex-col w-[80%] rounded-md shadow-xl text-black pl-2 mt-1 font-sans font-semibold"
                     type="text"
                     name="condicao"
                     value={inimigoData.condicao}
@@ -166,7 +162,7 @@ const FormCardInimigo = ({
                 <h2>Duração: </h2>
                 <label>
                   <input
-                    className="flex flex-col w-[70%] rounded-md shadow-xl text-black pl-2 mt-1 font-serif"
+                    className="flex flex-col w-[80%] rounded-md shadow-xl text-black pl-2 mt-1 font-sans font-semibold"
                     type="text"
                     name="duracao"
                     value={getDuracaoDaCondicao}
